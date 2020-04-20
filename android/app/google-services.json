@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "321152383674",
+    "firebase_url": "https://grow-app-7dd1d.firebaseio.com",
+    "project_id": "grow-app-7dd1d",
+    "storage_bucket": "grow-app-7dd1d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:321152383674:android:ab27187145ac1b043ba083",
+        "android_client_info": {
+          "package_name": "com.growapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "321152383674-qhb7tc8bjem01olkil8pqk1qqmp5d22f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEeoHsxw6BJjs8GWATC138qGsL9hG9yFE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "321152383674-qhb7tc8bjem01olkil8pqk1qqmp5d22f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
