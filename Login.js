@@ -1,6 +1,9 @@
 import React from 'react'
-import { StyleSheet, Text, TextInput, View, Button } from 'react-native'
+import { StyleSheet, Text, TextInput, View, Button, ImageBackground, Image } from 'react-native'
 import firebase from '@react-native-firebase/app'
+
+import BackgroundYellow from './Images/BackgroundYellow.png'
+import Logo from './Images/TitelLogoFärg.png'
 
 export default class Login extends React.Component {
   state = { email: '', password: '', errorMessage: null }
@@ -14,9 +17,13 @@ export default class Login extends React.Component {
       .catch(error => this.setState({ errorMessage: error.message }))
   }
 
+
   render() {
     return (
-      <View style={styles.container}>
+      <ImageBackground source={BackgroundYellow} style={styles.backgroundContainer}>
+        <View>
+          <Image source={Logo} style={styles.logo}/>
+        </View>
         <Text>Login</Text>
         {this.state.errorMessage &&
           <Text style={{ color: 'red' }}>
@@ -42,19 +49,28 @@ export default class Login extends React.Component {
           title="Don't have an account? Sign Up"
           onPress={() => this.props.navigation.navigate('SignUp')}
         />
-      </View>
+      </ImageBackground>
     )
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
+  backgroundContainer: {
     flex: 1,
+    width: null,
+    height: null,
     justifyContent: 'center',
     alignItems: 'center'
   },
+  logo: {
+    height: 150,
+    width: 300,
+    position: 'relative'
+
+
+  },
   textInput: {
-    height: 40,
+    height: 50,
     width: '90%',
     borderColor: 'gray',
     borderWidth: 1,
