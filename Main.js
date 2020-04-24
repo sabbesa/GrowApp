@@ -1,9 +1,17 @@
 import React from 'react'
-import { StyleSheet, Platform, Image, Text, View } from 'react-native'
+import { StyleSheet, Platform, Image, Text, View, Button } from 'react-native'
 import firebase from '@react-native-firebase/app'
 
 export default class Main extends React.Component {
   state = { currentUser: null }
+
+  handleLogout = () => {
+firebase
+.auth()
+.signOut()
+.then(() => this.props.navigation.navigate('Loading'))
+.catch(error => this.setState({ errorMessage: error.message }));
+};
 
   componentDidMount() {
     const { currentUser } = firebase.auth()
@@ -19,7 +27,10 @@ export default class Main extends React.Component {
         <Text>
           Hi {currentUser && currentUser.email}!
         </Text>
+      <Button title="Log out" onPress={this.handleLogout} />
+
       </View>
+
     )
   }
 }
