@@ -1,6 +1,10 @@
 import React from 'react'
 import { StyleSheet, Platform, Image, Text, View } from 'react-native'
-import { SwitchNavigator } from 'react-navigation'
+import { createSwitchNavigator, createAppContainer } from 'react-navigation'
+
+import firebase from '@react-native-firebase/app';
+import '@react-native-firebase/auth';
+
 
 // import the different screens
 import Loading from './Loading'
@@ -9,7 +13,7 @@ import Login from './Login'
 import Main from './Main'
 
 // create our app's navigation stack
-const App = SwitchNavigator(
+export default createAppContainer(createSwitchNavigator (
   {
     Loading,
     SignUp,
@@ -19,9 +23,10 @@ const App = SwitchNavigator(
   {
     initialRouteName: 'Loading'
   }
-)
+));
 
-export default App
+const user = firebase.auth().currentUser;
+
 
 //Nedan är det som stod här till att börja med.
 

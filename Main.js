@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyleSheet, Platform, Image, Text, View } from 'react-native'
-import firebase from 'react-native-firebase'
+import firebase from '@react-native-firebase/app'
 
 export default class Main extends React.Component {
   state = { currentUser: null }

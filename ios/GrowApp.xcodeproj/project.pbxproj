@@ -17,6 +17,7 @@
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* GrowAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* GrowAppTests.m */; };
+		3414CBF72451ABCB006F73B2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3414CBF62451ABCB006F73B2 /* GoogleService-Info.plist */; };
 		3A845AEB880BAC0D217D58E5 /* libPods-GrowApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96FC502809C9178CF3284883 /* libPods-GrowApp.a */; };
 		5C98729AB93C7C8BCE11F123 /* libPods-GrowAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A7A9DF166F936A6A01C6DDD /* libPods-GrowAppTests.a */; };
 		A64E051C66CB3C6AD31F353A /* libPods-GrowApp-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3AADEE4BB9FA5A19C289ED0 /* libPods-GrowApp-tvOS.a */; };
@@ -54,6 +55,7 @@
 		1BA7E3CC17445C840F866344 /* Pods-GrowApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrowApp.debug.xcconfig"; path = "Target Support Files/Pods-GrowApp/Pods-GrowApp.debug.xcconfig"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* GrowApp-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GrowApp-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* GrowApp-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "GrowApp-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3414CBF62451ABCB006F73B2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		36FEE19A083F65301C3C210E /* Pods-GrowApp-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrowApp-tvOS.release.xcconfig"; path = "Target Support Files/Pods-GrowApp-tvOS/Pods-GrowApp-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		46CF2DC986E456CB4AEC72B5 /* Pods-GrowApp-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrowApp-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-GrowApp-tvOS/Pods-GrowApp-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		4A7A9DF166F936A6A01C6DDD /* libPods-GrowAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GrowAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -159,6 +161,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				3414CBF62451ABCB006F73B2 /* GoogleService-Info.plist */,
 				13B07FAE1A68108700A75B9A /* GrowApp */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* GrowAppTests */,
@@ -338,6 +341,7 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				3414CBF72451ABCB006F73B2 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
