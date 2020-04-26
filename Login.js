@@ -1,6 +1,7 @@
 import React from 'react'
 import { StyleSheet, Text, TextInput, View, Button, ImageBackground, Image } from 'react-native'
 import firebase from '@react-native-firebase/app'
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 import BackgroundGreenWhite from './Images/BackgroundGreenWhite.png'
 import Logo from './Images/TitelLogoFärg.png'
@@ -21,6 +22,7 @@ export default class Login extends React.Component {
   render() {
     return (
       <ImageBackground source={BackgroundGreenWhite} style={styles.backgroundContainer}>
+<KeyboardAwareScrollView>
       <View>
       <Image source={Logo} style={styles.logo}/>
       </View>
@@ -61,6 +63,7 @@ export default class Login extends React.Component {
         />
         </View>
         </View>
+              </KeyboardAwareScrollView>
         </ImageBackground>
       )
     }
