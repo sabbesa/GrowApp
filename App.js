@@ -2,6 +2,7 @@ import React from 'react'
 import { StyleSheet, Platform, Image, Text, View } from 'react-native'
 import { createSwitchNavigator, createAppContainer } from 'react-navigation'
 
+
 import firebase from '@react-native-firebase/app';
 import '@react-native-firebase/auth';
 
@@ -11,8 +12,7 @@ import Loading from './Loading'
 import SignUp from './SignUp'
 import Login from './Login'
 import Main from './Main'
-import AddPlant from './AddPlant'
-import SearchPage from './SearchPage'
+
 
 // create our app's navigation stack
 export default createAppContainer(createSwitchNavigator (
@@ -27,7 +27,16 @@ export default createAppContainer(createSwitchNavigator (
   }
 ));
 
+
 const user = firebase.auth().currentUser;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  }
+})
 
 
 //Nedan är det som stod här till att börja med.

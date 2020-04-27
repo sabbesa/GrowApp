@@ -11,7 +11,7 @@ export default function AddPlant() {
         justifyContent: 'center',
         alignItems: 'center'
       }}>
-      <Text>Search!</Text>
+      <Text>Here you can Search!</Text>
     </View>
   );
 }

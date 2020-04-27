@@ -11,7 +11,7 @@ export default function AddPlant() {
         justifyContent: 'center',
         alignItems: 'center'
       }}>
-      <Text>Add Plant!</Text>
+      <Text>This is the Add Plant page!</Text>
     </View>
   );
 }
