@@ -11,6 +11,8 @@ import Loading from './Loading'
 import SignUp from './SignUp'
 import Login from './Login'
 import Main from './Main'
+import AddPlant from './AddPlant'
+import SearchPage from './SearchPage'
 
 // create our app's navigation stack
 export default createAppContainer(createSwitchNavigator (

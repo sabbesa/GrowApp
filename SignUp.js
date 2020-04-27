@@ -6,6 +6,7 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import BackgroundGreenWhite from './Images/BackgroundGreenWhite.png'
 import Logo from './Images/TitelLogoFärg.png'
 
+
 export default class SignUp extends React.Component {
   state = { email: '', password: '', errorMessage: null }
 
