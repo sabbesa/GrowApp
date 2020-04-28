@@ -2,6 +2,7 @@ import React from 'react'
 import { StyleSheet, Platform, Image, Text, View, Button, ScrollView,SafeAreaView } from 'react-native'
 import firebase from '@react-native-firebase/app'
 
+//Detta är de nya grejerna jag använt. Installera via kommandotolken
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 import {NavigationContainer} from '@react-navigation/native'
 import {createDrawerNavigator} from '@react-navigation/drawer'
