@@ -18,6 +18,7 @@
     "@react-navigation/drawer": "^5.5.1",
     "@react-navigation/material-bottom-tabs": "^5.1.10",
     "@react-navigation/native": "^5.1.6",
+    "@react-navigation/stack": "^5.2.14",
     "react": "16.9.0",
     "react-native": "^0.62.2",
     "react-native-elements": "^1.2.7",
@@ -29,7 +30,8 @@
     "react-native-screens": "^2.5.0",
     "react-native-vector-icons": "^6.6.0",
     "react-navigation": "^4.3.7",
-    "react-navigation-material-bottom-tabs": "^2.2.11"
+    "react-navigation-material-bottom-tabs": "^2.2.11",
+    "react-navigation-tabs": "^2.8.12"
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",

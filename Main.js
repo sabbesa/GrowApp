@@ -34,39 +34,39 @@ export default class Main extends React.Component {
     const Drawer= createDrawerNavigator()
     const Tab= createMaterialBottomTabNavigator()
     return (
-      <SafeAreaView style={styles.container}>
-      <View>
-      <Text style={styles.text}>
-        <Text>Here goes the logo</Text>
-      </Text>
-      </View>
-        <View style={styles.container}>
+      // <SafeAreaView style={styles.container}>
+      // // <View>
+      // // <Text style={styles.text}>
+      // //   <Text>Here goes the logo</Text>
+      // // </Text>
+      // // </View>
+      //   <View style={styles.container}>
+      //
+      //     //<NavigationContainer>
+      //       <ScrollView style={styles.scrollView}>
 
-          <NavigationContainer>
-            <ScrollView style={styles.scrollView}>
-
-              <View style={styles.content}>
+              <View style={styles.container}>
                 <Text style={styles.text}>
                   <Text>Hi {"\n"} {currentUser && currentUser.email}!</Text>
                 </Text>
 
                 <Button title="Log out" onPress={this.handleLogout} />
               </View>
-            </ScrollView>
+            // </ScrollView>
 
-          <Tab.Navigator
-            activeColor="#000000"
-            inactiveColor="#3e2465"
-            barStyle={{ backgroundColor: '#694fad' }}
-            height='80%'
-            >
-              <Tab.Screen name="AddPlant" component={AddPlant} />
-              <Tab.Screen name="SearchPage" component={SearchPage} />
-              </Tab.Navigator>
-          </NavigationContainer>
+          // <Tab.Navigator
+          //   activeColor="#000000"
+          //   inactiveColor="#3e2465"
+          //   barStyle={{ backgroundColor: '#694fad' }}
+          //   height='80%'
+          //   >
+          //     <Tab.Screen name="AddPlant" component={AddPlant} />
+          //     <Tab.Screen name="SearchPage" component={SearchPage} />
+          //     </Tab.Navigator>
+          // </NavigationContainer>
 
-         </View>
-      </SafeAreaView>
+         //</View>
+      //</SafeAreaView>
     );
 
   }
@@ -75,16 +75,18 @@ export default class Main extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
-  },
-  scrollView:{
-    flex:1,
-    height: '30%'
-  },
-  text:{
-    //justifyContent: 'center',
-  //  alignItems: 'center',
-    marginBottom:20,
-    marginTop: 10
-  }
+    //flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+   }
+//   scrollView:{
+//     flex:1,
+//     height: '30%'
+//   },
+//   text:{
+//     //justifyContent: 'center',
+//   //  alignItems: 'center',
+//     marginBottom:20,
+//     marginTop: 10
+//   }
 })

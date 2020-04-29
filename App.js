@@ -1,6 +1,7 @@
 import React from 'react'
 import { StyleSheet, Platform, Image, Text, View } from 'react-native'
 import { createSwitchNavigator, createAppContainer } from 'react-navigation'
+import {createStackNavigator} from '@react-navigation/stack'
 
 
 import firebase from '@react-native-firebase/app';
@@ -39,6 +40,26 @@ const styles = StyleSheet.create({
 })
 
 
+
+
+// const AuthStack=createStackNavigator ();
+// const Tabs = createBottomTabNavigator ();
+//
+// export default () => (
+//   <NavigationContainer>
+//     <Tabs.Navigator>
+//       <Tabs.Screen name="Home" component={Main}/>
+//       <Tabs.Screen name="AddPlant" component={AddPlant}/>
+//     </Tabs.Navigator>
+//     <AuthStack.Navigator>
+//       <AuthStack.Screen name='Loading' component= {Loading}/>
+//       <AuthStack.Screen name='SignUp' component= {SignUp}/>
+//       <AuthStack.Screen name='Login' component= {Login}/>
+//       <AuthStack.Screen name='Main' component= {Main}/>
+//     </AuthStack.Navigator>
+//
+//   </NavigationContainer>
+)
 //Nedan är det som stod här till att börja med.
 
 // /**
