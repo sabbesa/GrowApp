@@ -55,6 +55,14 @@ export default class Login extends React.Component {
         />
         </View>
 
+        <View style={{marginTop:1}}>
+        <Button
+        title="Forgot your password?"
+        color="#75b8e1"
+        onPress={() => this.props.navigation.navigate('Reset')}
+        />
+        </View>
+
         <View style={{marginTop:120}}>
         <Button
         title="Don't have an account? Sign Up"

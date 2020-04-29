@@ -13,6 +13,8 @@ import Loading from './Loading'
 import SignUp from './SignUp'
 import Login from './Login'
 import Main from './Main'
+import Reset from './Reset'
+
 
 
 // create our app's navigation stack
@@ -21,7 +23,8 @@ export default createAppContainer(createSwitchNavigator (
     Loading,
     SignUp,
     Login,
-    Main
+    Main,
+    Reset
   },
   {
     initialRouteName: 'Loading'
