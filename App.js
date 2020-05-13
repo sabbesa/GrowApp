@@ -1,134 +1,136 @@
-import React from 'react'
-import { StyleSheet, Platform, Image, Text, View } from 'react-native'
-import { createSwitchNavigator, createAppContainer } from 'react-navigation'
-import {createStackNavigator} from '@react-navigation/stack'
+import React from 'react';
+import Feed from './src/feed';
+import Detail from './src/detail';
+import Login from './src/screens/Login2'
+import Register from './src/screens/Register'
+import Reset from './src/screens/Reset'
+import Home from './src/screens/Home'
+import AddPlant from './src/screens/AddPlant'
 
+import PlantListScreen from './src/plantscreens/PlantListScreen';
+import LoginScreen from './src/plantscreens/LoginScreen';
+import PlantFormScreen from './src/plantscreens/PlantFormScreen';
+import PlantDetailScreen from './src/plantscreens/PlantDetailScreen';
 
-import firebase from '@react-native-firebase/app';
-import '@react-native-firebase/auth';
+import Screen1 from './src/screens/drawer/screen1';
+import Screen2 from './src/screens/drawer/screen2';
+import Screen3 from './src/screens/drawer/screen3';
 
+import Tab1 from './src/screens/tabs/Tab1';
+import Tab2 from './src/screens/tabs/Tab2';
+import Tab3 from './src/screens/tabs/Tab3';
 
-// import the different screens
-import Loading from './Loading'
-import SignUp from './SignUp'
-import Login from './Login'
-import Main from './Main'
-import Reset from './Reset'
+import {
+  NavigationContainer,
+  DefaultTheme,
+  DarkTheme
+} from '@react-navigation/native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { createStackNavigator } from '@react-navigation/stack';
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { Appearance, useColorScheme, AppearanceProvider } from 'react-native-appearance';
 
+const Drawer = createDrawerNavigator();
+const Stack = createStackNavigator();
+const MaterialBottomTabs = createMaterialBottomTabNavigator();
+const MaterialTopTabs = createMaterialTopTabNavigator();;
 
+App = () => {
 
-// create our app's navigation stack
-export default createAppContainer(createSwitchNavigator (
-  {
-    Loading,
-    SignUp,
-    Login,
-    Main,
-    Reset
-  },
-  {
-    initialRouteName: 'Loading'
+  const colorScheme = useColorScheme();
+
+  const MyTheme = {
+    dark: false,
+    colors: {
+      primary: 'white',
+      background: 'white',
+      card: '#65509f',
+      text: 'white',
+      border: 'green',
+    },
   }
-));
 
+  createHomeStack = () =>
+    <Stack.Navigator>
+      <Stack.Screen
+        name="Home"
+        children={this.createDrawer}
+        options={{
+          title: "Grow App"
+        }}
+      />
+      <Stack.Screen
+        name="Detail"
+        component={Detail}
+        options={{
+          title: "Detail Screen"
+        }}
+      />
+      <Stack.Screen name="Bottom Tabs" children={this.createBottomTabs} />
+      <Stack.Screen name="Top Tabs" children={this.createTopTabs} />
+    </Stack.Navigator>
 
-const user = firebase.auth().currentUser;
+  createDrawer = () =>
+    <Drawer.Navigator>
+      <Drawer.Screen name="Feed" component={Feed} />
+      <Drawer.Screen name="My Plants" component={PlantListScreen} />
+      <Drawer.Screen name="Login" component={LoginScreen} />
+      <Drawer.Screen name="Settings" component={Screen3} />
+    </Drawer.Navigator>
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
+  createTopTabs = (props) => {
+    return <MaterialTopTabs.Navigator>
+      <MaterialTopTabs.Screen
+        name="Tab 1"
+        component={Tab1}
+        options={{ title: props.route.params.name }}
+      />
+      <MaterialTopTabs.Screen name="Tab 2" component={Tab2} />
+      <MaterialTopTabs.Screen name="Tab 3" component={Tab3} />
+    </MaterialTopTabs.Navigator>
   }
-})
 
+  createBottomTabs = () => {
+    return <MaterialBottomTabs.Navigator>
+      <MaterialBottomTabs.Screen
+        name="Tab 1"
+        style={{ marginBottom: 16 }}
+        component={Tab1}
+        options={{
+          tabBarLabel: 'Home',
+          tabBarIcon: () => (
+            <Icon style={[{ color: 'white' }]} size={25} name={'home'} />
+          ),
+        }}
+      />
+      <MaterialBottomTabs.Screen name="Tab 2" component={Tab2}
+        options={{
+          tabBarLabel: 'Profile',
+          tabBarIcon: () => (
+            <Icon style={[{ color: 'white' }]} size={25} name={'human'} />
+          )
+        }}
+      />
+      <MaterialBottomTabs.Screen name="Tab 3" component={Tab3}
+        options={{
+          tabBarLabel: 'Map',
+          tabBarIcon: () => (
+            <Icon style={[{ color: 'white' }]} size={25} name={'map'} />
+          ),
+        }}
+      />
+    </MaterialBottomTabs.Navigator>
+  }
 
+  return (
+    <AppearanceProvider>
+      <NavigationContainer theme={colorScheme == 'dark' ? DarkTheme : MyTheme}>
+        {this.createHomeStack()}
+      </NavigationContainer>
+    </AppearanceProvider>
+  );
+}
 
-
-// const AuthStack=createStackNavigator ();
-// const Tabs = createBottomTabNavigator ();
-//
-// export default () => (
-//   <NavigationContainer>
-//     <Tabs.Navigator>
-//       <Tabs.Screen name="Home" component={Main}/>
-//       <Tabs.Screen name="AddPlant" component={AddPlant}/>
-//     </Tabs.Navigator>
-//     <AuthStack.Navigator>
-//       <AuthStack.Screen name='Loading' component= {Loading}/>
-//       <AuthStack.Screen name='SignUp' component= {SignUp}/>
-//       <AuthStack.Screen name='Login' component= {Login}/>
-//       <AuthStack.Screen name='Main' component= {Main}/>
-//     </AuthStack.Navigator>
-//
-//   </NavigationContainer>
-)
-//Nedan är det som stod här till att börja med.
-
-// /**
-//  * Sample React Native App with Firebase
-//  * https://github.com/invertase/react-native-firebase
-//  *
-//  * @format
-//  * @flow
-//  */
-//
-// import React, { Component } from 'react';
-// import { Platform, StyleSheet, Text, View } from 'react-native';
-//
-// import firebase from '@react-native-firebase/app';
-//
-// // TODO(you): import any additional firebase services that you require for your app, e.g for auth:
-// //    1) install the npm package: `yarn add @react-native-firebase/auth@alpha` - you do not need to
-// //       run linking commands - this happens automatically at build time now
-// //    2) rebuild your app via `yarn run run:android` or `yarn run run:ios`
-// //    3) import the package here in your JavaScript code: `import '@react-native-firebase/auth';`
-// //    4) The Firebase Auth service is now available to use here: `firebase.auth().currentUser`
-//
-// const instructions = Platform.select({
-//   ios: 'Press Cmd+R to reload,\nCmd+D or shake for dev menu',
-//   android: 'Double tap R on your keyboard to reload,\nShake or press menu button for dev menu',
-// });
-//
-// const firebaseCredentials = Platform.select({
-//   ios: 'https://invertase.link/firebase-ios',
-//   android: 'https://invertase.link/firebase-android',
-// });
-//
-// type Props = {};
-//
-// export default class App extends Component<Props> {
-//   render() {
-//     return (
-//       <View style={styles.container}>
-//         <Text style={styles.welcome}>Welcome to Grow App!</Text>
-//         <Text style={styles.instructions}>This will be a super fun project</Text>
-//         <Text style={styles.instructions}>And we are an awesome group! </Text>
-//         {!firebase.apps.length && (
-//           <Text style={styles.instructions}>
-//             {`\nYou currently have no Firebase apps registered, this most likely means you've not downloaded your project credentials. Visit the link below to learn more. \n\n ${firebaseCredentials}`}
-//           </Text>
-//         )}
-//       </View>
-//     );
-//   }
-// }
-//
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     justifyContent: 'center',
-//     alignItems: 'center',
-//     backgroundColor: '#F5FCFF',
-//   },
-//   welcome: {
-//     fontSize: 20,
-//     textAlign: 'center',
-//     margin: 10,
-//   },
-//   instructions: {
-//     textAlign: 'center',
-//     color: '#333333',
-//     marginBottom: 5,
-//   },
-// });
+export default App;
