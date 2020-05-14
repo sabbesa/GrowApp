@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import PlantForm from '../ui/PlantForm';
+import {withNavigation} from 'react-navigation';
 
-export default class PlantFormScreen extends Component {
+class PlantFormScreen extends React.Component {
 
   static navigationOptions = ({ navigation }) => {
     return {
@@ -59,3 +60,4 @@ export default class PlantFormScreen extends Component {
     );
   }
 }
+export default withNavigation(PlantFormScreen);

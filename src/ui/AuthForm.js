@@ -23,7 +23,7 @@ const AuthForm = (props) => {
 
   return (
     <View style={styles.container}>
-      <Text h2 style={styles.header}>Coding with Curry</Text>
+      <Text h2 style={styles.header}>Grow App</Text>
       {props.authMode === 'signup' ? displayNameInput : null}
       <TextInput
         style={styles.formInput}

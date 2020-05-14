@@ -15,18 +15,6 @@ import {withNavigation} from 'react-navigation';
 class PlantList extends React.Component {
   static navigationOptions = ({ navigation }) => {
 
-    onSignedOut = () => {
-      navigation.navigate('LoginScreen');
-    }
-
-    return {
-      title: 'Plant List',
-      headerRight: (
-        <Button
-          title='log out'
-          onPress={() => signout(onSignedOut)} />
-      )
-    }
   };
 
   state = {
@@ -69,7 +57,7 @@ class PlantList extends React.Component {
       onPress={() => this.props.navigation.navigate('PlantFormScreen', { plantAddedCallback: this.onPlantAdded })}
     />
 
-  render() {
+  render(navigation) {
     return this.state.plantList.length > 0 ?
       <SafeAreaView style={styles.container}>
         <FlatList
@@ -100,12 +88,12 @@ class PlantList extends React.Component {
           }
           }
         />
-        {this.showActionButton()}
+        {this.showActionButton(navigation)}
       </SafeAreaView> :
       <View style={styles.textContainer}>
         <Text style={styles.emptyTitle}>No Plants found</Text>
         <Text style={styles.emptySubtitle}>Add a new plant using the + button below</Text>
-        {this.showActionButton()}
+        {this.showActionButton(navigation)}
       </View>
   }
 }
