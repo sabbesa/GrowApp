@@ -32,7 +32,7 @@ class PlantDetailScreen extends Component {
             name='ios-create'
             type='ionicon'
             onPress={() =>
-              this.props.navigation.navigate('PlantFormScreen', {
+              this.props.navigation.navigate('PlantForm', {
                 plant: plant
               })
             }

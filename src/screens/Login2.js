@@ -15,7 +15,7 @@ export default function Login({ navigation }) {
             const doLogin = await auth().signInWithEmailAndPassword(email, password);
             setShowLoading(false);
             if(doLogin.user) {
-                navigation.navigate('PlantListScreen');
+                navigation.navigate('HomeApp');
             }
         } catch (e) {
             setShowLoading(false);

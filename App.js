@@ -5,12 +5,18 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack'
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
+import firebase from '@react-native-firebase/app';
+import '@react-native-firebase/auth';
+
 import {CustomHeader, CustomDrawerContent} from './src'
 import {HomeScreen, HomeScreenDetail, SettingsScreen, SettingsScreenDetail} from './src/tab'
 
 import PlantListScreen from './src/plantscreens/PlantListScreen';
 import PlantFormScreen from './src/plantscreens/PlantFormScreen';
 import PlantDetailScreen from './src/plantscreens/PlantDetailScreen';
+import LoginScreen2 from './src/plantscreens/LoginScreen';
+
+import Login2 from './src/screens/Login2';
 
 import {NotificationsScreen} from './src/drawer'
 import {RegisterScreen, LoginScreen} from './src/auth'
@@ -107,8 +113,7 @@ export default function App() {
     <NavigationContainer>
         <StackApp.Navigator initialRouteName="Login">
           <StackApp.Screen name="HomeApp" component={DrawerNavigator} options={navOptionHandler}/>
-          <StackApp.Screen name="Login" component={LoginScreen} options={navOptionHandler}/>
-          <StackApp.Screen name="Register" component={RegisterScreen} options={navOptionHandler}/>
+          <StackApp.Screen name="Login" component={Login2} options={navOptionHandler}/>
         </StackApp.Navigator>
     </NavigationContainer>
   );
