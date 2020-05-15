@@ -1,136 +1,115 @@
-import React from 'react';
-import Feed from './src/feed';
-import Detail from './src/detail';
-import Login from './src/screens/Login2'
-import Register from './src/screens/Register'
-import Reset from './src/screens/Reset'
-import Home from './src/screens/Home'
-import AddPlant from './src/screens/AddPlant'
+import * as React from 'react';
+import { Text, View, SafeAreaView, Image, TouchableOpacity, ScrollView } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import {createStackNavigator} from '@react-navigation/stack'
+import { createDrawerNavigator } from '@react-navigation/drawer';
+
+import {CustomHeader, CustomDrawerContent} from './src'
+import {HomeScreen, HomeScreenDetail, SettingsScreen, SettingsScreenDetail} from './src/tab'
 
 import PlantListScreen from './src/plantscreens/PlantListScreen';
-import LoginScreen from './src/plantscreens/LoginScreen';
 import PlantFormScreen from './src/plantscreens/PlantFormScreen';
 import PlantDetailScreen from './src/plantscreens/PlantDetailScreen';
 
-import Screen1 from './src/screens/drawer/screen1';
-import Screen2 from './src/screens/drawer/screen2';
-import Screen3 from './src/screens/drawer/screen3';
+import {NotificationsScreen} from './src/drawer'
+import {RegisterScreen, LoginScreen} from './src/auth'
+import {IMAGE} from './src/constants/Image'
 
-import Tab1 from './src/screens/tabs/Tab1';
-import Tab2 from './src/screens/tabs/Tab2';
-import Tab3 from './src/screens/tabs/Tab3';
+const Tab = createBottomTabNavigator();
 
-import {
-  NavigationContainer,
-  DefaultTheme,
-  DarkTheme
-} from '@react-navigation/native';
-import { createDrawerNavigator } from '@react-navigation/drawer';
-import { createStackNavigator } from '@react-navigation/stack';
-import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import { Appearance, useColorScheme, AppearanceProvider } from 'react-native-appearance';
+const navOptionHandler = () => ({
+  headerShown: false
+})
 
-const Drawer = createDrawerNavigator();
-const Stack = createStackNavigator();
-const MaterialBottomTabs = createMaterialBottomTabNavigator();
-const MaterialTopTabs = createMaterialTopTabNavigator();;
+const StackHome = createStackNavigator()
 
-App = () => {
-
-  const colorScheme = useColorScheme();
-
-  const MyTheme = {
-    dark: false,
-    colors: {
-      primary: 'white',
-      background: 'white',
-      card: '#65509f',
-      text: 'white',
-      border: 'green',
-    },
+function HomeStack({navigation, route}) {
+  if (route.state && route.state.routeNames[route.state.index] === "HomeDetail" ) {
+    navigation.setOptions({tabBarVisible: false})
+  } else {
+    navigation.setOptions({tabBarVisible: true})
   }
-
-  createHomeStack = () =>
-    <Stack.Navigator>
-      <Stack.Screen
-        name="Home"
-        children={this.createDrawer}
-        options={{
-          title: "Grow App"
-        }}
-      />
-      <Stack.Screen
-        name="Detail"
-        component={Detail}
-        options={{
-          title: "Detail Screen"
-        }}
-      />
-      <Stack.Screen name="Bottom Tabs" children={this.createBottomTabs} />
-      <Stack.Screen name="Top Tabs" children={this.createTopTabs} />
-    </Stack.Navigator>
-
-  createDrawer = () =>
-    <Drawer.Navigator>
-      <Drawer.Screen name="Feed" component={Feed} />
-      <Drawer.Screen name="My Plants" component={PlantListScreen} />
-      <Drawer.Screen name="Login" component={LoginScreen} />
-      <Drawer.Screen name="Settings" component={Screen3} />
-    </Drawer.Navigator>
-
-  createTopTabs = (props) => {
-    return <MaterialTopTabs.Navigator>
-      <MaterialTopTabs.Screen
-        name="Tab 1"
-        component={Tab1}
-        options={{ title: props.route.params.name }}
-      />
-      <MaterialTopTabs.Screen name="Tab 2" component={Tab2} />
-      <MaterialTopTabs.Screen name="Tab 3" component={Tab3} />
-    </MaterialTopTabs.Navigator>
-  }
-
-  createBottomTabs = () => {
-    return <MaterialBottomTabs.Navigator>
-      <MaterialBottomTabs.Screen
-        name="Tab 1"
-        style={{ marginBottom: 16 }}
-        component={Tab1}
-        options={{
-          tabBarLabel: 'Home',
-          tabBarIcon: () => (
-            <Icon style={[{ color: 'white' }]} size={25} name={'home'} />
-          ),
-        }}
-      />
-      <MaterialBottomTabs.Screen name="Tab 2" component={Tab2}
-        options={{
-          tabBarLabel: 'Profile',
-          tabBarIcon: () => (
-            <Icon style={[{ color: 'white' }]} size={25} name={'human'} />
-          )
-        }}
-      />
-      <MaterialBottomTabs.Screen name="Tab 3" component={Tab3}
-        options={{
-          tabBarLabel: 'Map',
-          tabBarIcon: () => (
-            <Icon style={[{ color: 'white' }]} size={25} name={'map'} />
-          ),
-        }}
-      />
-    </MaterialBottomTabs.Navigator>
-  }
-
   return (
-    <AppearanceProvider>
-      <NavigationContainer theme={colorScheme == 'dark' ? DarkTheme : MyTheme}>
-        {this.createHomeStack()}
-      </NavigationContainer>
-    </AppearanceProvider>
-  );
+    <StackHome.Navigator initialRouteName="Home">
+      <StackHome.Screen name="PlantList" component={PlantListScreen} options={navOptionHandler}/>
+      <StackHome.Screen name="PlantForm" component={PlantFormScreen} options={navOptionHandler}/>
+      <StackHome.Screen name="PlantDetail" component={PlantDetailScreen} options={navOptionHandler}/>
+    </StackHome.Navigator>
+  )
 }
 
-export default App;
+const StackSetting = createStackNavigator()
+
+function SettingStack({navigation, route}) {
+  if (route.state && route.state.index > 0) {
+    navigation.setOptions({tabBarVisible: false})
+  } else {
+    navigation.setOptions({tabBarVisible: true})
+  }
+  return (
+    <StackSetting.Navigator initialRouteName="Setting">
+      <StackSetting.Screen name="Setting" component={SettingsScreen} options={navOptionHandler}/>
+      <StackSetting.Screen name="SettingDetail" component={SettingsScreenDetail} options={navOptionHandler}/>
+    </StackSetting.Navigator>
+  )
+}
+
+function TabNavigator() {
+  return (
+    <Tab.Navigator
+      screenOptions={({ route }) => ({
+          tabBarIcon: ({ focused, color, size }) => {
+            let iconName;
+
+            if (route.name === 'Home') {
+              iconName = focused
+                ? IMAGE.ICON_HOME
+                : IMAGE.ICON_HOME_BLACK;
+            } else if (route.name === 'Settings') {
+              iconName = focused ?
+              IMAGE.ICON_SETTINGS
+              : IMAGE.ICON_SETTINGS_BLACK;
+            }
+
+            // You can return any component that you like here!
+            return <Image source={iconName} style={{width: 20, height: 20}}
+            resizeMode="contain"/>;
+          },
+        })}
+        tabBarOptions={{
+          activeTintColor: 'red',
+          inactiveTintColor: 'black',
+        }}
+      >
+        <Tab.Screen name="Home" component={HomeStack} />
+        <Tab.Screen name="Settings" component={SettingStack} />
+      </Tab.Navigator>
+  )
+}
+
+const Drawer = createDrawerNavigator();
+
+function DrawerNavigator({navigation}) {
+  return (
+    <Drawer.Navigator initialRouteName="MenuTab"
+      drawerContent={() => <CustomDrawerContent navigation={navigation}/>}>
+        <Drawer.Screen name="MenuTab" component={TabNavigator} />
+        <Drawer.Screen name="Notifications" component={NotificationsScreen} />
+    </Drawer.Navigator>
+  )
+}
+
+const StackApp = createStackNavigator()
+
+export default function App() {
+  return (
+    <NavigationContainer>
+        <StackApp.Navigator initialRouteName="Login">
+          <StackApp.Screen name="HomeApp" component={DrawerNavigator} options={navOptionHandler}/>
+          <StackApp.Screen name="Login" component={LoginScreen} options={navOptionHandler}/>
+          <StackApp.Screen name="Register" component={RegisterScreen} options={navOptionHandler}/>
+        </StackApp.Navigator>
+    </NavigationContainer>
+  );
+}

@@ -19,9 +19,9 @@ class PlantDetailScreen extends Component {
   };
 
   render() {
-    const plant = this.props.navigation.getParam('plant');
+    const plant = this.props.route.params.plant;
 
-    const onPlantDeleted = this.props.navigation.getParam('plantDeletedCallback');
+    const onPlantDeleted = this.props.route.params.plantDeletedCallback;
 
     console.log(plant);
     return (
@@ -32,7 +32,7 @@ class PlantDetailScreen extends Component {
             name='ios-create'
             type='ionicon'
             onPress={() =>
-              this.props.navigation.navigate('PlantForm', {
+              this.props.navigation.navigate('PlantFormScreen', {
                 plant: plant
               })
             }

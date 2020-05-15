@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import PlantForm from '../ui/PlantForm';
-import {withNavigation} from 'react-navigation';
 
-class PlantFormScreen extends React.Component {
+export default class PlantFormScreen extends Component {
 
   static navigationOptions = ({ navigation }) => {
     return {
@@ -20,7 +19,7 @@ class PlantFormScreen extends React.Component {
   }
 
   componentDidMount() {
-    const currentPlant = this.props.navigation.getParam('plant');
+    const currentPlant = this.props.route.params.plant;
 
     if (currentPlant) {
       this.setState(prevState => ({ plant: prevState.plant = currentPlant }))
@@ -54,10 +53,9 @@ class PlantFormScreen extends React.Component {
         setSubIngredients={this.setCurrentSubIngredient}
         submitSubIngredients={this.submitSubIngredients}
         plant={this.state.plant}
-        onPlantAdded={this.props.navigation.getParam('plantAddedCallback')}
+        onPlantAdded={this.props.route.params.plantAddedCallback}
         onPlantUpdated={this.onPlantUpdated}
       />
     );
   }
 }
-export default withNavigation(PlantFormScreen);
