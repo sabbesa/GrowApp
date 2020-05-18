@@ -49,20 +49,16 @@ const PlantForm = (props) => {
       <View style={styles.row}>
         <TextInput
           style={styles.formInput}
-          onChangeText={text => { props.setSubIngredients(text) }}
+          onChangeText={text => { props.setKeywords(text) }}
           placeholder='Keywords'
         />
         <Button
           style={styles.button}
           title='Add'
-          onPress={() => { props.submitSubIngredients() }} />
-
-          <TouchableOpacity   onPress={() => { props.submitSubIngredients() }}>
-            <Image source={require('../images/Add.png')} style = {styles.AddButton} />
-          </TouchableOpacity>
+          onPress={() => { props.submitKeywords() }} />
       </View>
       <GridList
-        items={props.plant.subIngredients} />
+        items={props.plant.keywords} />
       <Button
         title='Submit'
         onPress={() => props.handleSubmit()}
@@ -156,7 +152,7 @@ export default withFormik({
   handleSubmit: (values, { props }) => {
     console.log(props);
 
-    values.subIngredients = props.plant.subIngredients;
+    values.keywords = props.plant.keywords;
 
     console.log(values);
 

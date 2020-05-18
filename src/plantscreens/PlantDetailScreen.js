@@ -59,11 +59,11 @@ class PlantDetailScreen extends Component {
         <Text style={styles.headerText}>{plant.name}</Text>
         <Text style={styles.categoryText}>Category: {plant.category}</Text>
 
-        <Text style={styles.ingredientText}>Keywords</Text>
+        <Text style={styles.ingredientText}>Keywords: </Text>
         {
-          plant.subIngredients === undefined || plant.subIngredients.length == 0 ?
+          plant.keywords === undefined || plant.keywords.length == 0 ?
             <Text>None</Text> : <FlatList
-              data={plant.subIngredients}
+              data={plant.keywords}
               contentContainerStyle={styles.listContainer}
               ItemSeparatorComponent={() =>
                 <Divider style={{ backgroundColor: 'black' }} />}
