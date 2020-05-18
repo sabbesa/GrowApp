@@ -3,8 +3,14 @@ import { Text, View, SafeAreaView, TouchableOpacity } from 'react-native';
 import {CustomHeader} from '../index'
 import {RVText} from '../core'
 
-export class SettingsScreen extends Component {
+import { signout } from '../api/PlantsApi';
+
+
+class Settings2 extends Component {
     render() {
+      onSignedOut = () => {
+        this.props.navigation.navigate('LoginScreen');
+      }
         return (
             <SafeAreaView style={{ flex: 1 }}>
             <CustomHeader title="Setting" isHome={true} navigation={this.props.navigation}/>
@@ -16,8 +22,15 @@ export class SettingsScreen extends Component {
                 >
                 <RVText content="Go Setting Detail"/>
                 </TouchableOpacity>
+                <TouchableOpacity
+                style={{marginTop: 20}}
+                onPress={() => signout(onSignedOut)}
+                >
+                <RVText content="Sign out"/>
+                </TouchableOpacity>
             </View>
             </SafeAreaView>
         );
     }
 }
+export default Settings2;

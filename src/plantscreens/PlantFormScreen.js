@@ -13,9 +13,9 @@ export default class PlantFormScreen extends Component {
     plant: {
       name: '',
       category: '',
-      subIngredients: []
+      keywords: []
     },
-    currentSubIngredient: null,
+    currentKeyword: null,
   }
 
   componentDidMount() {
@@ -31,18 +31,18 @@ export default class PlantFormScreen extends Component {
     this.props.navigation.popToTop();
   }
 
-  setCurrentSubIngredient = (text) => {
+  setCurrentKeyword = (text) => {
     this.setState(prevState => ({
-      currentSubIngredient: prevState.currentSubIngredient = text
+      currentKeyword: prevState.currentKeyword = text
     }));
   }
 
-  submitSubIngredients = () => {
-    let ingredient = this.state.currentSubIngredient;
+  submitKeywords = () => {
+    let ingredient = this.state.currentKeyword;
 
     if (ingredient && ingredient.length > 2) {
       this.setState(prevState => ({
-        plant: { ...prevState.plant, subIngredients: [...prevState.plant.subIngredients, ingredient] },
+        plant: { ...prevState.plant, keywords: [...prevState.plant.keywords, ingredient] },
       }))
     }
   }
@@ -50,8 +50,8 @@ export default class PlantFormScreen extends Component {
   render() {
     return (
       <PlantForm
-        setSubIngredients={this.setCurrentSubIngredient}
-        submitSubIngredients={this.submitSubIngredients}
+        setKeywords={this.setCurrentKeyword}
+        submitKeywords={this.submitKeywords}
         plant={this.state.plant}
         onPlantAdded={this.props.route.params.plantAddedCallback}
         onPlantUpdated={this.onPlantUpdated}

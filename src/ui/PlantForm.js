@@ -39,7 +39,7 @@ const PlantForm = (props) => {
         <TextInput
           style={styles.formInput}
           onChangeText={text => { props.setSubIngredients(text) }}
-          placeholder='Sub-ingredient'
+          placeholder='Keywords'
         />
         <Button
           style={styles.button}

@@ -1,9 +1,21 @@
 import React, {Component} from 'react'
 import { Text, View, SafeAreaView, Image, TouchableOpacity, ScrollView } from 'react-native';
 import {IMAGE} from './constants/Image'
+import { signout } from './api/PlantsApi';
+
 
 export class CustomDrawerContent extends Component {
+  static navigationOptions = ({ navigation }) => {
+
+    onSignedOut = () => {
+      navigation.navigate('Auth');
+    }
+
+  };
     render() {
+      onSignedOut = () => {
+        this.props.navigation.navigate('LoginScreen');
+      }
         return (
             <SafeAreaView style={{flex: 1}}>
             <View style={{height: 150, alignItems: 'center', justifyContent: 'center'}}>
@@ -13,22 +25,28 @@ export class CustomDrawerContent extends Component {
             </View>
             <ScrollView style={{marginLeft: 5}}>
                 <TouchableOpacity
-                style={{marginTop: 20}}
+                style={{marginTop: 20, marginLeft: 5}}
                 onPress={() => this.props.navigation.navigate('MenuTab')}
                 >
-                <Text>Menu Tab</Text>
+                <Text>My Plants</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
-                style={{marginTop: 20}}
+                style={{marginTop: 20, marginLeft: 5}}
                 onPress={() => this.props.navigation.navigate('Notifications')}
                 >
-                <Text>Notifications</Text>
+                <Text>Settings</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                style={{marginTop: 20, marginLeft: 5}}
+                onPress={() => this.props.navigation.navigate('Settings2')}
+                >
+                <Text>Settings</Text>
                 </TouchableOpacity>
             </ScrollView>
 
                 <TouchableOpacity
-                style={{marginTop: 20, marginLeft: 5}}
-                onPress={() => this.props.navigation.navigate('Login')}
+                style={{marginTop: 20, marginLeft: 10}}
+                onPress={() => signout(onSignedOut)}
                 >
                 <Text>Logout</Text>
                 </TouchableOpacity>
