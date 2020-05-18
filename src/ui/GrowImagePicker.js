@@ -57,9 +57,10 @@ const styles = StyleSheet.create({
   imageContainer: {
     borderWidth: 1,
     borderColor: 'black',
-    backgroundColor: '#eee',
-    width: '80%',
-    height: 150
+    borderRadius:200/2,
+    backgroundColor: '#f0fbf7',
+    width: 200,
+    height: 200
   },
   button: {
     position: 'absolute',
@@ -67,7 +68,8 @@ const styles = StyleSheet.create({
   },
   previewImage: {
     width: '100%',
-    height: '100%'
+    height: '100%',
+
   },
     camerabutton:{
       height: 50,

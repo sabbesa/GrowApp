@@ -5,7 +5,9 @@ import {
   TextInput,
   Text,
   Button,
-  ImageBackground
+  ImageBackground,
+  TouchableOpacity,
+  Image
 } from 'react-native';
 import GridList from '../ui/GridList';
 import { withFormik } from 'formik';
@@ -15,6 +17,7 @@ import GrowImagePicker from '../ui/GrowImagePicker';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import BackgroundGreenWhite from '../images/BackgroundGreenWhite.png'
 import Camera from '../images/cameralogo.png'
+import AddSymbol from '../images/Add.png'
 
 const PlantForm = (props) => {
 
@@ -23,8 +26,9 @@ const PlantForm = (props) => {
   }
 
   return (
-    <ImageBackground source={BackgroundGreenWhite} style={styles.backgroundContainer}>
+  //  <ImageBackground source={BackgroundGreenWhite} style={styles.backgroundContainer}>
     <KeyboardAwareScrollView>
+    <View style={styles.backgroundContainer}>
     <View style={styles.container}>
     <Text style={styles.headlines}>Add Plant</Text>
       <GrowImagePicker image={props.plant.image} onImagePicked={setPlantImage} />
@@ -52,6 +56,10 @@ const PlantForm = (props) => {
           style={styles.button}
           title='Add'
           onPress={() => { props.submitSubIngredients() }} />
+
+          <TouchableOpacity   onPress={() => { props.submitSubIngredients() }}>
+            <Image source={require('../images/Add.png')} style = {styles.AddButton} />
+          </TouchableOpacity>
       </View>
       <GridList
         items={props.plant.subIngredients} />
@@ -60,8 +68,9 @@ const PlantForm = (props) => {
         onPress={() => props.handleSubmit()}
       />
     </View>
+    </View>
     </KeyboardAwareScrollView>
-    </ImageBackground>
+  //  </ImageBackground>
   );
 }
 
@@ -71,20 +80,24 @@ const styles = StyleSheet.create({
     width: null,
     height: null,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    backgroundColor:'#c2f3df'
+
   },
   row: {
     justifyContent: 'space-between',
     alignSelf: 'stretch',
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 32
+    marginBottom: 32,
+
   },
   container: {
     width: 300,
     alignSelf: 'center',
     alignItems: 'center',
     marginTop: 100,
+
   },
   formInput: {
     borderColor: 'black',
@@ -96,7 +109,8 @@ const styles = StyleSheet.create({
     color: 'black',
     width: '75%',
     marginBottom: 16,
-    marginTop: 16
+    marginTop: 16,
+    backgroundColor: '#f0fbf7'
   },
   validationText: {
     color: 'red'
@@ -110,7 +124,8 @@ const styles = StyleSheet.create({
     borderStyle: 'dashed',
     borderRadius: 20,
     padding: 8,
-    margin: 16
+    margin: 16,
+    backgroundColor: '#f0fbf7',
   },
   headlines: {
     color:'black',
@@ -118,7 +133,13 @@ const styles = StyleSheet.create({
     fontSize: 30,
     position: 'relative',
     marginBottom: 25
-  }
+  },
+  camerabutton:{
+    height: 50,
+    width: 50,
+    position:'absolute',
+    bottom:50
+}
 });
 
 export default withFormik({
