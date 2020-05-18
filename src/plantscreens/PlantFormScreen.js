@@ -38,11 +38,11 @@ export default class PlantFormScreen extends Component {
   }
 
   submitKeywords = () => {
-    let ingredient = this.state.currentKeyword;
+    let keyword = this.state.currentKeyword;
 
-    if (ingredient && ingredient.length > 2) {
+    if (keyword && keyword.length > 2) {
       this.setState(prevState => ({
-        plant: { ...prevState.plant, keywords: [...prevState.plant.keywords, ingredient] },
+        plant: { ...prevState.plant, keywords: [...prevState.plant.keywords, keyword] },
       }))
     }
   }
