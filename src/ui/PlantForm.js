@@ -13,7 +13,7 @@ import * as yup from 'yup';
 import { addPlant, updatePlant, uploadPlant } from '../api/PlantsApi';
 import GrowImagePicker from '../ui/GrowImagePicker';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
-import BackgroundGreenWhite from 'C:/Users/sabbe/GrowApp/Images/BackgroundGreenWhite.png'
+//import BackgroundGreenWhite from 'src/images/BackgroundGreenWhite.png'
 
 const PlantForm = (props) => {
 
@@ -22,7 +22,7 @@ const PlantForm = (props) => {
   }
 
   return (
-    <ImageBackground source={BackgroundGreenWhite} style={styles.backgroundContainer}>
+    //<ImageBackground source={BackgroundGreenWhite} style={styles.backgroundContainer}>
     <KeyboardAwareScrollView>
     <View style={styles.container}>
       <GrowImagePicker image={props.plant.image} onImagePicked={setPlantImage} />
@@ -59,7 +59,7 @@ const PlantForm = (props) => {
       />
     </View>
     </KeyboardAwareScrollView>
-      </ImageBackground>
+      //</ImageBackground>
   );
 }
 
