@@ -3,7 +3,8 @@ import {
   View,
   Button,
   Image,
-  StyleSheet
+  StyleSheet,
+  TouchableOpacity
 } from 'react-native';
 import ImagePicker from 'react-native-image-picker';
 
@@ -37,8 +38,12 @@ const GrowImagePicker = ({ image, onImagePicked }) => {
       <View style={styles.imageContainer}>
         <Image source={selectedImage} style={styles.previewImage} />
       </View>
-      <View styels={styles.button}>
-        <Button title="Pick Image" onPress={this.pickImageHandler} />
+      <View style={styles.button}>
+        <TouchableOpacity onPress={this.pickImageHandler}>
+
+          <Image source={require('../images/cameralogo.png')} style = {styles.camerabutton} />
+
+        </TouchableOpacity>
       </View>
     </View>
   )
@@ -57,12 +62,19 @@ const styles = StyleSheet.create({
     height: 150
   },
   button: {
-    margin: 8
+    position: 'absolute',
+    bottom: 0, right: 35
   },
   previewImage: {
     width: '100%',
     height: '100%'
+  },
+    camerabutton:{
+      height: 50,
+      width: 50,
+
   }
+
 })
 
 export default GrowImagePicker;

@@ -4,13 +4,17 @@ import {
   View,
   TextInput,
   Text,
-  Button
+  Button,
+  ImageBackground
 } from 'react-native';
 import GridList from '../ui/GridList';
 import { withFormik } from 'formik';
 import * as yup from 'yup';
 import { addPlant, updatePlant, uploadPlant } from '../api/PlantsApi';
 import GrowImagePicker from '../ui/GrowImagePicker';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+import BackgroundGreenWhite from '../images/BackgroundGreenWhite.png'
+import Camera from '../images/cameralogo.png'
 
 const PlantForm = (props) => {
 
@@ -19,7 +23,10 @@ const PlantForm = (props) => {
   }
 
   return (
+    <ImageBackground source={BackgroundGreenWhite} style={styles.backgroundContainer}>
+    <KeyboardAwareScrollView>
     <View style={styles.container}>
+    <Text style={styles.headlines}>Add Plant</Text>
       <GrowImagePicker image={props.plant.image} onImagePicked={setPlantImage} />
       <TextInput
         value={props.values.name}
@@ -53,10 +60,19 @@ const PlantForm = (props) => {
         onPress={() => props.handleSubmit()}
       />
     </View>
+    </KeyboardAwareScrollView>
+    </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
+  backgroundContainer: {
+    flex: 1,
+    width: null,
+    height: null,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
   row: {
     justifyContent: 'space-between',
     alignSelf: 'stretch',
@@ -71,8 +87,10 @@ const styles = StyleSheet.create({
     marginTop: 100,
   },
   formInput: {
-    borderColor: '#B5B4BC',
+    borderColor: 'black',
     borderWidth: 1,
+    borderRadius: 20,
+    borderStyle: 'dashed',
     padding: 8,
     height: 50,
     color: 'black',
@@ -87,11 +105,20 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 50,
     color: 'black',
-    borderColor: '#B5B4BC',
+    borderColor: 'black',
     borderWidth: 1,
+    borderStyle: 'dashed',
+    borderRadius: 20,
     padding: 8,
     margin: 16
   },
+  headlines: {
+    color:'black',
+    height: 50,
+    fontSize: 30,
+    position: 'relative',
+    marginBottom: 25
+  }
 });
 
 export default withFormik({

@@ -111,7 +111,7 @@ class PlantList extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 100,
+    marginTop: 50,
     flex: 1
   },
   listItem: {
