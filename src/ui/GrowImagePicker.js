@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     borderWidth: 1,
-    borderColor: 'black',
+    borderColor: 'darkgrey',
     borderRadius:200/2,
     backgroundColor: '#f0fbf7',
     width: 200,

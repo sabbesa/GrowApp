@@ -10,7 +10,7 @@ return (
   <>
     <FlatList
       contentContainerStyle={styles.grid}
-      numColumns={3}
+      horizontal={true}
       data={props.items}
       keyExtractor={(item, index) => index.toString()}
       renderItem={({ item }) => {
@@ -19,14 +19,13 @@ return (
       }
       }
     />
-    <Text>Ingredients</Text>
   </>
 )
 }
 
 var styles = StyleSheet.create({
 item: {
-  backgroundColor: 'grey',
+  backgroundColor: 'lightgrey',
   margin: 5,
   width: 90,
   padding: 8,

@@ -64,12 +64,13 @@ class PlantList extends Component {
 
   showActionButton = () =>
     <ActionButton
-      buttonColor='blue'
+      buttonColor="#b0dec4"
       onPress={() => this.props.navigation.navigate('PlantForm', { plantAddedCallback: this.onPlantAdded })}
     />
 
   render() {
     return this.state.plantList.length > 0 ?
+
       <SafeAreaView style={styles.container}>
         <FlatList
           data={this.state.plantList}
@@ -101,18 +102,22 @@ class PlantList extends Component {
         />
         {this.showActionButton()}
       </SafeAreaView> :
+
+
       <View style={styles.textContainer}>
         <Text style={styles.emptyTitle}>No Plants found</Text>
         <Text style={styles.emptySubtitle}>Add a new plant using the + button below</Text>
         {this.showActionButton()}
       </View>
+
   }
 }
 
 const styles = StyleSheet.create({
   container: {
     marginTop: 50,
-    flex: 1
+    flex: 1,
+    backgroundColor: '#f0fbf7'
   },
   listItem: {
     marginTop: 8,

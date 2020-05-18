@@ -52,17 +52,22 @@ const PlantForm = (props) => {
           onChangeText={text => { props.setKeywords(text) }}
           placeholder='Keywords'
         />
+
         <Button
-          style={styles.button}
-          title='Add'
-          onPress={() => { props.submitKeywords() }} />
+          color="#b0dec4"
+          title="add"
+          onPress={() => { props.submitKeywords() }}/>
+
       </View>
       <GridList
         items={props.plant.keywords} />
+        <View style={styles.button}>
       <Button
+        color="#b0dec4"
         title='Submit'
         onPress={() => props.handleSubmit()}
       />
+      </View>
     </View>
     </View>
     </KeyboardAwareScrollView>
@@ -77,7 +82,7 @@ const styles = StyleSheet.create({
     height: null,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor:'#c2f3df'
+    backgroundColor:'#d9f7e6'
 
   },
   row: {
@@ -96,7 +101,7 @@ const styles = StyleSheet.create({
 
   },
   formInput: {
-    borderColor: 'black',
+    borderColor: 'darkgrey',
     borderWidth: 1,
     borderRadius: 20,
     borderStyle: 'dashed',
@@ -115,7 +120,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 50,
     color: 'black',
-    borderColor: 'black',
+    borderColor: 'darkgrey',
     borderWidth: 1,
     borderStyle: 'dashed',
     borderRadius: 20,
@@ -134,7 +139,12 @@ const styles = StyleSheet.create({
     height: 50,
     width: 50,
     position:'absolute',
-    bottom:50
+    bottom:0
+},
+button:{
+  marginTop:10,
+  position: 'relative',
+  bottom: 20
 }
 });
 
