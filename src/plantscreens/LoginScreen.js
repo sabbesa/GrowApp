@@ -14,7 +14,7 @@ class LoginScreen extends Component {
 
   onAuthStateChanged = (user) => {
     if (user !== null) {
-      this.props.navigation.navigate('PlantListScreen');
+      this.props.navigation.navigate('HomeApp');
     }
   }
 

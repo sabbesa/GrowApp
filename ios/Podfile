@@ -42,6 +42,7 @@ target 'GrowApp' do
   pod 'Firebase/Firestore'
   pod 'Firebase/Core'
   pod 'Firebase/Storage'
+  pod 'Firebase/Messaging'
 
   pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'

@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
     width: 300,
     alignSelf: 'center',
     alignItems: 'center',
-    marginTop: 32,
+    marginTop: 100,
   },
   formInput: {
     borderColor: '#B5B4BC',

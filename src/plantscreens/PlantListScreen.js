@@ -10,11 +10,22 @@ import {
 import { getPlants, signout } from '../api/PlantsApi';
 import { ListItem, Divider } from 'react-native-elements';
 import ActionButton from 'react-native-action-button';
-import {withNavigation} from 'react-navigation';
 
-class PlantList extends React.Component {
+class PlantList extends Component {
   static navigationOptions = ({ navigation }) => {
 
+    onSignedOut = () => {
+      navigation.navigate('Auth');
+    }
+
+    return {
+      title: 'Plant List',
+      headerRight: (
+        <Button
+          title='log out'
+          onPress={() => signout(onSignedOut)} />
+      )
+    }
   };
 
   state = {
@@ -54,10 +65,10 @@ class PlantList extends React.Component {
   showActionButton = () =>
     <ActionButton
       buttonColor='blue'
-      onPress={() => this.props.navigation.navigate('PlantFormScreen', { plantAddedCallback: this.onPlantAdded })}
+      onPress={() => this.props.navigation.navigate('PlantForm', { plantAddedCallback: this.onPlantAdded })}
     />
 
-  render(navigation) {
+  render() {
     return this.state.plantList.length > 0 ?
       <SafeAreaView style={styles.container}>
         <FlatList
@@ -88,18 +99,19 @@ class PlantList extends React.Component {
           }
           }
         />
-        {this.showActionButton(navigation)}
+        {this.showActionButton()}
       </SafeAreaView> :
       <View style={styles.textContainer}>
         <Text style={styles.emptyTitle}>No Plants found</Text>
         <Text style={styles.emptySubtitle}>Add a new plant using the + button below</Text>
-        {this.showActionButton(navigation)}
+        {this.showActionButton()}
       </View>
   }
 }
 
 const styles = StyleSheet.create({
   container: {
+    marginTop: 100,
     flex: 1
   },
   listItem: {
@@ -127,4 +139,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default withNavigation(PlantList);
+export default PlantList;
