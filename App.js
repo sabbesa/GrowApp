@@ -15,6 +15,7 @@ import PlantListScreen from './src/plantscreens/PlantListScreen';
 import PlantFormScreen from './src/plantscreens/PlantFormScreen';
 import PlantDetailScreen from './src/plantscreens/PlantDetailScreen';
 import LoginScreen2 from './src/plantscreens/LoginScreen';
+import Settings from './src/plantscreens/Settings';
 
 import Login2 from './src/screens/Login2';
 
@@ -102,6 +103,8 @@ function DrawerNavigator({navigation}) {
       drawerContent={() => <CustomDrawerContent navigation={navigation}/>}>
         <Drawer.Screen name="MenuTab" component={TabNavigator} />
         <Drawer.Screen name="Notifications" component={NotificationsScreen} />
+        <Drawer.Screen name="Settings2" component={Settings} />
+        <Drawer.Screen name="LoginScreen" component={LoginScreen2} />
     </Drawer.Navigator>
   )
 }
@@ -113,7 +116,7 @@ export default function App() {
     <NavigationContainer>
         <StackApp.Navigator initialRouteName="Login">
           <StackApp.Screen name="HomeApp" component={DrawerNavigator} options={navOptionHandler}/>
-          <StackApp.Screen name="Login" component={Login2} options={navOptionHandler}/>
+          <StackApp.Screen name="Login" component={LoginScreen2} options={navOptionHandler}/>
         </StackApp.Navigator>
     </NavigationContainer>
   );

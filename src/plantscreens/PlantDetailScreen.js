@@ -59,7 +59,7 @@ class PlantDetailScreen extends Component {
         <Text style={styles.headerText}>{plant.name}</Text>
         <Text style={styles.categoryText}>Category: {plant.category}</Text>
 
-        <Text style={styles.ingredientText}>Ingredients</Text>
+        <Text style={styles.ingredientText}>Keywords</Text>
         {
           plant.subIngredients === undefined || plant.subIngredients.length == 0 ?
             <Text>None</Text> : <FlatList

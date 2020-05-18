@@ -4,16 +4,13 @@ import {
   View,
   TextInput,
   Text,
-  Button,
-  ImageBackground
+  Button
 } from 'react-native';
 import GridList from '../ui/GridList';
 import { withFormik } from 'formik';
 import * as yup from 'yup';
 import { addPlant, updatePlant, uploadPlant } from '../api/PlantsApi';
 import GrowImagePicker from '../ui/GrowImagePicker';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
-//import BackgroundGreenWhite from 'src/images/BackgroundGreenWhite.png'
 
 const PlantForm = (props) => {
 
@@ -22,8 +19,6 @@ const PlantForm = (props) => {
   }
 
   return (
-    //<ImageBackground source={BackgroundGreenWhite} style={styles.backgroundContainer}>
-    <KeyboardAwareScrollView>
     <View style={styles.container}>
       <GrowImagePicker image={props.plant.image} onImagePicked={setPlantImage} />
       <TextInput
@@ -44,7 +39,7 @@ const PlantForm = (props) => {
         <TextInput
           style={styles.formInput}
           onChangeText={text => { props.setSubIngredients(text) }}
-          placeholder='Keyword'
+          placeholder='Keywords'
         />
         <Button
           style={styles.button}
@@ -58,19 +53,10 @@ const PlantForm = (props) => {
         onPress={() => props.handleSubmit()}
       />
     </View>
-    </KeyboardAwareScrollView>
-      //</ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
-  backgroundContainer: {
-    flex: 1,
-    width: null,
-    height: null,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
   row: {
     justifyContent: 'space-between',
     alignSelf: 'stretch',
