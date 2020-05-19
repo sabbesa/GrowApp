@@ -63,8 +63,9 @@ class PlantDetailScreen extends Component {
         {
           plant.keywords === undefined || plant.keywords.length == 0 ?
             <Text>None</Text> : <FlatList
-              data={plant.keywords}
-              contentContainerStyle={styles.listContainer}
+          horizontal={true}
+            data={plant.keywords}
+            contentContainerStyle={styles.listContainer}
               ItemSeparatorComponent={() =>
                 <Divider style={{ backgroundColor: 'black' }} />}
               scrollEnabled={false}
@@ -82,7 +83,8 @@ class PlantDetailScreen extends Component {
 const styles = StyleSheet.create({
   headerText: {
     fontSize: 32,
-    marginBottom: 32
+    marginBottom: 32,
+    color: 'black'
   },
   image: {
     width: '100%',
@@ -100,26 +102,33 @@ const styles = StyleSheet.create({
   },
   categoryText: {
     fontSize: 20,
-    marginBottom: 32
+    marginBottom: 32,
+    color: 'black'
   },
   ingredientText: {
     fontStyle: 'italic',
     fontSize: 18,
-    marginBottom: 32
+    marginBottom: 32,
+    color: 'black'
   },
   ingredientItemText: {
     fontSize: 16,
     alignSelf: 'center',
     marginBottom: 16,
-    marginTop: 16
+    marginTop: 16,
+    color:'black',
+    padding: 20
   },
   container: {
-    alignItems: 'center'
+    alignItems: 'center',
+    backgroundColor:'#d9f7e6'
   },
   listContainer: {
     borderWidth: 0.5,
     width: 200,
-    borderColor: 'grey'
+    borderColor: 'grey',
+
+
   }
 });
 
