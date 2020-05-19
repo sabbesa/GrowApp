@@ -2,11 +2,18 @@ import React from 'react';
 import {
   StyleSheet,
   View,
-  TextInput
+  ActivityIndicator,
+  TextInput,
+  Alert,
+  ImageBackground,
+  Image
 } from 'react-native';
-import { Button, Text } from 'react-native-elements'
+import { Button, Text, Icon } from 'react-native-elements'
 import { withFormik } from 'formik';
 import * as yup from 'yup';
+
+import BackgroundGreenWhite from '../images/BackgroundGreenWhite.png'
+import Logo from '../images/TitelLogoFärg.png'
 
 const AuthForm = (props) => {
 
@@ -22,8 +29,11 @@ const AuthForm = (props) => {
   );
 
   return (
+          <ImageBackground source={BackgroundGreenWhite} style={styles.backgroundContainer}>
     <View style={styles.container}>
-      <Text h2 style={styles.header}>Grow App</Text>
+    <View>
+    <Image source={Logo} style={styles.logo}/>
+    </View>
       {props.authMode === 'signup' ? displayNameInput : null}
       <TextInput
         style={styles.formInput}
@@ -48,11 +58,39 @@ const AuthForm = (props) => {
         buttonStyle={styles.switchButton}
         onPress={() => props.switchAuthMode()}
         title={props.authMode === 'login' ? 'Switch to Signup' : 'Switch to Login'} />
+        <Button
+          style={styles.textInput}
+          icon={
+            <Icon
+              name="refresh"
+              size={15}
+              color="white"
+              />
+              }
+              title="Reset Password"
+                    onPress={() => {
+                        navigation.navigate('Reset');
+                    }} />
+
     </View>
+            </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
+  backgroundContainer: {
+    flex: 1,
+    width: null,
+    height: null,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  logo: {
+    height: 150,
+    width: 300,
+    position: 'relative',
+
+  },
   header: {
     marginBottom: 60
   },
@@ -82,7 +120,11 @@ const styles = StyleSheet.create({
   },
   switchButton: {
     width: 200,
-    backgroundColor: '#3f51b5'
+    backgroundColor: '#3f51b5',
+    marginBottom: 16
+  },
+  textInput: {
+    width: 200
   }
 });
 

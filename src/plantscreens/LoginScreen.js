@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import AuthForm from '../ui/AuthForm';
+import Reset from '../screens/Reset.js'
 import { login, signup, subscribeToAuthChanges } from '../api/PlantsApi';
+
 
 class LoginScreen extends Component {
 
@@ -32,6 +34,9 @@ class LoginScreen extends Component {
         authMode={this.state.authMode}
         switchAuthMode={this.switchAuthMode}
       />
+
+
+
     );
   }
 }
