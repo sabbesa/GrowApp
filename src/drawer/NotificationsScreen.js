@@ -8,7 +8,7 @@ export class NotificationsScreen extends Component {
             <SafeAreaView style={{ flex: 1 }}>
             <CustomHeader title="Notifications" navigation={this.props.navigation}/>
             <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-                <Text>Chat Screen!1</Text>
+                <Text>Chat Screen!</Text>
             </View>
             </SafeAreaView>
         );
