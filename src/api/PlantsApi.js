@@ -65,8 +65,8 @@ export async function getPlants(plantsRetreived) {
 
   var snapshot = await firebase.firestore()
     .collection('Plants')
-    .where("userid" , "==" , userId)
-    //.orderBy('createdAt')
+    //.where("userid" , "==" , userId)
+    .orderBy('createdAt')
     .get()
 
   snapshot.forEach((doc) => {

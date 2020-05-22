@@ -2,7 +2,7 @@
 import React from 'react';
 import { GiftedChat } from 'react-native-gifted-chat'; // 0.3.0
 
-import Fire from '../Fire';
+import Fire from '../../Fire';
 
 type Props = {
   name?: string,
