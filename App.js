@@ -5,6 +5,10 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack'
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
+import Main from './components/Main';
+import Chat from './components/Chat';
+
+
 import firebase from '@react-native-firebase/app';
 import '@react-native-firebase/auth';
 
