@@ -19,7 +19,7 @@ class Chat extends React.Component<Props> {
 
   get user() {
     return {
-      name: this.props.navigation.state.params.name,
+      name: this.props.route.params.name,
       _id: Fire.shared.uid,
     };
   }
