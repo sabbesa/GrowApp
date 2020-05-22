@@ -47,6 +47,7 @@
     "react-navigation": "^4.3.9",
     "react-navigation-material-bottom-tabs": "^2.2.11",
     "react-navigation-tabs": "^2.8.12",
+    "sendbird": "^3.0.122",
     "uuid": "^3.3.3",
     "yup": "^0.28.5"
   },
