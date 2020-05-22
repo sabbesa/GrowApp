@@ -116,6 +116,8 @@ export default function App() {
     <NavigationContainer>
         <StackApp.Navigator initialRouteName="Login">
           <StackApp.Screen name="HomeApp" component={DrawerNavigator} options={navOptionHandler}/>
+          <StackApp.Screen name="Main" component={Main} options={navOptionHandler}/>
+          <StackApp.Screen name="Chat" component={Chat} options={navOptionHandler}/>
           <StackApp.Screen name="Login" component={LoginScreen2} options={navOptionHandler}/>
         </StackApp.Navigator>
     </NavigationContainer>

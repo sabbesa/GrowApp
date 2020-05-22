@@ -1,6 +1,5 @@
-// @flow
 import React from 'react';
-import { GiftedChat } from 'react-native-gifted-chat'; // 0.3.0
+import { GiftedChat } from 'react-native-gifted-chat';
 
 import Fire from '../../Fire';
 

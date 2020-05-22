@@ -1,4 +1,4 @@
-import firebase from 'firebase'; // 4.8.1
+import firebase from 'firebase';
 
 class Fire {
   constructor() {

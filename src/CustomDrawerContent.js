@@ -32,7 +32,7 @@ export class CustomDrawerContent extends Component {
                 </TouchableOpacity>
                 <TouchableOpacity
                 style={{marginTop: 20, marginLeft: 5}}
-                onPress={() => this.props.navigation.navigate('Notifications')}
+                onPress={() => this.props.navigation.navigate('Main')}
                 >
                 <Text>Ask the expert</Text>
                 </TouchableOpacity>
