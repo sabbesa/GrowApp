@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import PlantForm from '../ui/PlantForm';
+import firebase from '@react-native-firebase/app';
+
 
 export default class PlantFormScreen extends Component {
 
@@ -13,7 +15,7 @@ export default class PlantFormScreen extends Component {
     plant: {
       name: '',
       category: '',
-      keywords: []
+      keywords: [],
     },
     currentKeyword: null,
   }

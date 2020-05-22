@@ -14,6 +14,9 @@ export function signup({ email, password, displayName }) {
       console.log(userInfo)
       userInfo.user.updateProfile({ displayName: displayName.trim() })
         .then(() => { })
+        .then(() => {
+      //  return this.props.firebase.doSendEmailVerification();
+      })
     })
 }
 
@@ -28,6 +31,10 @@ export function signout(onSignedOut) {
     .then(() => {
       onSignedOut();
     })
+}
+
+export function handleReset(navigation) {
+    this.props.navigation.navigate('Reset');
 }
 
 export function updatePlant(plant, updateComplete) {
@@ -52,18 +59,21 @@ export function deletePlant(plant, deleteComplete) {
 }
 
 export async function getPlants(plantsRetreived) {
+  const userId = firebase.auth().currentUser.uid;
 
   var plantList = [];
 
   var snapshot = await firebase.firestore()
     .collection('Plants')
-    .orderBy('createdAt')
+    .where("userid" , "==" , userId)
+    //.orderBy('createdAt')
     .get()
 
   snapshot.forEach((doc) => {
     const plantItem = doc.data();
     plantItem.id = doc.id;
     plantList.push(plantItem);
+
   });
 
   plantsRetreived(plantList);
@@ -133,11 +143,13 @@ export function uploadPlant(plant, onPlantUploaded, { updating }) {
 
 export function addPlant(plant, addComplete) {
   plant.createdAt = firebase.firestore.FieldValue.serverTimestamp();
+  const userId = firebase.auth().currentUser.uid
 
   firebase.firestore()
     .collection('Plants')
     .add(plant)
     .then((snapshot) => {
+      plant.userid = userId;
       plant.id = snapshot.id;
       snapshot.set(plant);
     }).then(() => addComplete(plant))

@@ -69,7 +69,7 @@ const AuthForm = (props) => {
               }
               title="Reset Password"
                     onPress={() => {
-                        navigation.navigate('Reset');
+                        props.handleReset();
                     }} />
 
     </View>

@@ -1,7 +1,9 @@
+import app from 'firebase/app';
 import firebase from "firebase";
 import "@firebase/firestore";
+import 'firebase/database';
 
-const firebaseConfig = {
+const config = {
   apiKey: 'AIzaSyBEeoHsxw6BJjs8GWATC138qGsL9hG9yFE',
   authDomain: 'grow-app-7dd1d.firebaseapp.com',
   databaseURL: 'https://grow-app-7dd1d.firebaseio.com',
@@ -12,28 +14,19 @@ const firebaseConfig = {
   measurementId: 'G-F2LBX31CE5'
 }
 
-class Config {
-  init() {
-    if (!firebase.apps.length) {
-      firebase.initializeApp(firebaseConfig)
+class Firebase {
+  constructor() {
+    app.initializeApp(config);
 
-    }
-
-    firebase.auth().onAuthStateChanged(user => {
-      if(user)  {
-        } else {
-        firebase
-        .auth
-        .signInAnonymously()
-        .catch(error => {});
-
-      }
-
-    });
-
+    this.emailAuthProvider = app.auth.EmailAuthProvider;
+    this.auth = app.auth();
+    this.db = app.database();
   }
 
-
+  doSendEmailVerification = () =>
+      this.auth.currentUser.sendEmailVerification({
+        url: process.env.REACT_APP_CONFIRMATION_EMAIL_REDIRECT,
+      });
 }
 
-export default Config;
+export default Firebase;

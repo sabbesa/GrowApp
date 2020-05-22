@@ -7,7 +7,7 @@ import {
   Text,
   View,
 } from 'react-native';
-import { getPlants, signout } from '../api/PlantsApi';
+import { getPlants, signout, userId } from '../api/PlantsApi';
 import { ListItem, Divider } from 'react-native-elements';
 import ActionButton from 'react-native-action-button';
 

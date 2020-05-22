@@ -9,18 +9,17 @@ import firebase from '@react-native-firebase/app';
 import '@react-native-firebase/auth';
 
 import {CustomHeader, CustomDrawerContent} from './src'
-import {HomeScreen, HomeScreenDetail, SettingsScreen, SettingsScreenDetail} from './src/tab'
 
 import PlantListScreen from './src/plantscreens/PlantListScreen';
 import PlantFormScreen from './src/plantscreens/PlantFormScreen';
 import PlantDetailScreen from './src/plantscreens/PlantDetailScreen';
 import LoginScreen2 from './src/plantscreens/LoginScreen';
+import TodoComponent from './src/components/TodoComponent'
+
+//backupsidor
 import Settings from './src/plantscreens/Settings';
+//backupsidor
 
-import Login2 from './src/screens/Login2';
-
-import {NotificationsScreen} from './src/drawer'
-import {RegisterScreen, LoginScreen} from './src/auth'
 import {IMAGE} from './src/constants/Image'
 
 const Tab = createBottomTabNavigator();
@@ -55,9 +54,8 @@ function SettingStack({navigation, route}) {
     navigation.setOptions({tabBarVisible: true})
   }
   return (
-    <StackSetting.Navigator initialRouteName="Setting">
-      <StackSetting.Screen name="Setting" component={SettingsScreen} options={navOptionHandler}/>
-      <StackSetting.Screen name="SettingDetail" component={SettingsScreenDetail} options={navOptionHandler}/>
+    <StackSetting.Navigator initialRouteName="ToDo">
+      <StackSetting.Screen name="ToDo" component={TodoComponent} options={navOptionHandler}/>
     </StackSetting.Navigator>
   )
 }
@@ -73,7 +71,7 @@ function TabNavigator() {
               iconName = focused
                 ? IMAGE.ICON_HOME
                 : IMAGE.ICON_HOME_BLACK;
-            } else if (route.name === 'Settings') {
+            } else if (route.name === 'Tasks') {
               iconName = focused ?
               IMAGE.ICON_SETTINGS
               : IMAGE.ICON_SETTINGS_BLACK;
@@ -90,7 +88,7 @@ function TabNavigator() {
         }}
       >
         <Tab.Screen name="Home" component={HomeStack} />
-        <Tab.Screen name="Settings" component={SettingStack} />
+        <Tab.Screen name="Tasks" component={TodoComponent} />
       </Tab.Navigator>
   )
 }
@@ -102,7 +100,6 @@ function DrawerNavigator({navigation}) {
     <Drawer.Navigator initialRouteName="MenuTab"
       drawerContent={() => <CustomDrawerContent navigation={navigation}/>}>
         <Drawer.Screen name="MenuTab" component={TabNavigator} />
-        <Drawer.Screen name="Notifications" component={NotificationsScreen} />
         <Drawer.Screen name="Settings2" component={Settings} />
         <Drawer.Screen name="LoginScreen" component={LoginScreen2} />
     </Drawer.Navigator>

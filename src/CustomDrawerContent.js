@@ -28,19 +28,13 @@ export class CustomDrawerContent extends Component {
                 style={{marginTop: 20, marginLeft: 5}}
                 onPress={() => this.props.navigation.navigate('MenuTab')}
                 >
-                <Text>My Plants</Text>
+                <Text>Home</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
                 style={{marginTop: 20, marginLeft: 5}}
                 onPress={() => this.props.navigation.navigate('Notifications')}
                 >
                 <Text>Ask the expert</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                style={{marginTop: 20, marginLeft: 5}}
-                onPress={() => this.props.navigation.navigate('Settings2')}
-                >
-                <Text>Settings</Text>
                 </TouchableOpacity>
             </ScrollView>
 
