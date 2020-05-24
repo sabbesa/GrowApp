@@ -25,25 +25,26 @@ export class CustomDrawerContent extends Component {
             </View>
             <ScrollView style={{marginLeft: 5}}>
                 <TouchableOpacity
-                style={{marginTop: 20, marginLeft: 5}}
+                style={{marginTop: 20, marginLeft: 10}}
                 onPress={() => this.props.navigation.navigate('MenuTab')}
                 >
-                <Text>Home</Text>
+                <Text>Settings</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
-                style={{marginTop: 20, marginLeft: 5}}
-                onPress={() => this.props.navigation.navigate('Main')}
+                style={{marginTop: 40, marginLeft: 10}}
+                onPress={() => this.props.navigation.navigate('Main')} //ändra så att den navigeras rätt
                 >
-                <Text>Ask the expert</Text>
+                <Text>Chat</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                style={{marginTop: 100, marginLeft: 10}}
+                onPress={() => signout(onSignedOut)}
+                >
+                <Text>Sign out</Text>
                 </TouchableOpacity>
             </ScrollView>
 
-                <TouchableOpacity
-                style={{marginTop: 20, marginLeft: 10}}
-                onPress={() => signout(onSignedOut)}
-                >
-                <Text>Logout</Text>
-                </TouchableOpacity>
+
             </SafeAreaView>
         )
     }
