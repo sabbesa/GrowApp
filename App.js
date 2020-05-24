@@ -69,12 +69,23 @@ function TabNavigator() {
       screenOptions={({ route }) => ({
           tabBarIcon: ({ focused, color, size }) => {
             let iconName;
-
+//Behöver fixa så att man kommer till rätt sida
             if (route.name === 'Home') {
               iconName = focused
                 ? IMAGE.ICON_HOME
                 : IMAGE.ICON_HOME_BLACK;
-            } else if (route.name === 'Tasks') {
+            }
+            else if (route.name === 'Tasks') {
+              iconName = focused ?
+              IMAGE.ICON_SETTINGS
+              : IMAGE.ICON_SETTINGS_BLACK;
+            }
+            else if (route.name === 'Add plant') {
+              iconName = focused ?
+              IMAGE.ICON_SETTINGS
+              : IMAGE.ICON_SETTINGS_BLACK;
+            }
+            else if (route.name === 'Search') {
               iconName = focused ?
               IMAGE.ICON_SETTINGS
               : IMAGE.ICON_SETTINGS_BLACK;
@@ -90,9 +101,11 @@ function TabNavigator() {
           inactiveTintColor: 'black',
         }}
       >
-        <Tab.Screen name="Home" component={HomeStack} />
+        <Tab.Screen name="Add plant" component={TodoComponent} />
+        <Tab.Screen name="Search" component={TodoComponent} />
         <Tab.Screen name="Tasks" component={TodoComponent} />
-      </Tab.Navigator>
+        <Tab.Screen name="Home" component={HomeStack} />
+        </Tab.Navigator>
   )
 }
 
