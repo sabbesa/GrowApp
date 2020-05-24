@@ -47,7 +47,22 @@ function HomeStack({navigation, route}) {
     </StackHome.Navigator>
   )
 }
+function PlantAddStack({navigation, route}) {
+  if (route.state && route.state.routeNames[route.state.index] === "HomeDetail" ) {
+    navigation.setOptions({tabBarVisible: false})
+  } else {
+    navigation.setOptions({tabBarVisible: true})
+  }
+  return (
+    <StackHome.Navigator initialRouteName="Home">
+      <StackHome.Screen name="PlantList" component={PlantListScreen} options={navOptionHandler}/>
+      <StackHome.Screen name="PlantForm" component={PlantFormScreen} options={navOptionHandler}/>
+      <StackHome.Screen name="PlantDetail" component={PlantDetailScreen} options={navOptionHandler}/>
+    </StackHome.Navigator>
+  )
+}
 
+//Varför heter den StackSetting när den är för TodoComponent?
 const StackSetting = createStackNavigator()
 
 function SettingStack({navigation, route}) {
@@ -62,6 +77,7 @@ function SettingStack({navigation, route}) {
     </StackSetting.Navigator>
   )
 }
+
 
 function TabNavigator() {
   return (
@@ -101,7 +117,7 @@ function TabNavigator() {
           inactiveTintColor: 'black',
         }}
       >
-        <Tab.Screen name="Add plant" component={TodoComponent} />
+        <Tab.Screen name="Add plant" component={PlantAddStack} />
         <Tab.Screen name="Search" component={TodoComponent} />
         <Tab.Screen name="Tasks" component={TodoComponent} />
         <Tab.Screen name="Home" component={HomeStack} />
