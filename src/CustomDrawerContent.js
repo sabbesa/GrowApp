@@ -34,7 +34,7 @@ export class CustomDrawerContent extends Component {
                 style={{marginTop: 40, marginLeft: 10}}
                 onPress={() => this.props.navigation.navigate('Main')}
                 >
-                <Text>Ask the expert</Text>
+                <Text>Chat</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
                 style={{marginTop: 100, marginLeft: 10}}
