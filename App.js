@@ -16,9 +16,12 @@ import {CustomHeader, CustomDrawerContent} from './src'
 import PlantListScreen from './src/plantscreens/PlantListScreen';
 import PlantFormScreen from './src/plantscreens/PlantFormScreen';
 import PlantDetailScreen from './src/plantscreens/PlantDetailScreen';
-import LoginScreen2 from './src/plantscreens/LoginScreen';
-import TodoComponent from './src/components/TodoComponent'
 
+import TaskListScreen from './src/taskscreens/TaskListScreen';
+import TaskFormScreen from './src/taskscreens/TaskFormScreen';
+import TaskDetailScreen from './src/taskscreens/TaskDetailScreen';
+
+import LoginScreen2 from './src/plantscreens/LoginScreen';
 //backupsidor
 import Settings from './src/plantscreens/Settings';
 //backupsidor
@@ -48,18 +51,20 @@ function HomeStack({navigation, route}) {
   )
 }
 
-const StackSetting = createStackNavigator()
+const StackTask = createStackNavigator()
 
-function SettingStack({navigation, route}) {
+function TaskStack({navigation, route}) {
   if (route.state && route.state.index > 0) {
     navigation.setOptions({tabBarVisible: false})
   } else {
     navigation.setOptions({tabBarVisible: true})
   }
   return (
-    <StackSetting.Navigator initialRouteName="ToDo">
-      <StackSetting.Screen name="ToDo" component={TodoComponent} options={navOptionHandler}/>
-    </StackSetting.Navigator>
+    <StackTask.Navigator initialRouteName="Task">
+      <StackTask.Screen name="TaskList" component={TaskListScreen} options={navOptionHandler}/>
+      <StackTask.Screen name="TaskForm" component={TaskFormScreen} options={navOptionHandler}/>
+      <StackTask.Screen name="TaskDetail" component={TaskDetailScreen} options={navOptionHandler}/>
+    </StackTask.Navigator>
   )
 }
 
@@ -74,7 +79,7 @@ function TabNavigator() {
               iconName = focused
                 ? IMAGE.ICON_HOME
                 : IMAGE.ICON_HOME_BLACK;
-            } else if (route.name === 'Tasks') {
+            } else if (route.name === 'Task') {
               iconName = focused ?
               IMAGE.ICON_SETTINGS
               : IMAGE.ICON_SETTINGS_BLACK;
@@ -91,7 +96,7 @@ function TabNavigator() {
         }}
       >
         <Tab.Screen name="Home" component={HomeStack} />
-        <Tab.Screen name="Tasks" component={TodoComponent} />
+        <Tab.Screen name="Task" component={TaskStack} />
       </Tab.Navigator>
   )
 }
@@ -103,7 +108,6 @@ function DrawerNavigator({navigation}) {
     <Drawer.Navigator initialRouteName="MenuTab"
       drawerContent={() => <CustomDrawerContent navigation={navigation}/>}>
         <Drawer.Screen name="MenuTab" component={TabNavigator} />
-        <Drawer.Screen name="Settings2" component={Settings} />
         <Drawer.Screen name="LoginScreen" component={LoginScreen2} />
     </Drawer.Navigator>
   )

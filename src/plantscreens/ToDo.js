@@ -1,8 +1,9 @@
 import React from 'react';
-import { StyleSheet, Text, View, StatusBar, ListView } from 'react-native';
-import { Container, Content, Header, Form, Input, Item, Button, Label, Icon, List, ListItem } from 'native-base'
+import { StyleSheet, Text, View, StatusBar } from 'react-native';
+import { Container, Content, Header, Form, Input, Item, Button, Label, Icon, List, ListItem, ListView } from 'native-base'
 
 import * as firebase from 'firebase';
+import Fire from '../../Fire';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyBEeoHsxw6BJjs8GWATC138qGsL9hG9yFE',
@@ -15,8 +16,6 @@ const firebaseConfig = {
   measurementId: 'G-F2LBX31CE5'
 };
 
-firebase.initializeApp(firebaseConfig);
-
 var data = []
 
 export default class App extends React.Component {
@@ -28,7 +27,7 @@ export default class App extends React.Component {
 
     this.state = {
       listViewData: data,
-      newContact: ""
+      newToDo: ""
     }
 
   }
@@ -37,7 +36,7 @@ export default class App extends React.Component {
 
     var that = this
 
-    firebase.database().ref('/contacts').on('child_added', function (data) {
+    firebase.database().ref('/toDo').on('child_added', function (data) {
 
       var newData = [...that.state.listViewData]
       newData.push(data)
@@ -49,13 +48,13 @@ export default class App extends React.Component {
 
   addRow(data) {
 
-    var key = firebase.database().ref('/contacts').push().key
-    firebase.database().ref('/contacts').child(key).set({ name: data })
+    var key = firebase.database().ref('/toDos').push().key
+    firebase.database().ref('/toDos').child(key).set({ name: data })
   }
 
   async deleteRow(secId, rowId, rowMap, data) {
 
-    await firebase.database().ref('contacts/' + data.key).set(null)
+    await firebase.database().ref('toDos/' + data.key).set(null)
 
     rowMap[`${secId}${rowId}`].props.closeRow();
     var newData = [...this.state.listViewData];
@@ -75,10 +74,10 @@ export default class App extends React.Component {
           <Content>
             <Item>
               <Input
-                onChangeText={(newContact) => this.setState({ newContact })}
-                placeholder="Add name"
+                onChangeText={(newToDo) => this.setState({ newToDo })}
+                placeholder="Add task"
               />
-              <Button onPress={() => this.addRow(this.state.newContact)}>
+              <Button onPress={() => this.addRow(this.state.newToDo)}>
                 <Icon name="add" />
               </Button>
             </Item>
