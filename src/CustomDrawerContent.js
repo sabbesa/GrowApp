@@ -28,11 +28,11 @@ export class CustomDrawerContent extends Component {
                 style={{marginTop: 20, marginLeft: 10}}
                 onPress={() => this.props.navigation.navigate('MenuTab')}
                 >
-                <Text>Home</Text>
+                <Text>Settings</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
                 style={{marginTop: 40, marginLeft: 10}}
-                onPress={() => this.props.navigation.navigate('Main')}
+                onPress={() => this.props.navigation.navigate('Main')} //ändra så att den navigeras rätt
                 >
                 <Text>Chat</Text>
                 </TouchableOpacity>
