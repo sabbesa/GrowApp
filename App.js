@@ -65,12 +65,7 @@ function PlantAddStack({navigation, route}) {
   )
 }
 
-<<<<<<< HEAD
 const StackTask = createStackNavigator()
-=======
-//Varför heter den StackSetting när den är för TodoComponent?
-const StackSetting = createStackNavigator()
->>>>>>> f216c21b3f1e20f1a226de4b0de26fe7b6108151
 
 function TaskStack({navigation, route}) {
   if (route.state && route.state.index > 0) {
@@ -94,19 +89,11 @@ function TabNavigator() {
       screenOptions={({ route }) => ({
           tabBarIcon: ({ focused, color, size }) => {
             let iconName;
-//Behöver fixa så att man kommer till rätt sida
             if (route.name === 'Home') {
               iconName = focused
-<<<<<<< HEAD
                 ? IMAGE.ICON_HOME
                 : IMAGE.ICON_HOME_BLACK;
             } else if (route.name === 'Task') {
-=======
-                ? IMAGE.ICON_HOME_BLACK
-                : IMAGE.ICON_HOME;
-            }
-            else if (route.name === 'Tasks') {
->>>>>>> f216c21b3f1e20f1a226de4b0de26fe7b6108151
               iconName = focused ?
               IMAGE.ICON_SETTINGS_BLACK
               : IMAGE.ICON_SETTINGS;
@@ -121,8 +108,6 @@ function TabNavigator() {
               IMAGE.ICON_SETTINGS_BLACK
               : IMAGE.ICON_SETTINGS;
             }
-
-            // You can return any component that you like here!
             return <Image source={iconName} style={{width: 20, height: 20}}
             resizeMode="contain"/>;
           },
@@ -132,17 +117,9 @@ function TabNavigator() {
           inactiveTintColor: 'black',
         }}
       >
-<<<<<<< HEAD
         <Tab.Screen name="Home" component={HomeStack} />
         <Tab.Screen name="Task" component={TaskStack} />
       </Tab.Navigator>
-=======
-        <Tab.Screen name="Add plant" component={PlantAddStack} />
-        <Tab.Screen name="Search" component={TodoComponent} />
-        <Tab.Screen name="Tasks" component={TodoComponent} />
-        <Tab.Screen name="Home" component={HomeStack} />
-        </Tab.Navigator>
->>>>>>> f216c21b3f1e20f1a226de4b0de26fe7b6108151
   )
 }
 
