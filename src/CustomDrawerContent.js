@@ -31,17 +31,12 @@ export class CustomDrawerContent extends Component {
                 <Text style={{color: 'black'}}>Settings</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
-                style={{marginTop: 40, marginLeft: 10}}
-                onPress={() => this.props.navigation.navigate('Main')} //ändra så att den navigeras rätt
-                >
-                <Text style={{color: 'black'}}>Chat</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
                 style={{marginTop: 100, marginLeft: 10}}
                 onPress={() => signout(onSignedOut)}
                 >
                 <Text style={{color: 'black'}}>Sign out</Text>
                 </TouchableOpacity>
+
             </ScrollView>
 
 
@@ -49,3 +44,9 @@ export class CustomDrawerContent extends Component {
         )
     }
 }
+// <TouchableOpacity
+// style={{marginTop: 40, marginLeft: 10}}
+// onPress={() => this.props.navigation.navigate('Main')} //ändra så att den navigeras rätt
+// >
+// <Text style={{color: 'black'}}>Chat</Text>
+// </TouchableOpacity>
