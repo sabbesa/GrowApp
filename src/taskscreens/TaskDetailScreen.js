@@ -71,22 +71,22 @@ class TaskDetailScreen extends Component {
           />
         </View>
         <Image style={styles.image} source={task.image && { uri: task.image }} />
-        <Text style={styles.headerText}>{task.name}</Text>
-        <Text style={styles.categoryText}>Category: {task.category}</Text>
+        <Text style={styles.headerText}>{task.title}</Text>
+        <Text style={styles.dateText}>Finish date: {task.date}</Text>
 
-        <Text style={styles.ingredientText}>Keywords: </Text>
+        <Text style={styles.descriptionText}>Tasks: </Text>
         {
-          task.keywords === undefined || task.keywords.length == 0 ?
+          task.descriptions === undefined || task.descriptions.length == 0 ?
             <Text>None</Text> : <FlatList
           horizontal={true}
-            data={task.keywords}
+            data={task.descriptions}
             contentContainerStyle={styles.listContainer}
               ItemSeparatorComponent={() =>
                 <Divider style={{ backgroundColor: 'black' }} />}
               scrollEnabled={false}
               keyExtractor={(item, index) => index.toString()}
               renderItem={({ item }) =>
-                <Text style={styles.ingredientItemText}>{item}</Text>
+                <Text style={styles.descriptionItemText}>{item}</Text>
               }
             />
         }
@@ -122,14 +122,14 @@ const styles = StyleSheet.create({
     paddingLeft: 16,
     paddingRight: 16
   },
-  categoryText: {
+  dateText: {
     fontSize: 20,
     marginBottom: 32,
     color: 'black',
     //fontFamily:'monospace',
     alignSelf: 'center'
   },
-  ingredientText: {
+  descriptionText: {
     fontStyle: 'italic',
     //fontFamily:'monospace',
     fontSize: 18,
@@ -137,7 +137,7 @@ const styles = StyleSheet.create({
     color: 'black',
     alignSelf: 'center'
   },
-  ingredientItemText: {
+  descriptionItemText: {
     fontSize: 16,
     alignSelf: 'center',
     marginBottom: 16,

@@ -12,11 +12,11 @@ export default class TaskFormScreen extends Component {
 
   state = {
     task: {
-      name: '',
-      category: '',
-      keywords: [],
+      title: '',
+      date: '',
+      description: [],
     },
-    currentKeyword: null,
+    currentDescription: null,
   }
 
   componentDidMount() {
@@ -32,18 +32,18 @@ export default class TaskFormScreen extends Component {
     this.props.navigation.popToTop();
   }
 
-  setCurrentKeyword = (text) => {
+  setCurrentDescription = (text) => {
     this.setState(prevState => ({
-      currentKeyword: prevState.currentKeyword = text
+      currentDescription: prevState.currentDescription = text
     }));
   }
 
-  submitKeywords = () => {
-    let keyword = this.state.currentKeyword;
+  submitDescriptions = () => {
+    let description = this.state.currentDescription;
 
-    if (keyword && keyword.length > 2) {
+    if (description && description.length > 2) {
       this.setState(prevState => ({
-        task: { ...prevState.task, keywords: [...prevState.task.keywords, keyword] },
+        task: { ...prevState.task, descriptions: [...prevState.task.descriptions, description] },
       }))
     }
   }
@@ -51,8 +51,8 @@ export default class TaskFormScreen extends Component {
   render() {
     return (
       <TaskForm
-        setKeywords={this.setCurrentKeyword}
-        submitKeywords={this.submitKeywords}
+        setDescriptions={this.setCurrentDescription}
+        submitDescriptions={this.submitDescriptions}
         task={this.state.task}
         onTaskAdded={this.props.route.params.taskAddedCallback}
         onTaskUpdated={this.onTaskUpdated}

@@ -22,6 +22,7 @@
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* GrowAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* GrowAppTests.m */; };
 		3414CBF72451ABCB006F73B2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3414CBF62451ABCB006F73B2 /* GoogleService-Info.plist */; };
+		3489C24A247BF03E00CB800A /* Monospace.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3489C249247BF03E00CB800A /* Monospace.ttf */; };
 		36E54E8840294581A4218D6B /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 807C75C9A5E340D8BF715DFD /* Entypo.ttf */; };
 		3A845AEB880BAC0D217D58E5 /* libPods-GrowApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96FC502809C9178CF3284883 /* libPods-GrowApp.a */; };
 		48E4EA24F03B4333BA04853D /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AA30D9D7BDF54522A1B033F7 /* Feather.ttf */; };
@@ -75,6 +76,7 @@
 		2D02E4901E0B4A5D006451C7 /* GrowApp-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "GrowApp-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D2270233EC042C8920976C0 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
 		3414CBF62451ABCB006F73B2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3489C249247BF03E00CB800A /* Monospace.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Monospace.ttf; sourceTree = "<group>"; };
 		36FEE19A083F65301C3C210E /* Pods-GrowApp-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrowApp-tvOS.release.xcconfig"; path = "Target Support Files/Pods-GrowApp-tvOS/Pods-GrowApp-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		40101D8A69ED42A59ECA1F01 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		46CF2DC986E456CB4AEC72B5 /* Pods-GrowApp-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrowApp-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-GrowApp-tvOS/Pods-GrowApp-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				3489C249247BF03E00CB800A /* Monospace.ttf */,
 				3414CBF62451ABCB006F73B2 /* GoogleService-Info.plist */,
 				13B07FAE1A68108700A75B9A /* GrowApp */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
@@ -402,6 +405,7 @@
 				B0EB36A504694FB292DB41C1 /* AntDesign.ttf in Resources */,
 				36E54E8840294581A4218D6B /* Entypo.ttf in Resources */,
 				274227F5D4704585822CC35A /* EvilIcons.ttf in Resources */,
+				3489C24A247BF03E00CB800A /* Monospace.ttf in Resources */,
 				48E4EA24F03B4333BA04853D /* Feather.ttf in Resources */,
 				0B00E5FF96E643A29EB23C1C /* FontAwesome.ttf in Resources */,
 				D049044110894DD58A515D68 /* FontAwesome5_Brands.ttf in Resources */,

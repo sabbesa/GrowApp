@@ -69,21 +69,21 @@ class PlantDetailScreen extends Component {
         </View>
         <Image style={styles.image} source={plant.image && { uri: plant.image }} />
         <Text style={styles.headerText}>{plant.name}</Text>
-        <Text style={styles.categoryText}>Category: {plant.category}</Text>
+        <Text style={styles.speciesText}>Category: {plant.species}</Text>
 
-        <Text style={styles.ingredientText}>Keywords: </Text>
+        <Text style={styles.descriptionText}>Information: </Text>
         {
-          plant.keywords === undefined || plant.keywords.length == 0 ?
+          plant.informations === undefined || plant.informations.length == 0 ?
             <Text style = {{alignSelf:'center'}}>None</Text> : <FlatList
           horizontal={true}
-            data={plant.keywords}
+            data={plant.informations}
             contentContainerStyle={styles.listContainer}
               ItemSeparatorComponent={() =>
                 <Divider style={{ backgroundColor: 'black' }} />}
               scrollEnabled={false}
               keyExtractor={(item, index) => index.toString()}
               renderItem={({ item }) =>
-                <Text style={styles.ingredientItemText}>{item}</Text>
+                <Text style={styles.descriptionItemText}>{item}</Text>
               }
             />
         }
@@ -120,14 +120,14 @@ const styles = StyleSheet.create({
     paddingLeft: 16,
     paddingRight: 16
   },
-  categoryText: {
+  speciesText: {
     fontSize: 20,
     //fontFamily:'monospace',
     marginBottom: 32,
     alignSelf: 'center',
     color: 'black'
   },
-  ingredientText: {
+  descriptionText: {
     //fontFamily:'monospace',
     fontStyle: 'italic',
     alignSelf: 'center',
@@ -135,7 +135,7 @@ const styles = StyleSheet.create({
     marginBottom: 32,
     color: 'black'
   },
-  ingredientItemText: {
+  descriptionItemText: {
     fontSize: 16,
     alignSelf: 'center',
     marginBottom: 16,

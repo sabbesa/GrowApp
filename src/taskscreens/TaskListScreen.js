@@ -94,8 +94,8 @@ class TaskList extends Component {
 
               <ListItem
                 containerStyle={styles.listItem}
-                title={item.name}
-                subtitle={`Category: ${item.category}`}
+                title={item.title}
+                subtitle={`Finish date: ${item.date}`}
                 titleStyle={styles.titleStyle}
                 subtitleStyle={styles.subtitleStyle}
                 leftAvatar={{
