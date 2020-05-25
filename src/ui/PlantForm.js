@@ -40,27 +40,27 @@ const PlantForm = (props) => {
       />
       <Text style={styles.validationText}> {props.errors.name}</Text>
       <TextInput
-        value={props.values.category}
+        value={props.values.species}
         style={styles.longFormInput}
-        placeholder='Category'
-        onChangeText={text => { props.setFieldValue('category', text) }}
+        placeholder='Species'
+        onChangeText={text => { props.setFieldValue('species', text) }}
       />
-      <Text style={styles.validationText}> {props.errors.category}</Text>
+      <Text style={styles.validationText}> {props.errors.species}</Text>
       <View style={styles.row}>
         <TextInput
           style={styles.formInput}
-          onChangeText={text => { props.setKeywords(text) }}
-          placeholder='Keywords'
+          onChangeText={text => { props.setInformations(text) }}
+          placeholder='Information'
         />
 
         <Button
           color="#b0dec4"
           title="add"
-          onPress={() => { props.submitKeywords() }}/>
+          onPress={() => { props.submitInformations() }}/>
 
       </View>
       <GridList
-        items={props.plant.keywords} />
+        items={props.plant.informations} />
         <View style={styles.button}>
       <Button
         color="#b0dec4"
@@ -151,18 +151,18 @@ button:{
 export default withFormik({
   mapPropsToValues: ({ plant }) => ({
     name: plant.name,
-    category: plant.category,
+    species: plant.species,
     imageUri: null
   }),
   enableReinitialize: true,
   validationSchema: (props) => yup.object().shape({
     name: yup.string().max(30).required(),
-    category: yup.string().max(15).required()
+    species: yup.string().max(15).required()
   }),
   handleSubmit: (values, { props }) => {
     console.log(props);
 
-    values.keywords = props.plant.keywords;
+    values.informations = props.plant.informations;
 
     console.log(values);
 

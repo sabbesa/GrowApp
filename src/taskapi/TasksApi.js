@@ -15,9 +15,9 @@ export function signup({ email, password, displayName }) {
       console.log(userInfo)
       userInfo.user.updateProfile({ displayName: displayName.trim() })
         .then(() => { })
-        .then(() => {
+        //.then(() => {
       //  return this.props.firebase.doSendEmailVerification();
-      })
+    //  })
     })
 }
 

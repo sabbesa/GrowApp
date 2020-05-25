@@ -45,7 +45,7 @@ class PlantDetailScreen extends Component {
             onPress={() =>
               Alert.alert(
                 'Delete?',
-                'Cannot be undone',
+                'Can not be undone',
                 [
                   { text: 'Cancel' },
                   { text: 'OK', onPress: () => { deletePlant(plant, onPlantDeleted) } }
@@ -127,8 +127,6 @@ const styles = StyleSheet.create({
     borderWidth: 0.5,
     width: 200,
     borderColor: 'grey',
-
-
   }
 });
 

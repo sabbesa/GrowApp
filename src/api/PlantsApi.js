@@ -147,7 +147,7 @@ export function uploadPlant(plant, onPlantUploaded, { updating }) {
 export function addPlant(plant, addComplete) {
   plant.createdAt = firebase.firestore.FieldValue.serverTimestamp();
   const userId = firebase.auth().currentUser.uid;
-  
+
   firebase.firestore()
     .collection('Plants')
     .add(plant)
