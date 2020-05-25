@@ -99,7 +99,7 @@ class TaskDetailScreen extends Component {
 const styles = StyleSheet.create({
   headerText: {
     fontSize: 32,
-    fontFamily:'monospace',
+    //fontFamily:'monospace',
     marginBottom: 32,
     color: 'black',
     alignSelf: 'center'
@@ -126,12 +126,12 @@ const styles = StyleSheet.create({
     fontSize: 20,
     marginBottom: 32,
     color: 'black',
-    fontFamily:'monospace',
+    //fontFamily:'monospace',
     alignSelf: 'center'
   },
   ingredientText: {
     fontStyle: 'italic',
-    fontFamily:'monospace',
+    //fontFamily:'monospace',
     fontSize: 18,
     marginBottom: 32,
     color: 'black',

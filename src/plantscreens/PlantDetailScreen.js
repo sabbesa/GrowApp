@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
   headerText: {
     alignSelf: 'center',
     fontSize: 32,
-    fontFamily:'monospace',
+    //fontFamily:'monospace',
     marginBottom: 32,
     color: 'black'
   },
@@ -122,13 +122,13 @@ const styles = StyleSheet.create({
   },
   categoryText: {
     fontSize: 20,
-    fontFamily:'monospace',
+    //fontFamily:'monospace',
     marginBottom: 32,
     alignSelf: 'center',
     color: 'black'
   },
   ingredientText: {
-  fontFamily:'monospace',
+    //fontFamily:'monospace',
     fontStyle: 'italic',
     alignSelf: 'center',
     fontSize: 18,

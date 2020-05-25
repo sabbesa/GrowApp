@@ -137,7 +137,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
     position: 'relative',
     marginBottom: 25,
-    fontFamily: 'monospace'
+    //fontFamily: 'monospace'
   },
   camerabutton:{
     height: 50,

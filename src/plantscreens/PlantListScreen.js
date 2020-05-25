@@ -141,6 +141,7 @@ const styles = StyleSheet.create({
   },
   HeaderText:{
     fontSize: 30,
+    //fontFamily:'monospace' ,
     fontWeight: 'bold',
     color: 'black'
   },
@@ -153,16 +154,16 @@ const styles = StyleSheet.create({
   titleStyle: {
     fontSize: 25,
     color: 'black',
-    fontFamily:'monospace'
+    //fontFamily:'monospace'
   },
   subtitleStyle: {
     fontSize: 15,
     color: 'black',
-    fontFamily:'monospace'
+    //fontFamily:'monospace'
   },
   emptyTitle: {
     fontSize: 32,
-    fontFamily:'monospace' ,
+    //fontFamily:'monospace' ,
     color: 'black',
     marginBottom: 16,
     alignSelf: 'center',
@@ -171,7 +172,7 @@ const styles = StyleSheet.create({
   },
   emptySubtitle: {
     fontSize: 18,
-    fontFamily:'monospace' ,
+    //fontFamily:'monospace' ,
     fontStyle: 'italic',
     color: 'black',
     alignItems: 'center',
