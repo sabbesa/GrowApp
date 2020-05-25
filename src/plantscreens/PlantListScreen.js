@@ -6,10 +6,12 @@ import {
   SafeAreaView,
   Text,
   View,
+  ImageBackground
 } from 'react-native';
 import { getPlants, signout, userId } from '../api/PlantsApi';
 import { ListItem, Divider } from 'react-native-elements';
 import ActionButton from 'react-native-action-button';
+import Bluefade from '../images/Bluefade.png'
 
 class PlantList extends Component {
   static navigationOptions = ({ navigation }) => {
@@ -64,7 +66,10 @@ class PlantList extends Component {
 
   showActionButton = () =>
     <ActionButton
-      buttonColor="#b0dec4"
+    buttonColor="white"
+    renderIcon={active => (
+      <Text style={{ color: "black", fontSize: 55, position: 'relative', bottom:3  }}>+</Text>
+      )}
       onPress={() => this.props.navigation.navigate('PlantForm', { plantAddedCallback: this.onPlantAdded })}
     />
 
@@ -72,6 +77,7 @@ class PlantList extends Component {
     return this.state.plantList.length > 0 ?
 
       <SafeAreaView style={styles.container}>
+            <ImageBackground source={Bluefade} style={styles.backgroundContainer}>
         <FlatList
           data={this.state.plantList}
           ItemSeparatorComponent={() => <Divider style={{ backgroundColor: 'black' }} />}
@@ -101,6 +107,7 @@ class PlantList extends Component {
           }
         />
         {this.showActionButton()}
+              </ImageBackground>
       </SafeAreaView> :
 
 
@@ -115,10 +122,14 @@ class PlantList extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 50,
+    marginTop: 20,
     flex: 1,
     backgroundColor: '#f0fbf7'
   },
+  backgroundContainer: {
+        width:'100%',
+        height:'100%',
+      },
   listItem: {
     marginTop: 8,
     marginBottom: 8
@@ -129,18 +140,27 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   titleStyle: {
-    fontSize: 30
+    fontSize: 25,
+    color: 'black',
+    fontFamily:'monospace'
   },
   subtitleStyle: {
-    fontSize: 18
+    fontSize: 15,
+    color: 'black',
+    fontFamily:'monospace'
   },
   emptyTitle: {
     fontSize: 32,
-    marginBottom: 16
+    marginBottom: 16,
+    fontFamily:'monospace'
   },
   emptySubtitle: {
     fontSize: 18,
-    fontStyle: 'italic'
+    fontStyle: 'italic',
+    fontFamily:'monospace'
+
+
+
   }
 });
 
