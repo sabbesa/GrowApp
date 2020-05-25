@@ -25,13 +25,13 @@ export class CustomDrawerContent extends Component {
             </View>
             <ScrollView style={{marginLeft: 5}}>
                 <TouchableOpacity
-                style={{marginTop: 20, marginLeft: 10}}
+                style={{fontWeight: 'bold', marginTop: 20, marginLeft: 10}}
                 onPress={() => this.props.navigation.navigate('MenuTab')}
                 >
                 <Text style={{color: 'black'}}>Settings</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
-                style={{marginTop: 100, marginLeft: 10}}
+                style={{marginTop: 250, marginLeft: 10}}
                 onPress={() => signout(onSignedOut)}
                 >
                 <Text style={{color: 'black'}}>Sign out</Text>

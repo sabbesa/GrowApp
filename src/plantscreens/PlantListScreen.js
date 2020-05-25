@@ -4,6 +4,8 @@ import {
   Button,
   FlatList,
   SafeAreaView,
+  TouchableOpacity,
+  Image,
   Text,
   View,
   ImageBackground
@@ -78,6 +80,13 @@ class PlantList extends Component {
 
       <SafeAreaView style={styles.container}>
             <ImageBackground source={Bluefade} style={styles.backgroundContainer}>
+            <View style={styles.button}>
+              <TouchableOpacity onPress={() => this.props.navigation.navigate('MenuTab')}>
+
+                <Image source={require('../images/menu.png')} style = {styles.menubutton} />
+
+              </TouchableOpacity>
+            </View>
             <View>
             <Text style={styles.HeaderText}> My Plants </Text>
             </View>
@@ -155,6 +164,12 @@ const styles = StyleSheet.create({
     fontSize: 25,
     color: 'black',
     //fontFamily:'monospace'
+  },
+  menubutton:{
+    marginTop: 5,
+    marginLeft: 15,
+    height: 30,
+    width: 30,
   },
   subtitleStyle: {
     fontSize: 15,
