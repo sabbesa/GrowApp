@@ -40,7 +40,9 @@ export function handleReset(navigation) {
 
 export function updatePlant(plant, updateComplete) {
   plant.updatedAt = firebase.firestore.FieldValue.serverTimestamp();
+  plant.userid = firebase.auth().currentUser.uid;
   console.log("Updating plant in firebase");
+
 
   firebase.firestore()
     .collection('Plants')

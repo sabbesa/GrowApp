@@ -14,7 +14,7 @@ export default class TaskFormScreen extends Component {
     task: {
       title: '',
       date: '',
-      description: [],
+      descriptions: [],
     },
     currentDescription: null,
   }

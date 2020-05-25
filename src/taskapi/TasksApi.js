@@ -40,6 +40,7 @@ export function handleReset(navigation) {
 
 export function updateTask(task, updateComplete) {
   task.updatedAt = firebase.firestore.FieldValue.serverTimestamp();
+  plant.userid = firebase.auth().currentUser.uid;
   console.log("Updating task in firebase");
 
   firebase.firestore()
