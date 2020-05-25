@@ -98,15 +98,11 @@ function TabNavigator() {
               IMAGE.ICON_SETTINGS_BLACK
               : IMAGE.ICON_SETTINGS;
             }
-            else if (route.name === 'Add plant') {
+            else if (route.name === 'Chat') {
               iconName = focused ?
               IMAGE.ICON_SETTINGS_BLACK
               : IMAGE.ICON_SETTINGS;
-            }
-            else if (route.name === 'Search') {
-              iconName = focused ?
-              IMAGE.ICON_SETTINGS_BLACK
-              : IMAGE.ICON_SETTINGS;
+
             }
             return <Image source={iconName} style={{width: 20, height: 20}}
             resizeMode="contain"/>;
@@ -119,6 +115,7 @@ function TabNavigator() {
       >
         <Tab.Screen name="Home" component={HomeStack} />
         <Tab.Screen name="Task" component={TaskStack} />
+        <Tab.Screen name="Chat" component={Main}/>
       </Tab.Navigator>
   )
 }
