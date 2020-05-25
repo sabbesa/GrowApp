@@ -143,13 +143,13 @@ const styles = StyleSheet.create({
     borderWidth: 0.5,
     width: 200,
     borderColor: 'grey',
-<<<<<<< HEAD
-=======
-
-
-
-
->>>>>>> 5e354655c97bc42588950a85b8b693a739751941
+// <<<<<<< HEAD
+// =======
+//
+//
+//
+//
+// >>>>>>> 5e354655c97bc42588950a85b8b693a739751941
   }
 });
 
