@@ -143,8 +143,7 @@ const styles = StyleSheet.create({
   },
   backgroundContainer: {
         width: '100%',
-        height: '100%',
-        alignItems: 'center'
+        height: '100%'
   },
   listItem: {
     marginTop: 8,
@@ -191,7 +190,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     position: 'relative',
     top: 230,
-    padding: 50
+    padding: 15
 
   }
 });
