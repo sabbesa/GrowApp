@@ -100,8 +100,8 @@ function TabNavigator() {
             }
             else if (route.name === 'Chat') {
               iconName = focused ?
-              IMAGE.ICON_SETTINGS_BLACK
-              : IMAGE.ICON_SETTINGS;
+              IMAGE.ICON_CHAT_BLACK
+              : IMAGE.ICON_CHAT;
 
             }
             return <Image source={iconName} style={{width: 20, height: 20}}
