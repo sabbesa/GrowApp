@@ -4,6 +4,7 @@ import {
   Text,
   FlatList,
   StyleSheet,
+  TouchableOpacity,
   Alert,
   Image,
   ImageBackground
@@ -31,6 +32,13 @@ class PlantDetailScreen extends Component {
       <View style={styles.container}>
       <ImageBackground source={Bluefade} style={styles.backgroundContainer}>
         <View style={styles.row}>
+        <View style={styles.button}>
+          <TouchableOpacity onPress={() => this.props.navigation.goBack(null)}>
+
+            <Image source={require('../images/back.png')} style = {styles.backbutton} />
+
+          </TouchableOpacity>
+        </View>
           <Icon
             reverse
             name='ios-create'
@@ -143,6 +151,12 @@ const styles = StyleSheet.create({
     borderWidth: 0.5,
     width: 200,
     borderColor: 'grey',
+  },
+  backbutton:{
+    marginTop: 20,
+    height: 30,
+    width: 30,
+
 // <<<<<<< HEAD
 // =======
 //
