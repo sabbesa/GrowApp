@@ -4,6 +4,7 @@ import {
   Text,
   FlatList,
   StyleSheet,
+  Button,
   Alert,
   Image,
   ImageBackground
@@ -11,6 +12,8 @@ import {
 import { Divider, Icon } from 'react-native-elements';
 import { deleteTask } from '../taskapi/TasksApi'
 import BackgroundGreenWhite from '../images/BackgroundGreenWhite.png'
+import { StackNavigator } from "react-navigation";
+
 
 class TaskDetailScreen extends Component {
 
@@ -30,6 +33,7 @@ class TaskDetailScreen extends Component {
       <View style={styles.container}>
                 <ImageBackground source={BackgroundGreenWhite} style={styles.backgroundContainer}>
         <View style={styles.row}>
+        <Button title="Go back" onPress={() => this.props.navigation.goBack(null)} />
           <Icon
             reverse
             name='ios-create'
