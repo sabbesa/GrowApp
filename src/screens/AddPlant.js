@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
+
 import {
 	View,
   Button,
@@ -8,7 +9,9 @@ import {
 	TouchableHighlight,
 	StyleSheet,
 	TextInput,
-	Alert
+	Alert,
+	ImageBackground,
+	Image
 } from 'react-native';
 
 import { db } from '../config';
@@ -37,6 +40,7 @@ export default class AddPlant extends Component {
 	render() {
 		return (
 			<View style={styles.main}>
+			
 				<Text style={styles.title}>Add Plant</Text>
 				<TextInput style={styles.itemInput} onChange={this.handleChange} />
 				<TouchableHighlight
@@ -51,6 +55,7 @@ export default class AddPlant extends Component {
 					title="Go back"
 					onPress={() => this.props.navigation.navigate('AddPlant')}
 				/>
+				</ImageBackground>
 			</View>
 		);
 	}

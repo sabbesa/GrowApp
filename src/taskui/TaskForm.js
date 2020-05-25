@@ -19,6 +19,7 @@ import BackgroundGreenWhite from '../images/BackgroundGreenWhite.png'
 import Camera from '../images/cameralogo.png'
 import AddSymbol from '../images/Add.png'
 
+
 const TaskForm = (props) => {
 
   setTaskImage = (image) => {
@@ -28,6 +29,7 @@ const TaskForm = (props) => {
   return (
   //  <ImageBackground source={BackgroundGreenWhite} style={styles.backgroundContainer}>
     <KeyboardAwareScrollView>
+    <ImageBackground source={BackgroundGreenWhite} style={styles.backgroundContainer}>
     <View style={styles.backgroundContainer}>
     <View style={styles.container}>
     <Text style={styles.headlines}>Add Task</Text>
@@ -54,7 +56,7 @@ const TaskForm = (props) => {
         />
 
         <Button
-          color="#b0dec4"
+          color="#17a589"
           title="add"
           onPress={() => { props.submitKeywords() }}/>
 
@@ -63,13 +65,14 @@ const TaskForm = (props) => {
         items={props.task.keywords} />
         <View style={styles.button}>
       <Button
-        color="#b0dec4"
+        color="#17a589"
         title='Submit'
         onPress={() => props.handleSubmit()}
       />
       </View>
     </View>
     </View>
+    </ImageBackground>
     </KeyboardAwareScrollView>
   //  </ImageBackground>
   );
@@ -82,7 +85,7 @@ const styles = StyleSheet.create({
     height: null,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor:'#d9f7e6'
+
 
   },
   row: {
@@ -101,7 +104,7 @@ const styles = StyleSheet.create({
 
   },
   formInput: {
-    borderColor: 'darkgrey',
+    borderColor: 'black',
     borderWidth: 1,
     borderRadius: 20,
     borderStyle: 'dashed',
@@ -120,7 +123,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 50,
     color: 'black',
-    borderColor: 'darkgrey',
+    borderColor: 'black',
     borderWidth: 1,
     borderStyle: 'dashed',
     borderRadius: 20,
@@ -133,7 +136,9 @@ const styles = StyleSheet.create({
     height: 50,
     fontSize: 30,
     position: 'relative',
-    marginBottom: 25
+    marginBottom: 25,
+    fontStyle: 'bold',
+    fontFamily: 'monospace'
   },
   camerabutton:{
     height: 50,

@@ -80,7 +80,7 @@ class PlantList extends Component {
             <ImageBackground source={Bluefade} style={styles.backgroundContainer}>
         <FlatList
           data={this.state.plantList}
-          ItemSeparatorComponent={() => <Divider style={{ backgroundColor: 'black' }} />}
+          ItemSeparatorComponent={() => <Divider style={{ backgroundColor: 'black', height: 1 }} />}
           keyExtractor={(item, index) => index.toString()}
           renderItem={({ item, index }) => {
             return (
@@ -112,9 +112,11 @@ class PlantList extends Component {
 
 
       <View style={styles.textContainer}>
+                  <ImageBackground source={Bluefade} style={styles.backgroundContainer}>
         <Text style={styles.emptyTitle}>No Plants found</Text>
         <Text style={styles.emptySubtitle}>Add a new plant using the + button below</Text>
         {this.showActionButton()}
+                      </ImageBackground>
       </View>
 
   }
@@ -151,16 +153,22 @@ const styles = StyleSheet.create({
   },
   emptyTitle: {
     fontSize: 32,
+    fontFamily:'monospace' ,
+    color: 'black',
     marginBottom: 16,
-    fontFamily:'monospace'
+    alignSelf: 'center',
+    position: 'relative',
+    top: 200
   },
   emptySubtitle: {
     fontSize: 18,
+    fontFamily:'monospace' ,
     fontStyle: 'italic',
-    fontFamily:'monospace'
-
-
-
+    color: 'black',
+    alignItems: 'center',
+    position: 'relative',
+    top: 230,
+    padding: 15
   }
 });
 

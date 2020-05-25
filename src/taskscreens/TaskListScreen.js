@@ -82,6 +82,9 @@ class TaskList extends Component {
 
       <SafeAreaView style={styles.container}>
           <ImageBackground source={BackgroundGreenWhite} style={styles.backgroundContainer}>
+          <View>
+          <Text style={styles.HeaderText}> Tasks </Text>
+          </View>
         <FlatList
           data={this.state.taskList}
           ItemSeparatorComponent={() => <Divider style={{ backgroundColor: 'black' }} />}
@@ -120,9 +123,11 @@ class TaskList extends Component {
 
 
       <View style={styles.textContainer}>
+      <ImageBackground source={BackgroundGreenWhite} style={styles.backgroundContainer}>
         <Text style={styles.emptyTitle}>No Tasks found</Text>
         <Text style={styles.emptySubtitle}>Add a new task using the + button below</Text>
         {this.showActionButton()}
+      </ImageBackground>
       </View>
 
 
@@ -144,28 +149,47 @@ const styles = StyleSheet.create({
     marginTop: 8,
     marginBottom: 8
   },
+  HeaderText:{
+    fontSize: 30,
+    color: 'black'
+  },
   textContainer: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
+    alignSelf: 'center',
+
   },
   titleStyle: {
     fontSize: 25,
     fontFamily:'monospace' ,
-    color:'black'
+    color:'black',
+    alignItems: 'center'
   },
   subtitleStyle: {
     fontSize: 15,
-        fontFamily:'monospace' ,
-    color: 'black'
+    fontFamily:'monospace' ,
+    color: 'black',
+    alignItems: 'center'
   },
   emptyTitle: {
     fontSize: 32,
-    marginBottom: 16
+    fontFamily:'monospace' ,
+    color: 'black',
+    marginBottom: 16,
+    alignSelf: 'center',
+    position: 'relative',
+    top: 200
   },
   emptySubtitle: {
     fontSize: 18,
-    fontStyle: 'italic'
+    fontFamily:'monospace' ,
+    color: 'black',
+    fontStyle: 'italic',
+    alignItems: 'center',
+    position: 'relative',
+    top: 230,
+    padding: 15
+
   }
 });
 
