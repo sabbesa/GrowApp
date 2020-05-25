@@ -5,8 +5,8 @@ import {
   TextInput,
   Text,
   Button,
-  ImageBackground,
   TouchableOpacity,
+  ImageBackground,
   Image
 } from 'react-native';
 import GridList from '../ui/GridList';
@@ -15,7 +15,7 @@ import * as yup from 'yup';
 import { addPlant, updatePlant, uploadPlant } from '../api/PlantsApi';
 import GrowImagePicker from '../ui/GrowImagePicker';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
-import BackgroundGreenWhite from '../images/BackgroundGreenWhite.png'
+import Bluefade from '../images/Bluefade.png'
 import Camera from '../images/cameralogo.png'
 import AddSymbol from '../images/Add.png'
 
@@ -28,6 +28,7 @@ const PlantForm = (props) => {
   return (
   //  <ImageBackground source={BackgroundGreenWhite} style={styles.backgroundContainer}>
     <KeyboardAwareScrollView>
+    <ImageBackground source={Bluefade} style={styles.backgroundContainer}>
     <View style={styles.backgroundContainer}>
     <View style={styles.container}>
     <Text style={styles.headlines}>Add Plant</Text>
@@ -54,7 +55,7 @@ const PlantForm = (props) => {
         />
 
         <Button
-          color="#b0dec4"
+          color="#2471a3"
           title="add"
           onPress={() => { props.submitInformations() }}/>
 
@@ -63,13 +64,14 @@ const PlantForm = (props) => {
         items={props.plant.informations} />
         <View style={styles.button}>
       <Button
-        color="#b0dec4"
+        color= "#2471a3"
         title='Submit'
         onPress={() => props.handleSubmit()}
       />
       </View>
     </View>
     </View>
+    </ImageBackground>
     </KeyboardAwareScrollView>
   //  </ImageBackground>
   );
@@ -82,7 +84,7 @@ const styles = StyleSheet.create({
     height: null,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor:'#d9f7e6'
+
 
   },
   row: {
@@ -101,7 +103,7 @@ const styles = StyleSheet.create({
 
   },
   formInput: {
-    borderColor: 'darkgrey',
+    borderColor: 'black',
     borderWidth: 1,
     borderRadius: 20,
     borderStyle: 'dashed',
@@ -120,7 +122,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 50,
     color: 'black',
-    borderColor: 'darkgrey',
+    borderColor: 'black',
     borderWidth: 1,
     borderStyle: 'dashed',
     borderRadius: 20,

@@ -5,10 +5,12 @@ import {
   FlatList,
   StyleSheet,
   Alert,
-  Image
+  Image,
+  ImageBackground
 } from 'react-native';
 import { Divider, Icon } from 'react-native-elements';
 import { deletePlant } from '../api/PlantsApi'
+import Bluefade from '../images/Bluefade.png'
 
 class PlantDetailScreen extends Component {
 
@@ -25,7 +27,9 @@ class PlantDetailScreen extends Component {
 
     console.log(plant);
     return (
+
       <View style={styles.container}>
+      <ImageBackground source={Bluefade} style={styles.backgroundContainer}>
         <View style={styles.row}>
           <Icon
             reverse
@@ -62,7 +66,7 @@ class PlantDetailScreen extends Component {
         <Text style={styles.ingredientText}>Keywords: </Text>
         {
           plant.keywords === undefined || plant.keywords.length == 0 ?
-            <Text>None</Text> : <FlatList
+            <Text style = {{alignSelf:'center'}}>None</Text> : <FlatList
           horizontal={true}
             data={plant.keywords}
             contentContainerStyle={styles.listContainer}
@@ -75,17 +79,25 @@ class PlantDetailScreen extends Component {
               }
             />
         }
+        </ImageBackground>
       </View >
+
     );
   }
 }
 
 const styles = StyleSheet.create({
   headerText: {
+    alignSelf: 'center',
     fontSize: 32,
+    fontFamily:'monospace',
     marginBottom: 32,
     color: 'black'
   },
+  backgroundContainer: {
+        width:'100%',
+        height:'100%',
+      },
   image: {
     width: '100%',
     aspectRatio: 2,
@@ -102,11 +114,15 @@ const styles = StyleSheet.create({
   },
   categoryText: {
     fontSize: 20,
+    fontFamily:'monospace',
     marginBottom: 32,
+    alignSelf: 'center',
     color: 'black'
   },
   ingredientText: {
+  fontFamily:'monospace',
     fontStyle: 'italic',
+    alignSelf: 'center',
     fontSize: 18,
     marginBottom: 32,
     color: 'black'
@@ -127,6 +143,13 @@ const styles = StyleSheet.create({
     borderWidth: 0.5,
     width: 200,
     borderColor: 'grey',
+<<<<<<< HEAD
+=======
+
+
+
+
+>>>>>>> 5e354655c97bc42588950a85b8b693a739751941
   }
 });
 

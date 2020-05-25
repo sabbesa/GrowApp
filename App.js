@@ -91,8 +91,8 @@ function TabNavigator() {
             let iconName;
             if (route.name === 'Home') {
               iconName = focused
-                ? IMAGE.ICON_HOME
-                : IMAGE.ICON_HOME_BLACK;
+                ? IMAGE.ICON_HOME_BLACK
+                : IMAGE.ICON_HOME;
             } else if (route.name === 'Task') {
               iconName = focused ?
               IMAGE.ICON_SETTINGS_BLACK

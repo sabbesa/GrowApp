@@ -6,10 +6,14 @@ import {
   SafeAreaView,
   Text,
   View,
+  ImageBackground,
+  Image
+
 } from 'react-native';
 import { getTasks, signout, userId } from '../taskapi/TasksApi';
 import { ListItem, Divider } from 'react-native-elements';
 import ActionButton from 'react-native-action-button';
+import BackgroundGreenWhite from '../images/BackgroundGreenWhite.png'
 
 class TaskList extends Component {
   static navigationOptions = ({ navigation }) => {
@@ -64,20 +68,30 @@ class TaskList extends Component {
 
   showActionButton = () =>
     <ActionButton
-      buttonColor="#b0dec4"
+      buttonColor="white"
+      renderIcon={active => (
+   <Text style={{ color: "black", fontSize: 55, position: 'relative', bottom:3  }}>+</Text>
+ )}
       onPress={() => this.props.navigation.navigate('TaskForm', { taskAddedCallback: this.onTaskAdded })}
     />
 
   render() {
+
+
     return this.state.taskList.length > 0 ?
 
       <SafeAreaView style={styles.container}>
+          <ImageBackground source={BackgroundGreenWhite} style={styles.backgroundContainer}>
+          <View>
+          <Text style={styles.HeaderText}> Tasks </Text>
+          </View>
         <FlatList
           data={this.state.taskList}
           ItemSeparatorComponent={() => <Divider style={{ backgroundColor: 'black' }} />}
           keyExtractor={(item, index) => index.toString()}
           renderItem={({ item, index }) => {
             return (
+
               <ListItem
                 containerStyle={styles.listItem}
                 title={item.name}
@@ -96,51 +110,86 @@ class TaskList extends Component {
                 }
 
               />
+
             );
           }
           }
         />
         {this.showActionButton()}
-      </SafeAreaView> :
+      </ImageBackground>
+      </SafeAreaView>:
+
+
 
 
       <View style={styles.textContainer}>
+      <ImageBackground source={BackgroundGreenWhite} style={styles.backgroundContainer}>
         <Text style={styles.emptyTitle}>No Tasks found</Text>
         <Text style={styles.emptySubtitle}>Add a new task using the + button below</Text>
         {this.showActionButton()}
+      </ImageBackground>
       </View>
+
 
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 50,
+    marginTop: 20,
     flex: 1,
-    backgroundColor: '#f0fbf7'
+    backgroundColor: 'white',
+
+  },
+  backgroundContainer: {
+        width: '100%',
+        height: '100%'
   },
   listItem: {
     marginTop: 8,
     marginBottom: 8
   },
+  HeaderText:{
+    fontSize: 30,
+    color: 'black'
+  },
   textContainer: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
+    alignSelf: 'center',
+
   },
   titleStyle: {
-    fontSize: 30
+    fontSize: 25,
+    fontFamily:'monospace' ,
+    color:'black',
+    alignItems: 'center'
   },
   subtitleStyle: {
-    fontSize: 18
+    fontSize: 15,
+    fontFamily:'monospace' ,
+    color: 'black',
+    alignItems: 'center'
   },
   emptyTitle: {
     fontSize: 32,
-    marginBottom: 16
+    fontFamily:'monospace' ,
+    color: 'black',
+    marginBottom: 16,
+    alignSelf: 'center',
+    position: 'relative',
+    top: 200
   },
   emptySubtitle: {
     fontSize: 18,
-    fontStyle: 'italic'
+    fontFamily:'monospace' ,
+    color: 'black',
+    fontStyle: 'italic',
+    alignItems: 'center',
+    position: 'relative',
+    top: 230,
+    padding: 15
+
   }
 });
 

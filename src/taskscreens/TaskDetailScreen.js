@@ -4,11 +4,16 @@ import {
   Text,
   FlatList,
   StyleSheet,
+  Button,
   Alert,
-  Image
+  Image,
+  ImageBackground
 } from 'react-native';
 import { Divider, Icon } from 'react-native-elements';
 import { deleteTask } from '../taskapi/TasksApi'
+import BackgroundGreenWhite from '../images/BackgroundGreenWhite.png'
+import { StackNavigator } from "react-navigation";
+
 
 class TaskDetailScreen extends Component {
 
@@ -26,7 +31,9 @@ class TaskDetailScreen extends Component {
     console.log(task);
     return (
       <View style={styles.container}>
+                <ImageBackground source={BackgroundGreenWhite} style={styles.backgroundContainer}>
         <View style={styles.row}>
+        <Button title="Go back" onPress={() => this.props.navigation.goBack(null)} />
           <Icon
             reverse
             name='ios-create'
@@ -75,6 +82,7 @@ class TaskDetailScreen extends Component {
               }
             />
         }
+              </ImageBackground>
       </View >
     );
   }
@@ -83,13 +91,19 @@ class TaskDetailScreen extends Component {
 const styles = StyleSheet.create({
   headerText: {
     fontSize: 32,
+    fontFamily:'monospace',
     marginBottom: 32,
-    color: 'black'
+    color: 'black',
+    alignSelf: 'center'
   },
   image: {
     width: '100%',
     aspectRatio: 2,
     marginBottom: 16
+  },
+  backgroundContainer: {
+        width: '100%',
+        height: '100%'
   },
   row: {
     flexDirection: 'row',
@@ -103,13 +117,17 @@ const styles = StyleSheet.create({
   categoryText: {
     fontSize: 20,
     marginBottom: 32,
-    color: 'black'
+    color: 'black',
+    fontFamily:'monospace',
+    alignSelf: 'center'
   },
   ingredientText: {
     fontStyle: 'italic',
+    fontFamily:'monospace',
     fontSize: 18,
     marginBottom: 32,
-    color: 'black'
+    color: 'black',
+    alignSelf: 'center'
   },
   ingredientItemText: {
     fontSize: 16,
