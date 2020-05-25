@@ -37,11 +37,8 @@ const navOptionHandler = () => ({
 const StackHome = createStackNavigator()
 
 function HomeStack({navigation, route}) {
-  if (route.state && route.state.routeNames[route.state.index] === "HomeDetail" ) {
-    navigation.setOptions({tabBarVisible: false})
-  } else {
     navigation.setOptions({tabBarVisible: true})
-  }
+
   return (
     <StackHome.Navigator initialRouteName="Home">
       <StackHome.Screen name="PlantList" component={PlantListScreen} options={navOptionHandler}/>
@@ -51,11 +48,8 @@ function HomeStack({navigation, route}) {
   )
 }
 function PlantAddStack({navigation, route}) {
-  if (route.state && route.state.routeNames[route.state.index] === "HomeDetail" ) {
-    navigation.setOptions({tabBarVisible: false})
-  } else {
     navigation.setOptions({tabBarVisible: true})
-  }
+
   return (
     <StackHome.Navigator initialRouteName="Home">
       <StackHome.Screen name="PlantList" component={PlantListScreen} options={navOptionHandler}/>
@@ -68,11 +62,7 @@ function PlantAddStack({navigation, route}) {
 const StackTask = createStackNavigator()
 
 function TaskStack({navigation, route}) {
-  if (route.state && route.state.index > 0) {
-    navigation.setOptions({tabBarVisible: false})
-  } else {
     navigation.setOptions({tabBarVisible: true})
-  }
   return (
     <StackTask.Navigator initialRouteName="Task">
       <StackTask.Screen name="TaskList" component={TaskListScreen} options={navOptionHandler}/>
