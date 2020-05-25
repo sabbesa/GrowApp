@@ -95,8 +95,8 @@ function TabNavigator() {
                 : IMAGE.ICON_HOME;
             } else if (route.name === 'Task') {
               iconName = focused ?
-              IMAGE.ICON_SETTINGS_BLACK
-              : IMAGE.ICON_SETTINGS;
+              IMAGE.ICON_LIST_BLACK
+              : IMAGE.ICON_LIST;
             }
             else if (route.name === 'Chat') {
               iconName = focused ?
@@ -113,9 +113,10 @@ function TabNavigator() {
           inactiveTintColor: 'black',
         }}
       >
-        <Tab.Screen name="Home" component={HomeStack} />
         <Tab.Screen name="Task" component={TaskStack} />
         <Tab.Screen name="Chat" component={Main}/>
+        <Tab.Screen name="Home" component={HomeStack} />
+
       </Tab.Navigator>
   )
 }
