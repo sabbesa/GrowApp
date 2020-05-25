@@ -3,6 +3,7 @@ import '@react-native-firebase/firestore';
 import '@react-native-firebase/storage';
 import uuid4 from 'uuid/v4';
 
+
 export function login({ email, password }) {
   firebase.auth().signInWithEmailAndPassword(email, password)
     .then((value) => console.log(value))
@@ -58,15 +59,17 @@ export function deletePlant(plant, deleteComplete) {
     .catch((error) => console.log(error));
 }
 
+
 export async function getPlants(plantsRetreived) {
+
   const userId = firebase.auth().currentUser.uid;
 
   var plantList = [];
 
   var snapshot = await firebase.firestore()
     .collection('Plants')
-    //.where("userid" , "==" , userId)
-    .orderBy('createdAt')
+    .where("userid" , "==" , userId)
+    //.orderBy('createdAt')
     .get()
 
   snapshot.forEach((doc) => {
@@ -143,8 +146,8 @@ export function uploadPlant(plant, onPlantUploaded, { updating }) {
 
 export function addPlant(plant, addComplete) {
   plant.createdAt = firebase.firestore.FieldValue.serverTimestamp();
-  const userId = firebase.auth().currentUser.uid
-
+  const userId = firebase.auth().currentUser.uid;
+  
   firebase.firestore()
     .collection('Plants')
     .add(plant)

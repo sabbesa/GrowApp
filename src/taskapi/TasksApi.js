@@ -3,6 +3,7 @@ import '@react-native-firebase/firestore';
 import '@react-native-firebase/storage';
 import uuid4 from 'uuid/v4';
 
+
 export function login({ email, password }) {
   firebase.auth().signInWithEmailAndPassword(email, password)
     .then((value) => console.log(value))
@@ -58,15 +59,17 @@ export function deleteTask(task, deleteComplete) {
     .catch((error) => console.log(error));
 }
 
+
 export async function getTasks(tasksRetreived) {
+
   const userId = firebase.auth().currentUser.uid;
 
   var taskList = [];
 
   var snapshot = await firebase.firestore()
     .collection('Tasks')
-    //.where("userid" , "==" , userId)
-    .orderBy('createdAt')
+    .where("userid" , "==" , userId)
+    //.orderBy('createdAt')
     .get()
 
   snapshot.forEach((doc) => {
@@ -143,7 +146,7 @@ export function uploadTask(task, onTaskUploaded, { updating }) {
 
 export function addTask(task, addComplete) {
   task.createdAt = firebase.firestore.FieldValue.serverTimestamp();
-  const userId = firebase.auth().currentUser.uid
+  const userId = firebase.auth().currentUser.uid;
 
   firebase.firestore()
     .collection('Tasks')
