@@ -35,34 +35,34 @@ const TaskForm = (props) => {
     <Text style={styles.headlines}>Add Task</Text>
       <GrowImagePicker image={props.task.image} onImagePicked={setTaskImage} />
       <TextInput
-        value={props.values.name}
+        value={props.values.title}
         style={styles.longFormInput}
-        placeholder='Name'
-        onChangeText={text => { props.setFieldValue('name', text) }}
+        placeholder='Title'
+        onChangeText={text => { props.setFieldValue('title', text) }}
       />
-      <Text style={styles.validationText}> {props.errors.name}</Text>
+      <Text style={styles.validationText}> {props.errors.title}</Text>
       <TextInput
-        value={props.values.category}
+        value={props.values.date}
         style={styles.longFormInput}
-        placeholder='Category'
-        onChangeText={text => { props.setFieldValue('category', text) }}
+        placeholder='Finish date'
+        onChangeText={text => { props.setFieldValue('date', text) }}
       />
-      <Text style={styles.validationText}> {props.errors.category}</Text>
+      <Text style={styles.validationText}> {props.errors.date}</Text>
       <View style={styles.row}>
         <TextInput
           style={styles.formInput}
-          onChangeText={text => { props.setKeywords(text) }}
-          placeholder='Keywords'
+          onChangeText={text => { props.setDescriptions(text) }}
+          placeholder='Tasks'
         />
 
         <Button
           color="#17a589"
           title="add"
-          onPress={() => { props.submitKeywords() }}/>
+          onPress={() => { props.submitDescriptions() }}/>
 
       </View>
       <GridList
-        items={props.task.keywords} />
+        items={props.task.descriptions} />
         <View style={styles.button}>
       <Button
         color="#17a589"
@@ -154,19 +154,19 @@ button:{
 
 export default withFormik({
   mapPropsToValues: ({ task }) => ({
-    name: task.name,
-    category: task.category,
+    title: task.title,
+    date: task.date,
     imageUri: null
   }),
   enableReinitialize: true,
   validationSchema: (props) => yup.object().shape({
-    name: yup.string().max(30).required(),
-    category: yup.string().max(15).required()
+    title: yup.string().max(30).required(),
+    date: yup.string().max(15).required()
   }),
   handleSubmit: (values, { props }) => {
     console.log(props);
 
-    values.keywords = props.task.keywords;
+    values.descriptions = props.task.descriptions;
 
     console.log(values);
 
