@@ -151,6 +151,7 @@ const styles = StyleSheet.create({
   },
   HeaderText:{
     fontSize: 30,
+    fontWeight: 'bold',
     color: 'black'
   },
   textContainer: {

@@ -78,6 +78,9 @@ class PlantList extends Component {
 
       <SafeAreaView style={styles.container}>
             <ImageBackground source={Bluefade} style={styles.backgroundContainer}>
+            <View>
+            <Text style={styles.HeaderText}> My Plants </Text>
+            </View>
         <FlatList
           data={this.state.plantList}
           ItemSeparatorComponent={() => <Divider style={{ backgroundColor: 'black', height: 1 }} />}
@@ -136,6 +139,12 @@ const styles = StyleSheet.create({
     marginTop: 8,
     marginBottom: 8
   },
+  HeaderText:{
+    fontSize: 30,
+    fontWeight: 'bold',
+    color: 'black'
+  },
+
   textContainer: {
     flex: 1,
     justifyContent: 'center',
