@@ -71,6 +71,17 @@ function TaskStack({navigation, route}) {
     </StackTask.Navigator>
   )
 }
+const StackChat = createStackNavigator()
+
+function ChatStack({navigation, route}) {
+    navigation.setOptions({tabBarVisible: true})
+  return (
+    <StackTask.Navigator initialRouteName="Task">
+      <StackTask.Screen name="Main" component={Main} options={navOptionHandler}/>
+      <StackTask.Screen name="Chat" component={Chat} options={navOptionHandler}/>
+    </StackTask.Navigator>
+  )
+}
 
 
 function TabNavigator() {
@@ -104,7 +115,7 @@ function TabNavigator() {
         }}
       >
         <Tab.Screen name="Task" component={TaskStack} />
-        <Tab.Screen name="Chat" component={Main}/>
+        <Tab.Screen name="Chat" component={ChatStack}/>
         <Tab.Screen name="Home" component={HomeStack} />
 
       </Tab.Navigator>
