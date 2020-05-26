@@ -125,6 +125,16 @@ class PlantList extends Component {
 
       <View style={styles.textContainer}>
                   <ImageBackground source={Bluefade} style={styles.backgroundContainer}>
+                  <View style={styles.button}>
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate('MenuTab')}>
+
+                      <Image source={require('../images/menu.png')} style = {styles.menubutton} />
+
+                    </TouchableOpacity>
+                  </View>
+                  <View>
+                  <Text style={styles.HeaderText}> My Plants </Text>
+                  </View>
         <Text style={styles.emptyTitle}>No Plants found</Text>
         <Text style={styles.emptySubtitle}>Add a new plant using the + button below</Text>
         {this.showActionButton()}

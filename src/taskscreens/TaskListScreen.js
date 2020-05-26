@@ -124,6 +124,9 @@ class TaskList extends Component {
 
       <View style={styles.textContainer}>
       <ImageBackground source={BackgroundGreenWhite} style={styles.backgroundContainer}>
+      <View>
+      <Text style={styles.HeaderText}> Tasks </Text>
+      </View>
         <Text style={styles.emptyTitle}>No Tasks found</Text>
         <Text style={styles.emptySubtitle}>Add a new task using the + button below</Text>
         {this.showActionButton()}
