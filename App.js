@@ -74,8 +74,7 @@ function TaskStack({navigation, route}) {
     </StackTask.Navigator>
   )
 }
-<<<<<<< HEAD
-=======
+
 const StackChat = createStackNavigator()
 
 function ChatStack({navigation, route}) {
@@ -87,7 +86,6 @@ function ChatStack({navigation, route}) {
     </StackTask.Navigator>
   )
 }
->>>>>>> 5e4c78a5105c7b0899d32afd2a49cb6557b6f11d
 
 function TabNavigator() {
   return (
@@ -120,9 +118,7 @@ function TabNavigator() {
         }}
       >
         <Tab.Screen name="Task" component={TaskStack} />
-
         <Tab.Screen name="Chat" component={ChatStack}/>
-
         <Tab.Screen name="Home" component={HomeStack} />
 
       </Tab.Navigator>

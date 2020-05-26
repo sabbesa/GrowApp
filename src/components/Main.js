@@ -13,7 +13,7 @@ class Main extends React.Component {
   };
 
   state = {
-    name: '',
+    name: 'Flower Lover',
   };
 
   onPress = () =>
@@ -24,15 +24,13 @@ class Main extends React.Component {
   render() {
     return (
       <View>
-        <Text style={styles.title}>Enter your name:</Text>
-        <TextInput
-          style={styles.nameInput}
-          placeHolder="John Cena"
-          onChangeText={this.onChangeText}
-          value={this.state.name}
-        />
+        <Text
+         style={styles.welcomeText}
+          value={this.state.name}>
+          Hello {this.state.name}! Do you want to chat with the expert?
+        </Text>
         <TouchableOpacity onPress={this.onPress}>
-          <Text style={styles.buttonText}>Next</Text>
+          <Text style={styles.buttonText}>Press for chat</Text>
         </TouchableOpacity>
       </View>
     );
@@ -47,7 +45,7 @@ const styles = StyleSheet.create({
     fontSize: offset,
   },
   nameInput: {
-    height: offset * 2,
+  height: offset * 2,
 
     margin: offset,
     paddingHorizontal: offset,
@@ -55,8 +53,15 @@ const styles = StyleSheet.create({
     borderWidth: 1,
   },
   buttonText: {
+    marginTop: 50,
     marginLeft: offset,
     fontSize: offset,
+  },
+  welcomeText: {
+    marginTop: 50,
+    marginLeft: offset,
+    fontSize: offset,
+    fontWeight: 'bold',
   },
 });
 
