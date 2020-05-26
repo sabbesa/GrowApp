@@ -62,19 +62,6 @@ function PlantAddStack({navigation, route}) {
   )
 }
 
-const StackMain = createStackNavigator()
-
-function MainStack({navigation, route}) {
-    navigation.setOptions({tabBarVisible: true})
-
-  return (
-    <StackMain.Navigator initialRouteName="Main">
-      <StackMain.Screen name="Main" component={Main} options={navOptionHandler}/>
-      <StackMain.Screen name="Chat" component={Chat} options={navOptionHandler}/>
-    </StackMain.Navigator>
-  )
-}
-
 const StackTask = createStackNavigator()
 
 function TaskStack({navigation, route}) {
@@ -98,7 +85,6 @@ function ChatStack({navigation, route}) {
     </StackTask.Navigator>
   )
 }
-
 
 function TabNavigator() {
   return (
@@ -131,11 +117,7 @@ function TabNavigator() {
         }}
       >
         <Tab.Screen name="Task" component={TaskStack} />
-<<<<<<< HEAD
-        <Tab.Screen name="Chat" component={MainStack}/>
-=======
         <Tab.Screen name="Chat" component={ChatStack}/>
->>>>>>> d82e0f1fa7d42003245b17a900474401773648a7
         <Tab.Screen name="Home" component={HomeStack} />
 
       </Tab.Navigator>
