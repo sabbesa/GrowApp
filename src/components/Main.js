@@ -5,7 +5,11 @@ import {
   TextInput,
   TouchableOpacity,
   View,
+  ImageBackground,
+  Image
 } from 'react-native';
+
+import Yellowfade from '../images/BackgroundYellow.png'
 
 class Main extends React.Component {
   static navigationOptions = {
@@ -24,6 +28,7 @@ class Main extends React.Component {
   render() {
     return (
       <View>
+      <ImageBackground source={Yellowfade} style={styles.backgroundContainer}>
         <Text
          style={styles.welcomeText}
           value={this.state.name}>
@@ -32,6 +37,7 @@ class Main extends React.Component {
         <TouchableOpacity onPress={this.onPress}>
           <Text style={styles.buttonText}>Press for chat</Text>
         </TouchableOpacity>
+        </ImageBackground>
       </View>
     );
   }
@@ -52,6 +58,10 @@ const styles = StyleSheet.create({
     borderColor: '#111111',
     borderWidth: 1,
   },
+  backgroundContainer: {
+        width:'100%',
+        height:'100%',
+      },
   buttonText: {
     marginTop: 50,
     marginLeft: offset,
