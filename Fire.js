@@ -40,12 +40,14 @@ class Fire {
   parse = snapshot => {
     const { timestamp: numberStamp, text, user } = snapshot.val();
     const { key: _id } = snapshot;
+    const isAdmin = false;
     const timestamp = new Date(numberStamp);
     const message = {
       _id,
       timestamp,
       text,
       user,
+      isAdmin,
     };
     return message;
   };
@@ -62,9 +64,11 @@ class Fire {
   send = messages => {
     for (let i = 0; i < messages.length; i++) {
       const { text, user } = messages[i];
+      const isAdmin = false;
       const message = {
         text,
         user,
+        isAdmin,
         timestamp: this.timestamp,
       };
       this.append(message);
