@@ -120,10 +120,9 @@ function TabNavigator() {
         }}
       >
         <Tab.Screen name="Task" component={TaskStack} />
-<<<<<<< HEAD
-=======
+
         <Tab.Screen name="Chat" component={ChatStack}/>
->>>>>>> 5e4c78a5105c7b0899d32afd2a49cb6557b6f11d
+
         <Tab.Screen name="Home" component={HomeStack} />
 
       </Tab.Navigator>
