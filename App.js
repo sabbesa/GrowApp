@@ -17,6 +17,9 @@ import PlantListScreen from './src/plantscreens/PlantListScreen';
 import PlantFormScreen from './src/plantscreens/PlantFormScreen';
 import PlantDetailScreen from './src/plantscreens/PlantDetailScreen';
 
+import Reminder from './src/Reminder';
+import ReminderApp from './src/ReminderApp';
+
 import TaskListScreen from './src/taskscreens/TaskListScreen';
 import TaskFormScreen from './src/taskscreens/TaskFormScreen';
 import TaskDetailScreen from './src/taskscreens/TaskDetailScreen';
@@ -56,6 +59,19 @@ function PlantAddStack({navigation, route}) {
       <StackHome.Screen name="PlantForm" component={PlantFormScreen} options={navOptionHandler}/>
       <StackHome.Screen name="PlantDetail" component={PlantDetailScreen} options={navOptionHandler}/>
     </StackHome.Navigator>
+  )
+}
+
+const StackMain = createStackNavigator()
+
+function MainStack({navigation, route}) {
+    navigation.setOptions({tabBarVisible: true})
+
+  return (
+    <StackMain.Navigator initialRouteName="Main">
+      <StackMain.Screen name="Main" component={Main} options={navOptionHandler}/>
+      <StackMain.Screen name="Chat" component={Chat} options={navOptionHandler}/>
+    </StackMain.Navigator>
   )
 }
 
@@ -104,7 +120,7 @@ function TabNavigator() {
         }}
       >
         <Tab.Screen name="Task" component={TaskStack} />
-        <Tab.Screen name="Chat" component={Main}/>
+        <Tab.Screen name="Chat" component={MainStack}/>
         <Tab.Screen name="Home" component={HomeStack} />
 
       </Tab.Navigator>
@@ -119,6 +135,8 @@ function DrawerNavigator({navigation}) {
       drawerContent={() => <CustomDrawerContent navigation={navigation}/>}>
         <Drawer.Screen name="MenuTab" component={TabNavigator} />
         <Drawer.Screen name="LoginScreen" component={LoginScreen2} />
+        <Drawer.Screen name="Reminder" component={Reminder} />
+        <Drawer.Screen name="ReminderApp" component={ReminderApp} />
     </Drawer.Navigator>
   )
 }

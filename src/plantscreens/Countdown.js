@@ -55,7 +55,7 @@ export default class CountdownTimer extends React.Component {
             invalidTimeError: 'Please set a time to begin a countdown',
             countdownCompleteMessage: 'Times up!',
             vibrateOnComplete: true,
-            infoText: 'Some helpful info text',
+            infoText: 'Set a time to begin a countdown',
             startButtonTitle: 'Start',
             startButtonColor: '#25b31d',
             startButtonLabel: 'Press to start',

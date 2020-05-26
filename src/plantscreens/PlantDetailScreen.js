@@ -80,7 +80,7 @@ class PlantDetailScreen extends Component {
             contentContainerStyle={styles.listContainer}
               ItemSeparatorComponent={() =>
                 <Divider style={{ backgroundColor: 'black' }} />}
-              scrollEnabled={false}
+              scrollEnabled={true}
               keyExtractor={(item, index) => index.toString()}
               renderItem={({ item }) =>
                 <Text style={styles.descriptionItemText}>{item}</Text>
