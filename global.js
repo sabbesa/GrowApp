@@ -1,1 +1,1 @@
-global.isAdmin = isAdmin;
+global.admin = admin;

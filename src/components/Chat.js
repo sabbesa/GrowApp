@@ -1,5 +1,4 @@
 import React from 'react';
-import '../../global.js'
 import { GiftedChat } from 'react-native-gifted-chat';
 import {
   StyleSheet,
@@ -60,9 +59,9 @@ class Chat extends React.Component<Props> {
       }))
     );
   }
-  componentWillUnmount() {
-    Fire.shared.off();
-  }
+  // componentWillUnmount() {
+  //   Fire.shared.off();
+  // }
 }
 const styles = StyleSheet.create({
   title: {
