@@ -1,0 +1,1 @@
+global.isAdmin = isAdmin;

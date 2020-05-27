@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../global.js'
 import { GiftedChat } from 'react-native-gifted-chat';
 import {
   StyleSheet,
@@ -42,6 +43,11 @@ class Chat extends React.Component<Props> {
         onSend={Fire.shared.send}
         user={this.user}
       />
+      <TextInput
+       style={styles.chatInput}
+       onChangeText={this.onChangeText}>
+        Type a messsage...
+      </TextInput>
       </ImageBackground>
       </View>
     );
@@ -58,5 +64,42 @@ class Chat extends React.Component<Props> {
     Fire.shared.off();
   }
 }
+const styles = StyleSheet.create({
+  title: {
+    marginTop: offset,
+    marginLeft: offset,
+    fontSize: offset,
+  },
+  nameInput: {
+    height: offset * 2,
+    margin: offset,
+    paddingHorizontal: offset,
+    borderColor: '#111111',
+    borderWidth: 1,
+  },
+  chatInput: {
+    margin: offset,
+    backgroundColor: 'white',
+    borderWidth: 1,
+    marginLeft: 10,
+    paddingHorizontal: offset,
+  },
+  backgroundContainer: {
+        width:'100%',
+        height:'100%',
+      },
+  buttonText: {
+    marginTop: 50,
+    marginLeft: offset,
+    fontSize: offset,
+  },
+  welcomeText: {
+    marginTop: 50,
+    marginLeft: offset,
+    fontSize: offset,
+    fontWeight: 'bold',
+  },
+});
 
+const offset = 24;
 export default Chat;
