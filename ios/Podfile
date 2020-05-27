@@ -44,7 +44,6 @@ target 'GrowApp' do
   pod 'Firebase/Messaging'
   pod 'Firebase/Storage'
 
-  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
   pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'

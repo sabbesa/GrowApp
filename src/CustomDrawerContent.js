@@ -26,7 +26,7 @@ export class CustomDrawerContent extends Component {
             <ScrollView style={{marginLeft: 5}}>
                 <TouchableOpacity
                 style={{fontWeight: 'bold', marginTop: 20, marginLeft: 10}}
-                onPress={() => this.props.navigation.navigate('Reminder')}
+                onPress={() => this.props.navigation.navigate('Notifications')}
                 >
                 <Text style={{color: 'black'}}>Reminder</Text>
                 </TouchableOpacity>

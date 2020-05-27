@@ -17,12 +17,13 @@ import PlantListScreen from './src/plantscreens/PlantListScreen';
 import PlantFormScreen from './src/plantscreens/PlantFormScreen';
 import PlantDetailScreen from './src/plantscreens/PlantDetailScreen';
 
-import Reminder from './src/Reminder';
-import ReminderApp from './src/ReminderApp';
-
 import TaskListScreen from './src/taskscreens/TaskListScreen';
 import TaskFormScreen from './src/taskscreens/TaskFormScreen';
 import TaskDetailScreen from './src/taskscreens/TaskDetailScreen';
+
+import Notifications from './src/taskscreens/Notifications';
+import NotificationHandler from './src/taskscreens/NotificationHandler';
+import NotifService from './src/taskscreens/NotifService';
 
 import LoginScreen2 from './src/plantscreens/LoginScreen';
 //backupsidor
@@ -133,8 +134,7 @@ function DrawerNavigator({navigation}) {
       drawerContent={() => <CustomDrawerContent navigation={navigation}/>}>
         <Drawer.Screen name="MenuTab" component={TabNavigator} />
         <Drawer.Screen name="LoginScreen" component={LoginScreen2} />
-        <Drawer.Screen name="Reminder" component={Reminder} />
-        <Drawer.Screen name="ReminderApp" component={ReminderApp} />
+        <Drawer.Screen name="Notifications" component={Notifications} />
     </Drawer.Navigator>
   )
 }
