@@ -10,14 +10,19 @@ import {
 } from 'react-native';
 
 import Yellowfade from '../images/BackgroundYellow.png'
+import firebase from '@react-native-firebase/app'
+
 
 class Main extends React.Component {
+
   static navigationOptions = {
     title: 'Chatter',
   };
 
   state = {
-    name: 'Flower Lover',
+
+   name: 'Flower Lover',
+    currentUser: null,
   };
 
   onPress = () =>
@@ -25,14 +30,22 @@ class Main extends React.Component {
 
   onChangeText = name => this.setState({ name });
 
+  componentDidMount() {
+    const { currentUser } = firebase.auth()
+
+
+    this.setState({ currentUser })
+  }
+
   render() {
+    const { currentUser } = this.state
     return (
       <View>
       <ImageBackground source={Yellowfade} style={styles.backgroundContainer}>
         <Text
          style={styles.welcomeText}
-          value={this.state.name}>
-          Hello {this.state.name}! Do you want to chat with the expert?
+          value={currentUser && currentUser.email}>
+          Hello {currentUser && currentUser.email}! Do you want to chat with the expert?
         </Text>
         <TouchableOpacity onPress={this.onPress}>
           <Text style={styles.buttonText}>Press for chat</Text>

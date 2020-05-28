@@ -13,6 +13,7 @@
   "dependencies": {
     "@react-native-community/datetimepicker": "^2.4.0",
     "@react-native-community/masked-view": "^0.1.10",
+    "@react-native-community/push-notification-ios": "^1.2.0",
     "@react-native-firebase/app": "^6.7.1",
     "@react-native-firebase/auth": "^6.7.1",
     "@react-native-firebase/firestore": "^6.7.1",
@@ -28,6 +29,7 @@
     "formik": "^2.1.4",
     "moment": "^2.26.0",
     "native-base": "^2.13.12",
+    "node": "^14.3.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-native": "^0.62.2",
@@ -43,6 +45,7 @@
     "react-native-keyboard-aware-scroll-view": "^0.9.1",
     "react-native-modal-datetime-picker": "^7.4.2",
     "react-native-paper": "^3.8.0",
+    "react-native-push-notification": "^3.5.2",
     "react-native-reanimated": "^1.8.0",
     "react-native-safe-area-context": "^0.7.3",
     "react-native-screens": "^2.7.0",
@@ -57,7 +60,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",
-    "@babel/runtime": "^7.6.2",
+    "@babel/runtime": "^7.10.0",
     "@react-native-community/cli": "^2.9.0",
     "@react-native-community/eslint-config": "^0.0.5",
     "babel-jest": "^24.9.0",

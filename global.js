@@ -1,0 +1,1 @@
+global.admin = admin;

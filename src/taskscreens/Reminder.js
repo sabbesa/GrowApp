@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, SafeAreaView, View } from 'react-native';
 import { ListItem } from 'react-native-elements';
-import firebase from '@react-native-firebase/app';
 import DateTimePicker from 'react-native-modal-datetime-picker';
 import moment from 'moment';
+import NotifService from './NotifService';
 
 export default class Reminder extends Component {
   state = {
