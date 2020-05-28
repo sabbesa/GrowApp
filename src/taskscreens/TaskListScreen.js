@@ -146,7 +146,9 @@ const styles = StyleSheet.create({
   },
   backgroundContainer: {
         width: '100%',
-        height: '100%'
+        height: '100%',
+
+
   },
   listItem: {
     marginTop: 8,
@@ -161,14 +163,14 @@ const styles = StyleSheet.create({
   textContainer: {
     flex: 1,
     justifyContent: 'center',
-    alignSelf: 'center',
+    alignItems: 'center',
 
   },
   titleStyle: {
     fontSize: 25,
     //fontFamily:'monospace' ,
     color:'black',
-    alignItems: 'center'
+
   },
   subtitleStyle: {
     fontSize: 15,
