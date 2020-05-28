@@ -17,14 +17,14 @@ import {
 } from 'react-native';
 import NotificationDetail from './NotificationDetail';
 
-export default class App extends Component {
+export default class ReminderScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {};
 
     this.notif = new NotificationDetail(
       this.onRegister.bind(this),
-      this.onNotif.bind(this),
+      this.onNotification.bind(this),
     );
   }
 
@@ -34,21 +34,6 @@ export default class App extends Component {
         <Text style={styles.title}>
         Watering reminder screen
         </Text>
-        <View style={styles.spacer}></View>
-        <TextInput
-          style={styles.textField}
-          value={this.state.registerToken}
-          placeholder="Register token"
-        />
-        <View style={styles.spacer}></View>
-
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => {
-            this.notif.localNotification();
-          }}>
-          <Text>Local Notification (now)</Text>
-        </TouchableOpacity>
         <TouchableOpacity
           style={styles.button}
           onPress={() => {
@@ -56,27 +41,37 @@ export default class App extends Component {
           }}>
           <Text>Local Notification with sound (now)</Text>
         </TouchableOpacity>
+
         <TouchableOpacity
           style={styles.button}
           onPress={() => {
             this.notif.scheduleNotifications();
           }}>
-          <Text>Schedule Notification in 30s</Text>
+          <Text>Remind me to water my plants in one hour</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => {
+            this.notif.scheduleDailyNotifications();
+          }}>
+          <Text>Remind me to water my plants every day</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => {
+            this.notif.scheduleWeeklyNotifications();
+          }}>
+          <Text>Remind me to water my plants every week</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.button}
           onPress={() => {
             this.notif.scheduleNotifications('sample.mp3');
           }}>
-          <Text>Schedule Notification with sound in 30s</Text>
+          <Text>Schedule Notification with sound in 15s</Text>
         </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => {
-            this.notif.cancelNotifications();
-          }}>
-          <Text>Cancel last notification (if any)</Text>
-        </TouchableOpacity>
+
         <TouchableOpacity
           style={styles.button}
           onPress={() => {
@@ -84,26 +79,12 @@ export default class App extends Component {
           }}>
           <Text>Cancel all notifications</Text>
         </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => {
-            this.notif.checkPermission(this.handlePerm.bind(this));
-          }}>
-          <Text>Check Permission</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
+              <TouchableOpacity
           style={styles.button}
           onPress={() => {
             this.notif.requestPermissions();
           }}>
-          <Text>Request Permissions</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => {
-            this.notif.abandonPermissions();
-          }}>
-          <Text>Abandon Permissions</Text>
+          <Text>Request Permission</Text>
         </TouchableOpacity>
 
         <View style={styles.spacer}></View>
@@ -119,7 +100,7 @@ export default class App extends Component {
     this.setState({registerToken: token.token, fcmRegistered: true});
   }
 
-  onNotif(notif) {
+  onNotification(notif) {
     Alert.alert(notif.title, notif.message);
   }
 
