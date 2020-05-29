@@ -9,8 +9,12 @@ import {
   ImageBackground,
   Image
 } from 'react-native';
+import PropTypes from 'prop-types';
 import Fire from '../../Fire';
 import Yellowfade from '../images/BackgroundYellow.png'
+import emojiUtils from 'emoji-utils';
+
+import SlackMessage from './SlackMessage';
 
 type Props = {
   name?: string,
@@ -26,12 +30,12 @@ class Chat extends React.Component<Props> {
     messages: [],
   };
 
-  get user() {
-    return {
-      name: this.props.route.params.name,
-      _id: Fire.shared.uid,
-    };
-  }
+  // get user() {
+  //   return {
+  //     name: this.props.route.params.name,
+  //     _id: Fire.shared.uid,
+  //   };
+  // }
 
   render() {
     return (
@@ -39,30 +43,68 @@ class Chat extends React.Component<Props> {
       <ImageBackground source={Yellowfade} style={{width:'100%', height:'100%'}}>
       <GiftedChat
         messages={this.state.messages}
-        onSend={Fire.shared.send}
+        onSend={messages => this.onSend(messages)}
         user={this.user}
+        renderMessage={this.renderMessage}
       />
-      <TextInput
-       style={styles.chatInput}
-       onChangeText={this.onChangeText}>
-        Type a messsage...
-      </TextInput>
       </ImageBackground>
       </View>
     );
   }
 
+  // componentDidMount() {
+  //   Fire.shared.on(message =>
+  //     this.setState(previousState => ({
+  //       messages: GiftedChat.append(previousState.messages, message),
+  //     }))
+  //   );
+  // }
   componentDidMount() {
-    Fire.shared.on(message =>
-      this.setState(previousState => ({
-        messages: GiftedChat.append(previousState.messages, message),
-      }))
-    );
+    this.setState({
+      messages: [
+        {
+          _id: 1,
+          text: 'Hi! Welcome to Ask the expert! Please write your question.',
+          createdAt: new Date(),
+          user: {
+            _id: 2,
+            name: 'The Expert',
+            avatar: 'https://placeimg.com/140/140/any',
+          },
+        },
+      ],
+    })
   }
+  onSend(messages = []) {
+     this.setState(previousState => ({
+       messages: GiftedChat.append(previousState.messages, messages),
+     }))
+   }
+
+   renderMessage(props) {
+     const {
+       currentMessage: { text: currText },
+     } = props
+
+     let messageTextStyle
+
+     // Make "pure emoji" messages much bigger than plain text.
+     if (currText && emojiUtils.isPureEmojiString(currText)) {
+       messageTextStyle = {
+         fontSize: 28,
+         // Emoji get clipped if lineHeight isn't increased; make it consistent across platforms.
+         lineHeight: Platform.OS === 'android' ? 34 : 30,
+       }
+     }
+
+     return <SlackMessage {...props} messageTextStyle={messageTextStyle} />
+   }
+
   componentWillUnmount() {
     Fire.shared.off();
   }
 }
+
 const styles = StyleSheet.create({
   title: {
     marginTop: offset,
