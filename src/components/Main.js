@@ -44,8 +44,8 @@ class Main extends React.Component {
       <ImageBackground source={Yellowfade} style={styles.backgroundContainer}>
         <Text
          style={styles.welcomeText}
-          value={currentUser && currentUser.email}>
-          Hello {currentUser && currentUser.email}! Do you want to chat with the expert?
+          value={currentUser && currentUser.displayName}>
+          Hello {currentUser && currentUser.displayName}! Do you want to chat with the expert?
         </Text>
         <TouchableOpacity onPress={this.onPress}>
           <Text style={styles.buttonText}>Press for chat</Text>
