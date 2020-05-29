@@ -13,9 +13,12 @@ import {
   Text,
   View,
   TouchableOpacity,
+  Image,
+  ImageBackground,
   Alert,
 } from 'react-native';
 import NotificationDetail from './NotificationDetail';
+import Yellowfade from '../images/BackgroundYellow.png'
 
 export default class ReminderScreen extends Component {
   constructor(props) {
@@ -30,6 +33,7 @@ export default class ReminderScreen extends Component {
 
   render() {
     return (
+  <ImageBackground source={Yellowfade} style={{width:'100%', height:'100%'}}>
       <View style={styles.container}>
         <Text style={styles.title}>
         Watering reminder screen
@@ -39,7 +43,7 @@ export default class ReminderScreen extends Component {
           onPress={() => {
             this.notif.localNotification('sample.mp3');
           }}>
-          <Text>Local Notification with sound (now)</Text>
+          <Text style= {styles.text}>Local Notification with sound (now)</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
@@ -47,7 +51,7 @@ export default class ReminderScreen extends Component {
           onPress={() => {
             this.notif.scheduleNotifications();
           }}>
-          <Text>Remind me to water my plants in one hour</Text>
+          <Text style= {styles.text}>Remind me to water my plants in one hour</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
@@ -55,21 +59,21 @@ export default class ReminderScreen extends Component {
           onPress={() => {
             this.notif.scheduleDailyNotifications();
           }}>
-          <Text>Remind me to water my plants every day</Text>
+          <Text style= {styles.text}>Remind me to water my plants every day</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.button}
           onPress={() => {
             this.notif.scheduleWeeklyNotifications();
           }}>
-          <Text>Remind me to water my plants every week</Text>
+          <Text style= {styles.text}>Remind me to water my plants every week</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.button}
           onPress={() => {
             this.notif.scheduleNotifications('sample.mp3');
           }}>
-          <Text>Schedule Notification with sound in 15s</Text>
+          <Text style= {styles.text}>Schedule Notification with sound in 15s</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
@@ -77,14 +81,14 @@ export default class ReminderScreen extends Component {
           onPress={() => {
             this.notif.cancelAll();
           }}>
-          <Text>Cancel all notifications</Text>
+          <Text style= {styles.text}>Cancel all notifications</Text>
         </TouchableOpacity>
               <TouchableOpacity
           style={styles.button}
           onPress={() => {
             this.notif.requestPermissions();
           }}>
-          <Text>Request Permission</Text>
+          <Text style= {styles.text}>Request Permission</Text>
         </TouchableOpacity>
 
         <View style={styles.spacer}></View>
@@ -93,6 +97,8 @@ export default class ReminderScreen extends Component {
 
         <View style={styles.spacer}></View>
       </View>
+      </ImageBackground>
+
     );
   }
 
@@ -114,7 +120,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
   },
   welcome: {
     fontSize: 20,
@@ -123,11 +128,11 @@ const styles = StyleSheet.create({
   },
   button: {
     borderWidth: 1,
-    borderColor: '#000000',
+    borderColor: 'gray',
     margin: 5,
     padding: 5,
     width: '70%',
-    backgroundColor: '#DDDDDD',
+    backgroundColor: 'white',
     borderRadius: 5,
   },
   textField: {
@@ -136,12 +141,21 @@ const styles = StyleSheet.create({
     margin: 5,
     padding: 5,
     width: '70%',
+    },
+  backgroundContainer: {
+    width:'100%',
+    height:'100%',
   },
   spacer: {
     height: 10,
   },
+  text: {
+      color: 'gray',
+      fontWeight: 'bold',
+  },
   title: {
     fontWeight: 'bold',
+    color: 'black',
     fontSize: 20,
     textAlign: 'center',
   },
