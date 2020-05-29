@@ -34,12 +34,19 @@ export default class ReminderScreen extends Component {
   render() {
     return (
   <ImageBackground source={Yellowfade} style={{width:'100%', height:'100%'}}>
+  <View style={styles.button}>
+    <TouchableOpacity onPress={() => this.props.navigation.toggleDrawer()}>
+
+      <Image source={require('../images/menu.png')} style = {styles.menubutton} />
+
+    </TouchableOpacity>
+  </View>
       <View style={styles.container}>
         <Text style={styles.title}>
         Watering reminder screen
         </Text>
         <TouchableOpacity
-          style={styles.button}
+          style={styles.button2}
           onPress={() => {
             this.notif.localNotification('sample.mp3');
           }}>
@@ -47,7 +54,7 @@ export default class ReminderScreen extends Component {
         </TouchableOpacity>
 
         <TouchableOpacity
-          style={styles.button}
+          style={styles.button2}
           onPress={() => {
             this.notif.scheduleNotifications();
           }}>
@@ -55,21 +62,21 @@ export default class ReminderScreen extends Component {
         </TouchableOpacity>
 
         <TouchableOpacity
-          style={styles.button}
+          style={styles.button2}
           onPress={() => {
             this.notif.scheduleDailyNotifications();
           }}>
           <Text style= {styles.text}>Remind me to water my plants every day</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          style={styles.button}
+          style={styles.button2}
           onPress={() => {
             this.notif.scheduleWeeklyNotifications();
           }}>
           <Text style= {styles.text}>Remind me to water my plants every week</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          style={styles.button}
+          style={styles.button2}
           onPress={() => {
             this.notif.scheduleNotifications('sample.mp3');
           }}>
@@ -77,14 +84,14 @@ export default class ReminderScreen extends Component {
         </TouchableOpacity>
 
         <TouchableOpacity
-          style={styles.button}
+          style={styles.button2}
           onPress={() => {
             this.notif.cancelAll();
           }}>
           <Text style= {styles.text}>Cancel all notifications</Text>
         </TouchableOpacity>
               <TouchableOpacity
-          style={styles.button}
+          style={styles.button2}
           onPress={() => {
             this.notif.requestPermissions();
           }}>
@@ -126,7 +133,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     margin: 10,
   },
-  button: {
+  button2: {
     borderWidth: 1,
     borderColor: 'gray',
     margin: 5,
@@ -134,6 +141,12 @@ const styles = StyleSheet.create({
     width: '70%',
     backgroundColor: 'white',
     borderRadius: 5,
+  },
+  menubutton:{
+    marginTop: 50,
+    marginLeft: 15,
+    height: 30,
+    width: 30,
   },
   textField: {
     borderWidth: 1,
