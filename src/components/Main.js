@@ -21,8 +21,8 @@ class Main extends React.Component {
 
   state = {
 
-   name: 'Flower Lover',
-    currentUser: null,
+   name: 'You',
+   currentUser: null,
   };
 
   onPress = () =>
@@ -44,7 +44,8 @@ class Main extends React.Component {
       <ImageBackground source={Yellowfade} style={styles.backgroundContainer}>
         <Text
          style={styles.welcomeText}
-          value={currentUser && currentUser.displayName}>
+         onChangeText={this.onChangeText}
+          value={this.currentUser && this.currentUser.displayName}>
           Hello {currentUser && currentUser.displayName}! Do you want to chat with the expert?
         </Text>
         <TouchableOpacity onPress={this.onPress}>

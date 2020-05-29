@@ -30,12 +30,12 @@ class Chat extends React.Component<Props> {
     messages: [],
   };
 
-  // get user() {
-  //   return {
-  //     name: this.props.route.params.name,
-  //     _id: Fire.shared.uid,
-  //   };
-  // }
+  get user() {
+    return {
+      name: this.props.route.params.name,
+      _id: Fire.shared.uid,
+    };
+  }
 
   render() {
     return (
@@ -64,7 +64,7 @@ class Chat extends React.Component<Props> {
       messages: [
         {
           _id: 1,
-          text: 'Hi! Welcome to Ask the expert! Please write your question.',
+          text: 'Hi! Please write your question and I will try to answer you shortly.',
           createdAt: new Date(),
           user: {
             _id: 2,
