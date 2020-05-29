@@ -108,11 +108,11 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     borderStyle: 'dashed',
     padding: 8,
-    height: 50,
+    height: 110,
     color: 'black',
     width: '75%',
     marginBottom: 16,
-    marginTop: 16,
+    marginTop: 2,
     backgroundColor: '#f0fbf7'
   },
   validationText: {

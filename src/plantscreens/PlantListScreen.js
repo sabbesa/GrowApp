@@ -81,7 +81,7 @@ class PlantList extends Component {
       <SafeAreaView style={styles.container}>
             <ImageBackground source={Bluefade} style={styles.backgroundContainer}>
             <View style={styles.button}>
-              <TouchableOpacity onPress={() => this.props.navigation.navigate('MenuTab')}>
+              <TouchableOpacity onPress={() => this.props.navigation.toggleDrawer()}>
 
                 <Image source={require('../images/menu.png')} style = {styles.menubutton} />
 

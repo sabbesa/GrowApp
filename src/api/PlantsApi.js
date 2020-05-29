@@ -2,9 +2,10 @@ import firebase from '@react-native-firebase/app';
 import '@react-native-firebase/firestore';
 import '@react-native-firebase/storage';
 import uuid4 from 'uuid/v4';
+import Toast from 'react-native-simple-toast';
 
 
-export function login({ email, password }) {
+export function login({ email, password, authStateChanged}) {
   firebase.auth().signInWithEmailAndPassword(email, password)
     .then((value) => console.log(value))
 }
@@ -14,13 +15,28 @@ export function signup({ email, password, displayName }) {
     .then((userInfo) => {
       console.log(userInfo)
       userInfo.user.updateProfile({ displayName: displayName.trim() })
-        .then(() => { })
+      })
+      .then(function(user) {
+      firebase.auth().currentUser.sendEmailVerification();
+    }, function(error) {
     })
+    .then(() => { })
 }
 
 export function subscribeToAuthChanges(authStateChanged) {
-  firebase.auth().onAuthStateChanged((user) => {
+  firebase.auth().onAuthStateChanged(function(user) {
     authStateChanged(user);
+    if (user) {
+          if (user.emailVerified === false) {
+            Toast.show('Your email is not verified!');
+          } else {
+            Toast.show('Successful login, your email is verified!');
+
+          }
+        } else {
+        //  Toast.show('Something went wrong, please try again');
+
+        }
   })
 }
 

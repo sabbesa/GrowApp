@@ -3,8 +3,8 @@ import { StyleSheet, Text, TextInput, View, Button, ImageBackground, Image } fro
 import firebase from '@react-native-firebase/app'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
-import BackgroundGreenWhite from './Images/BackgroundGreenWhite.png'
-import Logo from './Images/TitelLogoFärg.png'
+import BackgroundGreenWhite from './src/images/BackgroundGreenWhite.png'
+import Logo from './src/images/TitelLogoFärg.png'
 
 export default class Login extends React.Component {
   state = { email: '', password: '', errorMessage: null }
@@ -14,7 +14,7 @@ export default class Login extends React.Component {
     firebase
     .auth()
     .signInWithEmailAndPassword(email, password)
-    .then(() => this.props.navigation.navigate('Main'))
+    .then(() => this.props.navigation.navigate('PlantListScreen'))
     .catch(error => this.setState({ errorMessage: error.message }))
   }
 

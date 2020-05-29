@@ -4,6 +4,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack'
 import { createDrawerNavigator } from '@react-navigation/drawer';
+import Toast from 'react-native-simple-toast';
+
 
 import Main from './src/components/Main';
 import Chat from './src/components/Chat';
