@@ -1,6 +1,7 @@
 /* eslint-disable no-underscore-dangle, no-use-before-define */
 
 import PropTypes from 'prop-types'
+//import { getFormatedTime } from '@utils/helper
 import React from 'react'
 import {
   Text,
@@ -223,8 +224,8 @@ const styles = StyleSheet.create({
   slackMessageText: {
     marginTop: 2,
     marginBottom: 2,
-    backgroundColor: 'white',
-    borderRadius: 3,
+    backgroundColor: 'lightpink',
+    borderRadius: 100,
     marginLeft: 0,
     marginRight: 0,
   },

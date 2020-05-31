@@ -13,7 +13,8 @@ import {
 import { getTasks, signout, userId } from '../taskapi/TasksApi';
 import { ListItem, Divider } from 'react-native-elements';
 import ActionButton from 'react-native-action-button';
-import BackgroundGreenWhite from '../images/BackgroundGreenWhite.png'
+import BackgroundGreenWhite from '../images/BackgroundGreenWhite.png';
+import firebase from '@react-native-firebase/app'
 
 class TaskList extends Component {
   static navigationOptions = ({ navigation }) => {
@@ -34,7 +35,8 @@ class TaskList extends Component {
 
   state = {
     taskList: [],
-    selectedIndex: 0
+    selectedIndex: 0,
+    currentUser: null
   }
 
   onTaskAdded = (task) => {
@@ -64,6 +66,8 @@ class TaskList extends Component {
 
   componentDidMount() {
     getTasks(this.onTasksReceived);
+    const { currentUser } = firebase.auth()
+    this.setState({ currentUser })
   }
 
   showActionButton = () =>
@@ -77,13 +81,14 @@ class TaskList extends Component {
 
   render() {
 
-
+    const { currentUser } = this.state
     return this.state.taskList.length > 0 ?
+
 
       <SafeAreaView style={styles.container}>
           <ImageBackground source={BackgroundGreenWhite} style={styles.backgroundContainer}>
           <View>
-          <Text style={styles.HeaderText}> Tasks </Text>
+          <Text style={styles.HeaderText}>{currentUser && currentUser.displayName}'s Tasks </Text>
           </View>
         <FlatList
           data={this.state.taskList}
@@ -125,9 +130,9 @@ class TaskList extends Component {
       <View style={styles.textContainer}>
       <ImageBackground source={BackgroundGreenWhite} style={styles.backgroundContainer}>
       <View>
-      <Text style={styles.HeaderText}> Tasks </Text>
+      <Text style={styles.HeaderText}>{currentUser && currentUser.displayName}'s Tasks </Text>
       </View>
-        <Text style={styles.emptyTitle}>No Tasks found</Text>
+        <Text style={styles.emptyTitle}>No tasks found</Text>
         <Text style={styles.emptySubtitle}>Add a new task using the + button below</Text>
         {this.showActionButton()}
       </ImageBackground>
@@ -155,6 +160,8 @@ const styles = StyleSheet.create({
     marginBottom: 8
   },
   HeaderText:{
+    marginTop: 100,
+    marginLeft: 30,
     fontSize: 30,
     fontWeight: 'bold',
     //fontFamily:'monospace' ,
@@ -189,13 +196,13 @@ const styles = StyleSheet.create({
   },
   emptySubtitle: {
     fontSize: 18,
+    marginLeft: 40,
     //fontFamily:'monospace' ,
     color: 'black',
     fontStyle: 'italic',
     alignItems: 'center',
     position: 'relative',
     top: 230,
-    padding: 15
 
   }
 });

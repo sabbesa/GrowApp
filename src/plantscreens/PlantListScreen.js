@@ -14,6 +14,7 @@ import { getPlants, signout, userId } from '../api/PlantsApi';
 import { ListItem, Divider } from 'react-native-elements';
 import ActionButton from 'react-native-action-button';
 import Bluefade from '../images/Bluefade.png'
+import firebase from '@react-native-firebase/app'
 
 class PlantList extends Component {
   static navigationOptions = ({ navigation }) => {
@@ -34,7 +35,8 @@ class PlantList extends Component {
 
   state = {
     plantList: [],
-    selectedIndex: 0
+    selectedIndex: 0,
+    currentUser: null
   }
 
   onPlantAdded = (plant) => {
@@ -63,6 +65,8 @@ class PlantList extends Component {
   }
 
   componentDidMount() {
+    const { currentUser } = firebase.auth()
+    this.setState({ currentUser })
     getPlants(this.onPlantsReceived);
   }
 
@@ -76,6 +80,7 @@ class PlantList extends Component {
     />
 
   render() {
+    const { currentUser } = this.state
     return this.state.plantList.length > 0 ?
 
       <SafeAreaView style={styles.container}>
@@ -88,7 +93,7 @@ class PlantList extends Component {
               </TouchableOpacity>
             </View>
             <View>
-            <Text style={styles.HeaderText}> My Plants </Text>
+            <Text style={styles.HeaderText}> {currentUser && currentUser.displayName}'s Plants </Text>
             </View>
         <FlatList
           data={this.state.plantList}
@@ -133,9 +138,9 @@ class PlantList extends Component {
                     </TouchableOpacity>
                   </View>
                   <View>
-                  <Text style={styles.HeaderText}> My Plants </Text>
+                  <Text style={styles.HeaderText}> {currentUser && currentUser.displayName}'s Plants </Text>
                   </View>
-        <Text style={styles.emptyTitle}>No Plants found</Text>
+        <Text style={styles.emptyTitle}>No plants found</Text>
         <Text style={styles.emptySubtitle}>Add a new plant using the + button below</Text>
         {this.showActionButton()}
                       </ImageBackground>
@@ -159,6 +164,8 @@ const styles = StyleSheet.create({
     marginBottom: 8
   },
   HeaderText:{
+    marginTop: 50,
+    marginLeft: 20,
     fontSize: 30,
     //fontFamily:'monospace' ,
     fontWeight: 'bold',
@@ -176,8 +183,8 @@ const styles = StyleSheet.create({
     //fontFamily:'monospace'
   },
   menubutton:{
-    marginTop: 5,
-    marginLeft: 15,
+    marginTop: 20,
+    marginLeft: 20,
     height: 30,
     width: 30,
   },
@@ -196,6 +203,7 @@ const styles = StyleSheet.create({
     top: 200
   },
   emptySubtitle: {
+    marginLeft: 40,
     fontSize: 18,
     //fontFamily:'monospace' ,
     fontStyle: 'italic',
@@ -203,7 +211,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     position: 'relative',
     top: 230,
-    padding: 15
   }
 });
 

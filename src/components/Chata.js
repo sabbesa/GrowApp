@@ -14,6 +14,7 @@ import Fire from '../../Fire';
 import Yellowfade from '../images/BackgroundYellow.png'
 import emojiUtils from 'emoji-utils';
 
+
 import SlackMessage from './SlackMessage';
 
 type Props = {
@@ -39,47 +40,50 @@ class Chat extends React.Component<Props> {
 
   render() {
     return (
+
       <View>
       <ImageBackground source={Yellowfade} style={{width:'100%', height:'100%'}}>
+
       <GiftedChat
         messages={this.state.messages}
         onSend={messages => this.onSend(messages)}
+        renderComposer={this.renderComposer}
+        listViewProps={{
+    	     style: styles.listContainer,
+    	      contentContainerStyle: styles.msgListContainer,
+        }}
         user={this.user}
         renderMessage={this.renderMessage}
+        renderAvatar={null}
+        renderSend={this.renderSend}
+        text={this.state.messageText}
+        alwaysShowSend={true}
+        minComposerHeight={55}
+        maxComposerHeight={55}
+        bottomOffset={Platform.select({
+    	     ios: 200,
+    	      android: 0
+        })}
       />
       </ImageBackground>
       </View>
     );
   }
 
-  // componentDidMount() {
-  //   Fire.shared.on(message =>
-  //     this.setState(previousState => ({
-  //       messages: GiftedChat.append(previousState.messages, message),
-  //     }))
-  //   );
-  // }
   componentDidMount() {
-    this.setState({
-      messages: [
-        {
-          _id: 1,
-          text: 'Hi! Please write your question and I will try to answer you shortly .',
-          createdAt: new Date(),
-          user: {
-            _id: 2,
-            name: 'The Expert',
-            avatar: 'https://placeimg.com/140/140/any',
-          },
-        },
-      ],
-    })
+    Fire.shared.on(message =>
+      this.setState(previousState => ({
+        messages: GiftedChat.append(previousState.messages, message),
+      }))
+    );
   }
+
   onSend(messages = []) {
      this.setState(previousState => ({
        messages: GiftedChat.append(previousState.messages, messages),
      }))
    }
+
 
    renderMessage(props) {
      const {
