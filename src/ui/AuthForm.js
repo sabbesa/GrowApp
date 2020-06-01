@@ -58,19 +58,6 @@ const AuthForm = (props) => {
         buttonStyle={styles.switchButton}
         onPress={() => props.switchAuthMode()}
         title={props.authMode === 'login' ? 'Switch to Signup' : 'Switch to Login'} />
-        <Button
-            style={styles.textInput}
-            icon={
-                <Icon
-                    name="refresh"
-                    size={15}
-                    color="white"
-                />
-            }
-            title="Reset Password"
-            onPress={() => {
-                navigation.navigate('Reset');
-            }} />
 
     </View>
             </ImageBackground>

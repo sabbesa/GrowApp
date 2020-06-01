@@ -47,10 +47,6 @@ export function signout(onSignedOut) {
     })
 }
 
-export function handleReset(navigation) {
-    this.props.navigation.navigate('Reset');
-}
-
 export function updatePlant(plant, updateComplete) {
   plant.updatedAt = firebase.firestore.FieldValue.serverTimestamp();
   plant.userid = firebase.auth().currentUser.uid;
