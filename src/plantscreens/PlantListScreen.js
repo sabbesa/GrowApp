@@ -164,7 +164,7 @@ const styles = StyleSheet.create({
     marginBottom: 8
   },
   HeaderText:{
-    marginTop: 50,
+    marginTop: '8%',
     marginLeft: 20,
     fontSize: 30,
     //fontFamily:'monospace' ,

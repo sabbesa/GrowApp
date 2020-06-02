@@ -7,7 +7,8 @@ import {
   Text,
   View,
   ImageBackground,
-  Image
+  Image,
+  TouchableOpacity
 
 } from 'react-native';
 import { getTasks, signout, userId } from '../taskapi/TasksApi';
@@ -87,6 +88,13 @@ class TaskList extends Component {
 
       <SafeAreaView style={styles.container}>
           <ImageBackground source={BackgroundGreenWhite} style={styles.backgroundContainer}>
+          <View style={styles.button}>
+            <TouchableOpacity onPress={() => this.props.navigation.toggleDrawer()}>
+
+              <Image source={require('../images/menu.png')} style = {styles.menubutton} />
+
+            </TouchableOpacity>
+          </View>
           <View>
           <Text style={styles.HeaderText}>{currentUser && currentUser.displayName}'s Tasks </Text>
           </View>
@@ -160,12 +168,18 @@ const styles = StyleSheet.create({
     marginBottom: 8
   },
   HeaderText:{
-    marginTop: 100,
+    marginTop: '7%',
     marginLeft: 30,
     fontSize: 30,
     fontWeight: 'bold',
     //fontFamily:'monospace' ,
     color: 'black'
+  },
+  menubutton:{
+    marginTop: 20,
+    marginLeft: 20,
+    height: 30,
+    width: 30,
   },
   textContainer: {
     flex: 1,

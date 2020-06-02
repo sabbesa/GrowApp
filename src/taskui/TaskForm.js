@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     borderStyle: 'dashed',
     padding: 8,
-    height: 80,
+    height: 50,
     color: 'black',
     width: '75%',
     marginBottom: 16,

@@ -49,7 +49,7 @@ const PlantForm = (props) => {
       <Text style={styles.validationText}> {props.errors.species}</Text>
       <TextInput
         value={props.values.informations}
-        style={styles.formInput}
+        style={styles.informationInput}
         placeholder='Information'
         onChangeText={text => { props.setFieldValue('informations', text) }}
       />
@@ -113,6 +113,18 @@ const styles = StyleSheet.create({
   longFormInput: {
     width: '100%',
     height: 50,
+    color: 'black',
+    borderColor: 'black',
+    borderWidth: 1,
+    borderStyle: 'dashed',
+    borderRadius: 20,
+    padding: 8,
+    margin: 16,
+    backgroundColor: '#f0fbf7',
+  },
+  informationInput: {
+    width: '100%',
+    height: 75,
     color: 'black',
     borderColor: 'black',
     borderWidth: 1,

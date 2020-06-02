@@ -69,25 +69,12 @@ class PlantDetailScreen extends Component {
         </View>
         <Image style={styles.image} source={plant.image && { uri: plant.image }} />
         <Text style={styles.headerText}>{plant.name}</Text>
-        <Text style={styles.speciesText}>Category: {plant.species}</Text>
+        <Text style={styles.speciesHeader}>Category:</Text>
+        <Text style={styles.speciesText}>{plant.species}</Text>
+        <Text style={styles.descriptionHeader}>Information: </Text>
+        <Text style={styles.descriptionText}>  {plant.informations} </Text>
 
-        <Text style={styles.descriptionText}>Information: </Text>
-        {
-          plant.informations === undefined || plant.informations.length == 0 ?
-            <Text style = {{alignSelf:'center'}}>None</Text> : <FlatList
-          horizontal={true}
-            data={plant.informations}
-            contentContainerStyle={styles.listContainer}
-              ItemSeparatorComponent={() =>
-                <Divider style={{ backgroundColor: 'black' }} />}
-              scrollEnabled={true}
-              keyExtractor={(item, index) => index.toString()}
-              renderItem={({ item }) =>
-                <Text style={styles.descriptionItemText}>{item}</Text>
-              }
-            />
-        }
-        </ImageBackground>
+      </ImageBackground>
       </View >
 
     );
@@ -98,6 +85,7 @@ const styles = StyleSheet.create({
   headerText: {
     alignSelf: 'center',
     fontSize: 32,
+    fontWeight: 'bold',
     //fontFamily:'monospace',
     marginBottom: 32,
     color: 'black'
@@ -121,9 +109,17 @@ const styles = StyleSheet.create({
     paddingRight: 16
   },
   speciesText: {
-    fontSize: 20,
+    fontSize: 16,
     //fontFamily:'monospace',
     marginBottom: 32,
+    alignSelf: 'center',
+    color: 'black'
+  },
+  speciesHeader: {
+    fontSize: 18,
+    fontWeight:'bold',
+    //fontFamily:'monospace',
+    marginBottom: '5%',
     alignSelf: 'center',
     color: 'black'
   },
@@ -131,6 +127,14 @@ const styles = StyleSheet.create({
     //fontFamily:'monospace',
     fontStyle: 'italic',
     alignSelf: 'center',
+    fontSize: 16,
+    marginBottom: 32,
+    color: 'black'
+  },
+  descriptionHeader: {
+    //fontFamily:'monospace',
+    alignSelf: 'center',
+    fontWeight:'bold',
     fontSize: 18,
     marginBottom: 32,
     color: 'black'
@@ -168,3 +172,22 @@ const styles = StyleSheet.create({
 });
 
 export default PlantDetailScreen;
+
+
+        //
+        // <Text style={styles.descriptionText}>Information:</Text>
+        // {
+        //   plant.informations === undefined || plant.informations.length == 0 ?
+        //     <Text style = {{alignSelf:'center'}}>None</Text> : <FlatList
+        //   horizontal={true}
+        //     data={plant.informations}
+        //     contentContainerStyle={styles.listContainer}
+        //       ItemSeparatorComponent={() =>
+        //         <Divider style={{ backgroundColor: 'black' }} />}
+        //       scrollEnabled={true}
+        //       keyExtractor={(item, index) => index.toString()}
+        //       renderItem={({ item }) =>
+        //         <Text style={styles.descriptionItemText}>{item}</Text>
+        //       }
+        //     />
+        // }
