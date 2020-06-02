@@ -64,7 +64,7 @@ export default class NotificationDetail {
 
       //test
       date: new Date(Date.now() + 15 * 1000), // in 15 seconds
-      repeatType: 'minute', //repeat every minute
+      //repeatType: 'minute', //repeat every minute
 
       //repeat every minute for testing
       //repeatType: 'minute',
