@@ -47,21 +47,13 @@ const PlantForm = (props) => {
         onChangeText={text => { props.setFieldValue('species', text) }}
       />
       <Text style={styles.validationText}> {props.errors.species}</Text>
-      <View style={styles.row}>
-        <TextInput
-          style={styles.formInput}
-          onChangeText={text => { props.setInformations(text) }}
-          placeholder='Information'
-        />
-
-        <Button
-          color="#2471a3"
-          title="add"
-          onPress={() => { props.submitInformations() }}/>
-
-      </View>
-      <GridList
-        items={props.plant.informations} />
+      <TextInput
+        value={props.values.informations}
+        style={styles.formInput}
+        placeholder='Information'
+        onChangeText={text => { props.setFieldValue('informations', text) }}
+      />
+      <Text style={styles.validationText}> {props.errors.informations}</Text>
         <View style={styles.button}>
       <Button
         color= "#2471a3"
@@ -154,17 +146,18 @@ export default withFormik({
   mapPropsToValues: ({ plant }) => ({
     name: plant.name,
     species: plant.species,
+    informations: plant.informations,
     imageUri: null
   }),
   enableReinitialize: true,
   validationSchema: (props) => yup.object().shape({
     name: yup.string().max(30).required(),
-    species: yup.string().max(15).required()
+    species: yup.string().max(15).required(),
+    informations: yup.string().max(300).required()
   }),
   handleSubmit: (values, { props }) => {
     console.log(props);
 
-    values.informations = props.plant.informations;
 
     console.log(values);
 
