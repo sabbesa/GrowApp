@@ -1,6 +1,5 @@
 // @flow
 import React from 'react';
-<<<<<<< HEAD
 import {
   StyleSheet,
   Text,
@@ -12,9 +11,6 @@ import {
 } from 'react-native';
 import { GiftedChat } from 'react-native-gifted-chat'; // 0.3.0
 import Yellowfade from '../images/BackgroundYellow.png';
-=======
-import { GiftedChat } from 'react-native-gifted-chat'; // 0.3.0
->>>>>>> feb3204bc2bc6199d6d64b3889302a9921a9ffb4
 
 import Fire from '../../Fire';
 
@@ -43,7 +39,6 @@ class Chat extends React.Component<Props> {
 
   render() {
     return (
-<<<<<<< HEAD
       <View>
         <ImageBackground source={Yellowfade} style={{width:'100%', height:'100%'}}>
         <GiftedChat
@@ -53,13 +48,6 @@ class Chat extends React.Component<Props> {
         />
         </ImageBackground>
       </View>
-=======
-      <GiftedChat
-        messages={this.state.messages}
-        onSend={Fire.shared.send}
-        user={this.user}
-      />
->>>>>>> feb3204bc2bc6199d6d64b3889302a9921a9ffb4
     );
   }
 
