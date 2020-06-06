@@ -1,4 +1,4 @@
-import firebase from 'firebase';
+import firebase from 'firebase'; // 4.8.1
 
 class Fire {
   constructor() {
@@ -6,15 +6,18 @@ class Fire {
     this.observeAuth();
   }
 
-  init = () =>
-    firebase.initializeApp({
-      apiKey: 'AIzaSyBEeoHsxw6BJjs8GWATC138qGsL9hG9yFE',
-      authDomain: 'grow-app-7dd1d.firebaseapp.com',
-      databaseURL: 'https://grow-app-7dd1d.firebaseio.com',
-      projectId: 'grow-app-7dd1d',
-      storageBucket: 'grow-app-7dd1d.appspot.com',
-      messagingSenderId: '321152383674',
-    });
+  init = () => {
+    if (!firebase.apps.length) {
+      firebase.initializeApp({
+        apiKey: 'AIzaSyBEeoHsxw6BJjs8GWATC138qGsL9hG9yFE',
+        authDomain: 'grow-app-7dd1d.firebaseapp.com',
+        databaseURL: 'https://grow-app-7dd1d.firebaseio.com',
+        projectId: 'grow-app-7dd1d',
+        storageBucket: 'grow-app-7dd1d.appspot.com',
+        messagingSenderId: '321152383674',
+      });
+    }
+  };
 
   observeAuth = () =>
     firebase.auth().onAuthStateChanged(this.onAuthStateChanged);
@@ -40,14 +43,12 @@ class Fire {
   parse = snapshot => {
     const { timestamp: numberStamp, text, user } = snapshot.val();
     const { key: _id } = snapshot;
-    const isAdmin = false;
     const timestamp = new Date(numberStamp);
     const message = {
       _id,
       timestamp,
       text,
       user,
-      isAdmin,
     };
     return message;
   };
@@ -63,12 +64,11 @@ class Fire {
   // send the message to the Backend
   send = messages => {
     for (let i = 0; i < messages.length; i++) {
+      console.log("loop: " + i);
       const { text, user } = messages[i];
-      const isAdmin = false;
       const message = {
         text,
         user,
-        isAdmin,
         timestamp: this.timestamp,
       };
       this.append(message);
