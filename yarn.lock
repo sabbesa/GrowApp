@@ -2812,6 +2812,11 @@ ee-first@1.1.1:
   resolved "https://registry.yarnpkg.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
+emoji-regex@6.4.2:
+  version "6.4.2"
+  resolved "https://registry.yarnpkg.com/emoji-regex/-/emoji-regex-6.4.2.tgz#a30b6fee353d406d96cfb9fa765bdc82897eff6e"
+  integrity sha1-owtv7jU9QG2Wz7n6dlvcgol+/24=
+
 emoji-regex@^7.0.1:
   version "7.0.3"
   resolved "https://registry.yarnpkg.com/emoji-regex/-/emoji-regex-7.0.3.tgz#933a04052860c85e83c122479c4748a8e4c72156"
@@ -2821,6 +2826,13 @@ emoji-regex@^8.0.0:
   version "8.0.0"
   resolved "https://registry.yarnpkg.com/emoji-regex/-/emoji-regex-8.0.0.tgz#e818fd69ce5ccfcb404594f842963bf53164cc37"
   integrity sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==
+
+emoji-utils@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/emoji-utils/-/emoji-utils-1.0.1.tgz#2de246a2423e2bbd1521476ffdee2e5d468eb4aa"
+  integrity sha1-LeJGokI+K70VIUdv/e4uXUaOtKo=
+  dependencies:
+    emoji-regex "6.4.2"
 
 encodeurl@~1.0.2:
   version "1.0.2"
@@ -6505,6 +6517,11 @@ react-native-image-picker@^2.3.1:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/react-native-image-picker/-/react-native-image-picker-2.3.1.tgz#1977b65e07793d2c0b2d1976fb675c5f75ad7f11"
   integrity sha512-c/a2h7/T7yBo5KlNQhcSn4xf4+6Li6LfJ59+GZT1ZzzWrj/6X8DiJ/TJBOlOZMC5tJriZKuRkWSsr74k6z+brw==
+
+react-native-in-app-utils@^6.0.2:
+  version "6.0.2"
+  resolved "https://registry.yarnpkg.com/react-native-in-app-utils/-/react-native-in-app-utils-6.0.2.tgz#b44498c7cce772fe1cebb00af082ff7bf4000a55"
+  integrity sha512-hAQFhzl/qN1PwZJVAcE1+LR0baQrcDGzjGRIIgkSJuytjYo3iO9L4qxKqewsLlMwKRfxr2BfORWlPTp6djmJJA==
 
 react-native-iphone-x-helper@^1.0.3, react-native-iphone-x-helper@^1.2.1:
   version "1.2.1"

@@ -47,21 +47,13 @@ const PlantForm = (props) => {
         onChangeText={text => { props.setFieldValue('species', text) }}
       />
       <Text style={styles.validationText}> {props.errors.species}</Text>
-      <View style={styles.row}>
-        <TextInput
-          style={styles.formInput}
-          onChangeText={text => { props.setInformations(text) }}
-          placeholder='Information'
-        />
-
-        <Button
-          color="#2471a3"
-          title="add"
-          onPress={() => { props.submitInformations() }}/>
-
-      </View>
-      <GridList
-        items={props.plant.informations} />
+      <TextInput
+        value={props.values.informations}
+        style={styles.informationInput}
+        placeholder='Information'
+        onChangeText={text => { props.setFieldValue('informations', text) }}
+      />
+      <Text style={styles.validationText}> {props.errors.informations}</Text>
         <View style={styles.button}>
       <Button
         color= "#2471a3"
@@ -130,6 +122,18 @@ const styles = StyleSheet.create({
     margin: 16,
     backgroundColor: '#f0fbf7',
   },
+  informationInput: {
+    width: '100%',
+    height: 75,
+    color: 'black',
+    borderColor: 'black',
+    borderWidth: 1,
+    borderStyle: 'dashed',
+    borderRadius: 20,
+    padding: 8,
+    margin: 16,
+    backgroundColor: '#f0fbf7',
+  },
   headlines: {
     color:'black',
     height: 50,
@@ -154,17 +158,18 @@ export default withFormik({
   mapPropsToValues: ({ plant }) => ({
     name: plant.name,
     species: plant.species,
+    informations: plant.informations,
     imageUri: null
   }),
   enableReinitialize: true,
   validationSchema: (props) => yup.object().shape({
     name: yup.string().max(30).required(),
-    species: yup.string().max(15).required()
+    species: yup.string().max(15).required(),
+    informations: yup.string().max(300).required()
   }),
   handleSubmit: (values, { props }) => {
     console.log(props);
 
-    values.informations = props.plant.informations;
 
     console.log(values);
 

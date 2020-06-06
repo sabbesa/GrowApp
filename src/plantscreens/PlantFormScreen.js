@@ -16,9 +16,8 @@ export default class PlantFormScreen extends Component {
     plant: {
       name: '',
       species: '',
-      informations: [],
+      informations: '',
     },
-    currentInformation: null,
   }
 
   componentDidMount() {
@@ -34,27 +33,11 @@ export default class PlantFormScreen extends Component {
     this.props.navigation.popToTop();
   }
 
-  setCurrentInformation = (text) => {
-    this.setState(prevState => ({
-      currentInformation: prevState.currentInformation = text
-    }));
-  }
 
-  submitInformations = () => {
-    let information = this.state.currentInformation;
-
-    if (information && information.length > 2) {
-      this.setState(prevState => ({
-        plant: { ...prevState.plant, informations: [...prevState.plant.informations, information] },
-      }))
-    }
-  }
 
   render() {
     return (
       <PlantForm
-        setInformations={this.setCurrentInformation}
-        submitInformations={this.submitInformations}
         plant={this.state.plant}
         onPlantAdded={this.props.route.params.plantAddedCallback}
         onPlantUpdated={this.onPlantUpdated}

@@ -29,9 +29,6 @@ import NotificationDetail from './src/taskscreens/NotificationDetail';
 import ReminderScreen from './src/taskscreens/ReminderScreen';
 
 import LoginScreen2 from './src/plantscreens/LoginScreen';
-//backupsidor
-import Settings from './src/plantscreens/Settings';
-//backupsidor
 
 import {IMAGE} from './src/constants/Image'
 

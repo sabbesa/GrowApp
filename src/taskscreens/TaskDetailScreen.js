@@ -70,6 +70,8 @@ class TaskDetailScreen extends Component {
             }
           />
         </View>
+
+
         <Image style={styles.image} source={task.image && { uri: task.image }} />
         <Text style={styles.headerText}>{task.title}</Text>
         <Text style={styles.dateText}>Finish date: {task.date}</Text>
@@ -77,7 +79,7 @@ class TaskDetailScreen extends Component {
         <Text style={styles.descriptionText}>Tasks: </Text>
         {
           task.descriptions === undefined || task.descriptions.length == 0 ?
-            <Text>None</Text> : <FlatList
+            <Text> </Text> : <FlatList
           horizontal={true}
             data={task.descriptions}
             contentContainerStyle={styles.listContainer}
@@ -152,7 +154,9 @@ const styles = StyleSheet.create({
   listContainer: {
     borderWidth: 0.5,
     width: 200,
-    borderColor: 'grey',
+    borderColor: 'black',
+    color:'#d9f7e6',
+
   },
   backbutton:{
     marginTop: 20,

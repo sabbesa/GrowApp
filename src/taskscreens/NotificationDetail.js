@@ -31,7 +31,7 @@ export default class NotificationDetail {
       autoCancel: true, // (optional) default: true
       largeIcon: 'ic_launcher', // (optional) default: "ic_launcher"
       smallIcon: 'ic_notification', // (optional) default: "ic_notification" with fallback for "ic_launcher"
-      bigText: 'My big text that will be shown when notification is expanded', // (optional) default: "message" prop
+      bigText: 'It is time to water your plants!', // (optional) default: "message" prop
       subText: 'This is a subText', // (optional) default: none
       color: 'red', // (optional) default: system default
       vibrate: true, // (optional) default: true
@@ -46,8 +46,8 @@ export default class NotificationDetail {
       userInfo: {}, // (optional) default: {} (using null throws a JSON value '<null>' error)
 
       /* iOS and Android properties */
-      title: 'Local Notification', // (optional)
-      message: 'My Notification Message', // (required)
+      title: 'Time to water', // (optional)
+      message: 'Remember to water your plants. Make them Grow!', // (required)
       playSound: !!soundName, // (optional) default: true
       soundName: soundName ? soundName : 'default', // (optional) Sound to play when the notification is shown. Value of 'default' plays the default sound. It can be set to a custom sound such as 'android.resource://com.xyz/raw/my_sound'. It will look for the 'my_sound' audio file in 'res/raw' directory and play it. default: 'default' (default sound is played)
       number: 10, // (optional) Valid 32 bit integer specified as string. default: none (Cannot be zero)
@@ -64,7 +64,7 @@ export default class NotificationDetail {
 
       //test
       date: new Date(Date.now() + 15 * 1000), // in 15 seconds
-      repeatType: 'minute', //repeat every minute
+      //repeatType: 'minute', //repeat every minute
 
       //repeat every minute for testing
       //repeatType: 'minute',
@@ -76,7 +76,7 @@ export default class NotificationDetail {
       autoCancel: true, // (optional) default: true
       largeIcon: 'ic_launcher', // (optional) default: "ic_launcher"
       smallIcon: 'ic_notification', // (optional) default: "ic_notification" with fallback for "ic_launcher"
-      bigText: 'My big text that will be shown when notification is expanded', // (optional) default: "message" prop
+      bigText: 'It is time to water your plants!', // (optional) default: "message" prop
       subText: 'This is a subText', // (optional) default: none
       color: 'blue', // (optional) default: system default
       vibrate: true, // (optional) default: true
@@ -118,7 +118,7 @@ export default class NotificationDetail {
       autoCancel: true, // (optional) default: true
       largeIcon: 'ic_launcher', // (optional) default: "ic_launcher"
       smallIcon: 'ic_notification', // (optional) default: "ic_notification" with fallback for "ic_launcher"
-      bigText: 'My big text that will be shown when notification is expanded', // (optional) default: "message" prop
+      bigText: 'It is time to water your plants!', // (optional) default: "message" prop
       subText: 'This is a subText', // (optional) default: none
       color: 'blue', // (optional) default: system default
       vibrate: true, // (optional) default: true
@@ -159,7 +159,7 @@ export default class NotificationDetail {
       autoCancel: true, // (optional) default: true
       largeIcon: 'ic_launcher', // (optional) default: "ic_launcher"
       smallIcon: 'ic_notification', // (optional) default: "ic_notification" with fallback for "ic_launcher"
-      bigText: 'My big text that will be shown when notification is expanded', // (optional) default: "message" prop
+      bigText: 'It is time to water your plants!', // (optional) default: "message" prop
       subText: 'This is a subText', // (optional) default: none
       color: 'blue', // (optional) default: system default
       vibrate: true, // (optional) default: true
